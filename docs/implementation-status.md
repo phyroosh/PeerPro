@@ -586,7 +586,63 @@
   - `npm run release:gate`: All 7/7 pre-release gates passed in 51.75s.
   - `npm run build`: 0 TypeScript compiler errors (`tsc --noEmit`).
 - **Known Limitations**:
-  - Packaging and final distribution checklist scheduled for Phase 20.
+  - Creative Generalization Challenge completed in Phase 21; architectural gaps documented in docs/quality/creative-generalization-suite.md.
+
+---
+
+### Phase 21 — Creative Generalization Challenge
+- **Status**: COMPLETED
+- **Date**: 2026-10-17
+- **Key Artifacts Created**:
+  - `docs/roadmap/frontier-roadmap.md`:
+    - Full versioned record of the new PeerPro Frontier Roadmap (Phases 21–32: From a capable playground to an extensible animation environment for AI agents).
+  - `src/core/challenges/types.ts`:
+    - TypeScript contracts for `ChallengeDefinition`, `ChallengeScore`, `ChallengeResult`, `RankedGap`, and `GeneralizationSuiteReport`.
+  - `src/core/challenges/catalog.ts`:
+    - Curated catalog of the 6 canonical creative challenges:
+      - `C1_NEW_LOCATION`: Novel Environment Layout (Aoi Classroom Study)
+      - `C2_MULTI_SHOT_IDENTITY`: Multi-Shot Narrative with Retained Character Identity
+      - `C3_SPATIAL_PROP`: Spatial Object Relationship & Surface Grounding
+      - `C4_TARGETED_INTERACTION`: Targeted Gaze & Orientation Toward Scene Subject
+      - `C5_MULTI_DEPTH_CINEMATOGRAPHY`: Multi-Depth Camera Move with Optical DoF & Bokeh
+      - `C6_MISSING_ASSET_HONESTY`: Honest Limitation Reporting for Missing Capabilities
+  - `src/core/challenges/runner.ts`:
+    - Challenge execution engine, composition scorer, Remotion still renderer, and markdown report generator.
+  - `src/core/challenges/index.ts`:
+    - Module barrel export.
+  - `scenes/challenges/`:
+    - `c1-novel-classroom-layout.json`: Novel indoor classroom staging with Aoi near the window during evening rain.
+    - `c3-spatial-prop-placement.json`: Street prop alignment and surface grounding along sidewalk horizon.
+    - `c4-targeted-gaze.json`: Classroom two-character mutual orientation and directed gaze.
+    - `c5-multi-depth-cinematic.json`: Multi-plane street scene with optical circle-of-confusion DoF bokeh and Cinemascope letterboxing.
+    - `c6-missing-asset-request.json`: Deliberate missing bicycle asset and backflip action request testing honest rejection.
+  - `src/compositions/challenges/MultiShotIdentityChallenge.tsx`:
+    - Remotion composition verifying Ren's identity retention, costume continuity, and palette stability across medium to close-up scale transition.
+  - `src/Root.tsx`:
+    - Registered challenge compositions: `ChallengeC1Location`, `ChallengeC2MultiShot`, `ChallengeC3Spatial`, `ChallengeC4Gaze`, `ChallengeC5Cinematic`.
+  - `scripts/run-generalization-suite.ts`:
+    - CLI tool `npm run test:generalization` generating terminal scorecard and `docs/quality/creative-generalization-suite.md`.
+  - `package.json`:
+    - Added `"test:generalization"` script.
+  - `tests/unit/generalization-suite.test.ts`:
+    - 6 unit tests validating challenge catalog completeness, prompt metadata, lookup, C6 missing asset rejection, and markdown generation.
+  - `docs/quality/creative-generalization-suite.md`:
+    - Full challenge report (94/100 overall score) with evidence logs and 4 ranked architectural gaps.
+  - `out/challenges/`:
+    - Rendered proof stills: `c1_new_location.png`, `c2_multi_shot_identity.png`, `c3_spatial_prop.png`, `c4_targeted_interaction.png`, `c5_multi_depth_cinematography.png`.
+- **Commands Run & Verified**:
+  - `npm test`: 118/118 tests passed across 19 suites (+6 new unit tests).
+  - `npm run test:generalization`: 94/100 overall generalization score (5 passed, 1 identified gap, 0 failed in 15.56s).
+  - `npm run release:gate`: All 7/7 pre-release gates passed in 38.63s.
+  - `npm run build`: 0 TypeScript compiler errors (`tsc --noEmit`).
+- **Ranked Architectural Gaps Grounded in Evidence**:
+  1. **Rank 1: Lack of Scene Graph & Spatial Constraints Solver (P1 / Phase 23)** — Forces agents to guess absolute pixel coordinates for props and characters rather than expressing spatial intent ("on the desk", "beside the vending machine").
+  2. **Rank 2: Targeted Gaze & Character-Object Interaction Toolkit (P1 / Phase 24 & 25)** — Characters cannot dynamically look toward scene targets or grasp/hold props without low-level manual flipX and expression tuning.
+  3. **Rank 3: Asset Ingestion & Capability Expansion Workflow (P1 / Phase 22)** — When creative requests require novel props (e.g. bicycles, sports equipment) or actions, adding new assets is currently a manual multi-step catalog edit.
+  4. **Rank 4: Multi-Shot Character Continuity State Management (P1 / Phase 31)** — Identity preservation across multi-shot cuts relies on manual definition copying rather than an automated project-level Character Continuity Contract.
+- **Known Limitations**:
+  - Architectural gaps will be methodically addressed in prioritized order across Phases 22–32.
+
 
 
 

@@ -1,26 +1,26 @@
 # PeerPro Benchmark & Visual Regression Report
 
-- **Generated At**: `2026-10-17T14:30:24.926Z`
+- **Generated At**: `2026-10-17T18:02:49.847Z`
 - **Environment**: Node.js `v22.23.1` / Linux
 - **Total Benchmarks**: `10`
 - **Visual Regression Status**: `10/10 PASSED` (0 failures)
-- **Average Render Latency**: `4024ms / still frame`
-- **Total Suite Execution Time**: `40.24s`
+- **Average Render Latency**: `3124ms / still frame`
+- **Total Suite Execution Time**: `31.25s`
 
 ## Standard Benchmark Scorecard
 
 | Benchmark ID | Name | Composition | Frame | Render Time | Ceiling | Latency | Visual Status | Golden SHA-256 Baseline |
 |:-------------|:-----|:------------|:-----:|:-----------:|:-------:|:-------:|:-------------:|:------------------------|
-| **B1_CHARACTER** | Character Builder & Socket Hierarchy | `CharacterShowcase` | `30` | `4038ms` | `<5000ms` | ⚡ PASS | ✅ PASS | `0fb9d7c38572...` |
-| **B2_ENVIRONMENT** | Multi-Plane Environment Grammar | `EnvironmentShowcase` | `40` | `3916ms` | `<5000ms` | ⚡ PASS | ✅ PASS | `61af6c54583c...` |
-| **B3_PARALLAX** | 2.5D Parallax Camera & Particles | `ParallaxTest` | `60` | `4081ms` | `<5000ms` | ⚡ PASS | ✅ PASS | `e3175b11886e...` |
-| **B4_STYLE** | 2-Tier Cel-Shading & Perspective | `StyleShowcase` | `60` | `3767ms` | `<5000ms` | ⚡ PASS | ✅ PASS | `72bd8a98e75d...` |
-| **B5_CUTOUT** | Articulated Cutout Forward Kinematics | `CutoutRigShowcase` | `60` | `3742ms` | `<5000ms` | ⚡ PASS | ✅ PASS | `710dd12c103f...` |
-| **B6_CLASSROOM** | Indoor Classroom Grammar & Furniture | `ClassroomShowcase` | `60` | `3619ms` | `<5000ms` | ⚡ PASS | ✅ PASS | `eb40fa3d8873...` |
-| **B7_ACTION** | 11-Action Vocabulary & Blend Trees | `ActionShowcase` | `52` | `3693ms` | `<5000ms` | ⚡ PASS | ✅ PASS | `2cf33c230dc3...` |
-| **B8_CINEMATOGRAPHY** | Multi-Shot Sequence & Optical Bokeh | `CinematicSequenceShowcase` | `105` | `4893ms` | `<6000ms` | ⚡ PASS | ✅ PASS | `3ccdd06b47cc...` |
-| **B9_AGENT** | AI Agent Scene Manifest & Composition | `AgentScene` | `45` | `4329ms` | `<5000ms` | ⚡ PASS | ✅ PASS | `af549297de12...` |
-| **B10_AUDIO** | Audio Narrative & Viseme Lip-Sync | `AudioNarrativeShowcase` | `45` | `4159ms` | `<5000ms` | ⚡ PASS | ✅ PASS | `d8f1e2778dbc...` |
+| **B1_CHARACTER** | Character Builder & Socket Hierarchy | `CharacterShowcase` | `30` | `2977ms` | `<5000ms` | ⚡ PASS | ✅ PASS | `0fb9d7c38572...` |
+| **B2_ENVIRONMENT** | Multi-Plane Environment Grammar | `EnvironmentShowcase` | `40` | `3173ms` | `<5000ms` | ⚡ PASS | ✅ PASS | `61af6c54583c...` |
+| **B3_PARALLAX** | 2.5D Parallax Camera & Particles | `ParallaxTest` | `60` | `3033ms` | `<5000ms` | ⚡ PASS | ✅ PASS | `e3175b11886e...` |
+| **B4_STYLE** | 2-Tier Cel-Shading & Perspective | `StyleShowcase` | `60` | `3068ms` | `<5000ms` | ⚡ PASS | ✅ PASS | `72bd8a98e75d...` |
+| **B5_CUTOUT** | Articulated Cutout Forward Kinematics | `CutoutRigShowcase` | `60` | `2975ms` | `<5000ms` | ⚡ PASS | ✅ PASS | `710dd12c103f...` |
+| **B6_CLASSROOM** | Indoor Classroom Grammar & Furniture | `ClassroomShowcase` | `60` | `3090ms` | `<5000ms` | ⚡ PASS | ✅ PASS | `eb40fa3d8873...` |
+| **B7_ACTION** | 11-Action Vocabulary & Blend Trees | `ActionShowcase` | `52` | `2997ms` | `<5000ms` | ⚡ PASS | ✅ PASS | `2cf33c230dc3...` |
+| **B8_CINEMATOGRAPHY** | Multi-Shot Sequence & Optical Bokeh | `CinematicSequenceShowcase` | `105` | `3022ms` | `<6000ms` | ⚡ PASS | ✅ PASS | `3ccdd06b47cc...` |
+| **B9_AGENT** | AI Agent Scene Manifest & Composition | `AgentScene` | `45` | `3210ms` | `<5000ms` | ⚡ PASS | ✅ PASS | `af549297de12...` |
+| **B10_AUDIO** | Audio Narrative & Viseme Lip-Sync | `AudioNarrativeShowcase` | `45` | `3698ms` | `<5000ms` | ⚡ PASS | ✅ PASS | `d8f1e2778dbc...` |
 
 ## Benchmark Descriptions & Capabilities Tested
 

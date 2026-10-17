@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/scene-definition.schema.json",
+  "id": "challenge-c6-missing-asset",
+  "name": "C6 Challenge: Missing Asset & Unsupported Action Request",
+  "description": "Deliberately requests non-existent bicycle prop and unsupported acrobatic backflip action to test honest gap diagnosis.",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationInFrames": 120,
+    "backgroundColor": "#090d16"
+  },
+  "camera": {
+    "preset": "tracking",
+    "intensity": 1.0,
+    "focalDepth": 1.0
+  },
+  "environment": {
+    "preset": "japanese-street-corner"
+  },
+  "characters": [
+    {
+      "id": "cyclist-ren",
+      "characterId": "student-ren",
+      "variant": "default",
+      "depth": 1.0,
+      "position": {
+        "x": 960,
+        "y": 940
+      },
+      "scale": 1.0,
+      "partOverrides": {
+        "vehicle": "starter-prop-bicycle",
+        "handHeld": "starter-prop-umbrella-open"
+      },
+      "animation": {
+        "actions": [
+          {
+            "action": "acrobatic-backflip",
+            "startFrame": 20,
+            "duration": 45
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "../../schemas/scene-definition.schema.json",
+  "id": "challenge-c4-targeted-gaze",
+  "name": "C4 Challenge: Targeted Gaze & Subject Interaction",
+  "description": "Tests directed character gaze and mutual spatial orientation across classroom staging.",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationInFrames": 120,
+    "backgroundColor": "#f1f5f9"
+  },
+  "camera": {
+    "preset": "static",
+    "intensity": 0.0,
+    "focalDepth": 1.0
+  },
+  "environment": {
+    "preset": "japanese-classroom"
+  },
+  "characters": [
+    {
+      "id": "speaker-ren",
+      "characterId": "student-ren-v2",
+      "variant": "default",
+      "depth": 1.0,
+      "flipX": true,
+      "position": {
+        "x": 1280,
+        "y": 910
+      },
+      "scale": 0.95,
+      "animation": {
+        "breathing": {
+          "frequency": 0.5,
+          "amplitude": 3.0
+        },
+        "expressionSchedule": [
+          {
+            "startFrame": 0,
+            "eyes": "starter-char-eyes-neutral-v2",
+            "mouth": "starter-char-mouth-smile-v2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "listener-student",
+      "characterId": "student-ren",
+      "variant": "default",
+      "depth": 1.0,
+      "flipX": false,
+      "position": {
+        "x": 600,
+        "y": 910
+      },
+      "scale": 0.95,
+      "animation": {
+        "breathing": {
+          "frequency": 0.5,
+          "amplitude": 2.5
+        },
+        "headTilt": {
+          "frequency": 0.2,
+          "maxAngle": 1.5
+        },
+        "expressionSchedule": [
+          {
+            "startFrame": 0,
+            "eyes": "starter-char-eyes-neutral",
+            "mouth": "starter-char-mouth-closed"
+          }
+        ]
+      }
+    }
+  ],
+  "dialog": [
+    {
+      "id": "line-gaze-1",
+      "characterId": "speaker-ren",
+      "text": "Notice how the formula on the blackboard connects to theorem three.",
+      "startFrame": 15,
+      "endFrame": 90
+    }
+  ]
+}

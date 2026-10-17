@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/scene-definition.schema.json",
+  "id": "challenge-c5-multi-depth",
+  "name": "C5 Challenge: Multi-Depth Optical Cinematography & DoF",
+  "description": "Tests optical depth of field bokeh, slow push-in camera move, and Cinemascope safe zones.",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationInFrames": 120,
+    "backgroundColor": "#090d16"
+  },
+  "camera": {
+    "preset": "slow-push-in",
+    "intensity": 0.85,
+    "focalDepth": 1.0,
+    "depthOfField": {
+      "focalPlane": 1.0,
+      "aperture": 0.8,
+      "maxBlur": 16.0
+    }
+  },
+  "environment": {
+    "preset": "japanese-street-corner"
+  },
+  "weather": {
+    "type": "sakura",
+    "intensity": 0.9,
+    "petalCount": 35
+  },
+  "characters": [
+    {
+      "id": "hero-cinematic",
+      "characterId": "student-ren-v2",
+      "depth": 1.0,
+      "position": {
+        "x": 960,
+        "y": 940
+      },
+      "scale": 1.0,
+      "animation": {
+        "breathing": {
+          "frequency": 0.5,
+          "amplitude": 3.0
+        }
+      }
+    }
+  ],
+  "dialog": [
+    {
+      "id": "line-cinematic",
+      "characterId": "hero-cinematic",
+      "text": "Every layer in the city carries its own story.",
+      "startFrame": 20,
+      "endFrame": 90
+    }
+  ]
+}

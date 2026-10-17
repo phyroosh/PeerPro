@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schemas/scene-definition.schema.json",
+  "id": "challenge-c1-novel-classroom",
+  "name": "C1 Challenge: Novel Classroom Evening Study",
+  "description": "Novel indoor classroom staging placing student by the window during evening rain.",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationInFrames": 120,
+    "backgroundColor": "#0b111e"
+  },
+  "camera": {
+    "preset": "slow-push-in",
+    "intensity": 0.6,
+    "focalDepth": 1.0
+  },
+  "environment": {
+    "preset": "japanese-classroom"
+  },
+  "weather": {
+    "type": "rain",
+    "intensity": 0.75,
+    "streakCount": 60
+  },
+  "characters": [
+    {
+      "id": "studying-student",
+      "characterId": "student-ren",
+      "variant": "casual",
+      "depth": 1.0,
+      "position": {
+        "x": 480,
+        "y": 910
+      },
+      "scale": 0.95,
+      "animation": {
+        "breathing": {
+          "frequency": 0.45,
+          "amplitude": 3.0
+        },
+        "headTilt": {
+          "frequency": 0.3,
+          "maxAngle": 1.5
+        },
+        "expressionSchedule": [
+          {
+            "startFrame": 0,
+            "eyes": "starter-char-eyes-neutral",
+            "mouth": "starter-char-mouth-closed"
+          },
+          {
+            "startFrame": 45,
+            "eyes": "starter-char-eyes-wink",
+            "mouth": "starter-char-mouth-smile"
+          }
+        ]
+      }
+    }
+  ],
+  "dialog": [
+    {
+      "id": "line-study",
+      "characterId": "studying-student",
+      "text": "The quiet classroom feels so peaceful when it rains.",
+      "startFrame": 20,
+      "endFrame": 95
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "../../schemas/scene-definition.schema.json",
+  "id": "challenge-c3-spatial-prop",
+  "name": "C3 Challenge: Spatial Object Grounding & Relationship",
+  "description": "Tests spatial relationship between props, surfaces, and characters in a quiet street layout.",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationInFrames": 120,
+    "backgroundColor": "#090d16"
+  },
+  "camera": {
+    "preset": "static",
+    "intensity": 0.0,
+    "focalDepth": 1.0
+  },
+  "environment": {
+    "preset": "japanese-quiet-street"
+  },
+  "characters": [
+    {
+      "id": "standing-student",
+      "characterId": "student-ren-v2",
+      "variant": "default",
+      "depth": 1.0,
+      "position": {
+        "x": 860,
+        "y": 940
+      },
+      "scale": 1.0,
+      "animation": {
+        "breathing": {
+          "frequency": 0.5,
+          "amplitude": 3.0
+        }
+      }
+    }
+  ],
+  "dialog": [
+    {
+      "id": "line-spatial",
+      "characterId": "standing-student",
+      "text": "Waiting by the vending machine near the sidewalk edge.",
+      "startFrame": 15,
+      "endFrame": 95
+    }
+  ]
+}

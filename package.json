@@ -52,6 +52,7 @@
     "scene:correct": "tsx scripts/correct-scene.ts",
     "scene:render": "tsx scripts/render-scene.ts",
     "benchmark": "tsx scripts/run-benchmarks.ts",
+    "test:generalization": "tsx scripts/run-generalization-suite.ts",
     "release:gate": "tsx scripts/release-gate.ts",
     "test": "tsx --test tests/**/*.test.ts",
     "verify:all": "tsx scripts/verify-all.ts",
