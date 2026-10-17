@@ -1,19 +1,22 @@
 {
-  "generatedAt": "2026-10-17T07:50:23.007Z",
-  "totalAssets": 10,
+  "generatedAt": "2026-10-17T08:03:27.070Z",
+  "totalAssets": 13,
   "categories": {
     "base_body": [
-      "starter-char-body-01"
+      "starter-char-body-01",
+      "starter-char-body-02-hoodie"
     ],
     "head": [
       "starter-char-head-01"
     ],
     "hair": [
-      "starter-char-hair-short"
+      "starter-char-hair-short",
+      "starter-char-hair-spiky"
     ],
     "eyes": [
       "starter-char-eyes-neutral",
-      "starter-char-eyes-wide"
+      "starter-char-eyes-wide",
+      "starter-char-eyes-wink"
     ],
     "mouth": [
       "starter-char-mouth-closed",
@@ -32,21 +35,37 @@
   "tags": {
     "character": [
       "starter-char-body-01",
+      "starter-char-body-02-hoodie",
       "starter-char-head-01",
       "starter-char-hair-short",
+      "starter-char-hair-spiky",
       "starter-char-eyes-neutral",
       "starter-char-eyes-wide",
+      "starter-char-eyes-wink",
       "starter-char-mouth-closed",
       "starter-char-mouth-smile"
     ],
     "body": [
-      "starter-char-body-01"
+      "starter-char-body-01",
+      "starter-char-body-02-hoodie"
     ],
     "uniform": [
       "starter-char-body-01"
     ],
     "male": [
       "starter-char-body-01"
+    ],
+    "standing": [
+      "starter-char-body-01"
+    ],
+    "casual": [
+      "starter-char-body-02-hoodie"
+    ],
+    "hoodie": [
+      "starter-char-body-02-hoodie"
+    ],
+    "streetwear": [
+      "starter-char-body-02-hoodie"
     ],
     "head": [
       "starter-char-head-01"
@@ -55,7 +74,8 @@
       "starter-char-head-01"
     ],
     "hair": [
-      "starter-char-hair-short"
+      "starter-char-hair-short",
+      "starter-char-hair-spiky"
     ],
     "short": [
       "starter-char-hair-short"
@@ -64,9 +84,16 @@
       "starter-char-hair-short",
       "starter-char-eyes-neutral"
     ],
+    "spiky": [
+      "starter-char-hair-spiky"
+    ],
+    "orange": [
+      "starter-char-hair-spiky"
+    ],
     "eyes": [
       "starter-char-eyes-neutral",
-      "starter-char-eyes-wide"
+      "starter-char-eyes-wide",
+      "starter-char-eyes-wink"
     ],
     "neutral": [
       "starter-char-eyes-neutral",
@@ -77,6 +104,12 @@
     ],
     "wide": [
       "starter-char-eyes-wide"
+    ],
+    "wink": [
+      "starter-char-eyes-wink"
+    ],
+    "playful": [
+      "starter-char-eyes-wink"
     ],
     "mouth": [
       "starter-char-mouth-closed",
@@ -166,7 +199,59 @@
         "character",
         "body",
         "uniform",
-        "male"
+        "male",
+        "standing"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-char-body-02-hoodie",
+      "name": "Casual Hoodie Streetwear Body",
+      "kind": "character_part",
+      "category": "base_body",
+      "path": "peerpro-assets/starter/body-02-hoodie.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 300,
+        "height": 600
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "attachmentSockets": {
+        "neck": {
+          "x": 150,
+          "y": 95
+        },
+        "shoulder_left": {
+          "x": 75,
+          "y": 130
+        },
+        "shoulder_right": {
+          "x": 225,
+          "y": 130
+        }
+      },
+      "capabilities": [
+        "scalable",
+        "flip_x"
+      ],
+      "tags": [
+        "character",
+        "body",
+        "casual",
+        "hoodie",
+        "streetwear"
       ],
       "provenance": {
         "source": "original",
@@ -276,6 +361,51 @@
       "packId": "starter-kit"
     },
     {
+      "id": "starter-char-hair-spiky",
+      "name": "Spiky Orange Anime Hair",
+      "kind": "character_part",
+      "category": "hair",
+      "path": "peerpro-assets/starter/hair-spiky-front.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 260,
+        "height": 190
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "hair_socket": {
+          "x": 130,
+          "y": 75
+        }
+      },
+      "requiredSockets": [
+        "hair"
+      ],
+      "capabilities": [
+        "scalable",
+        "tintable"
+      ],
+      "tags": [
+        "character",
+        "hair",
+        "spiky",
+        "orange"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
       "id": "starter-char-eyes-neutral",
       "name": "Neutral Anime Eyes",
       "kind": "character_part",
@@ -355,6 +485,50 @@
         "eyes",
         "surprised",
         "wide"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-char-eyes-wink",
+      "name": "Playful Winking Eyes",
+      "kind": "character_part",
+      "category": "eyes",
+      "path": "peerpro-assets/starter/eyes-wink.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 160,
+        "height": 60
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "eyes_socket": {
+          "x": 80,
+          "y": 30
+        }
+      },
+      "requiredSockets": [
+        "eyes"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "eyes",
+        "wink",
+        "playful"
       ],
       "provenance": {
         "source": "original",

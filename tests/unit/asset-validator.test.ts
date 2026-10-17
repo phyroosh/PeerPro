@@ -13,7 +13,7 @@ test('AssetValidator: valid starter kit manifest passes with zero errors', () =>
   const raw = JSON.parse(fs.readFileSync(starterManifestPath, 'utf8'));
   const result = validateAssetPackManifest(raw, {
     assetRootDirectory: publicDir,
-    checkFilesExist: true,
+    fileExists: (relPath) => fs.existsSync(path.resolve(publicDir, relPath)),
   });
 
   assert.strictEqual(result.valid, true);
@@ -95,7 +95,7 @@ test('AssetValidator: detects missing physical files and returns MISSING_FILE', 
 
   const result = validateAssetPackManifest(raw, {
     assetRootDirectory: publicDir,
-    checkFilesExist: true,
+    fileExists: (relPath) => fs.existsSync(path.resolve(publicDir, relPath)),
   });
 
   assert.strictEqual(result.valid, false);

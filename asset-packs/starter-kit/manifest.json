@@ -2,7 +2,7 @@
   "$schema": "../../schemas/asset-manifest.schema.json",
   "packId": "starter-kit",
   "name": "PeerPro Starter Anime & City Kit",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "styleFamily": "anime-clean-v1",
   "description": "Foundational vector parts for character assembly and 2.5D Japanese street composition.",
   "assets": [
@@ -23,7 +23,31 @@
         "shoulder_right": { "x": 225, "y": 130 }
       },
       "capabilities": ["scalable", "flip_x"],
-      "tags": ["character", "body", "uniform", "male"],
+      "tags": ["character", "body", "uniform", "male", "standing"],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-char-body-02-hoodie",
+      "name": "Casual Hoodie Streetwear Body",
+      "kind": "character_part",
+      "category": "base_body",
+      "path": "peerpro-assets/starter/body-02-hoodie.svg",
+      "format": "svg",
+      "dimensions": { "width": 300, "height": 600 },
+      "hasAlpha": true,
+      "style": { "family": "anime-clean-v1" },
+      "anchor": { "x": 0.5, "y": 1.0 },
+      "attachmentSockets": {
+        "neck": { "x": 150, "y": 95 },
+        "shoulder_left": { "x": 75, "y": 130 },
+        "shoulder_right": { "x": 225, "y": 130 }
+      },
+      "capabilities": ["scalable", "flip_x"],
+      "tags": ["character", "body", "casual", "hoodie", "streetwear"],
       "provenance": {
         "source": "original",
         "license": "MIT",
@@ -80,6 +104,29 @@
       }
     },
     {
+      "id": "starter-char-hair-spiky",
+      "name": "Spiky Orange Anime Hair",
+      "kind": "character_part",
+      "category": "hair",
+      "path": "peerpro-assets/starter/hair-spiky-front.svg",
+      "format": "svg",
+      "dimensions": { "width": 260, "height": 190 },
+      "hasAlpha": true,
+      "style": { "family": "anime-clean-v1" },
+      "anchor": { "x": 0.5, "y": 0.5 },
+      "attachmentSockets": {
+        "hair_socket": { "x": 130, "y": 75 }
+      },
+      "requiredSockets": ["hair"],
+      "capabilities": ["scalable", "tintable"],
+      "tags": ["character", "hair", "spiky", "orange"],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
       "id": "starter-char-eyes-neutral",
       "name": "Neutral Anime Eyes",
       "kind": "character_part",
@@ -119,6 +166,29 @@
       "requiredSockets": ["eyes"],
       "capabilities": ["scalable"],
       "tags": ["character", "eyes", "surprised", "wide"],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-char-eyes-wink",
+      "name": "Playful Winking Eyes",
+      "kind": "character_part",
+      "category": "eyes",
+      "path": "peerpro-assets/starter/eyes-wink.svg",
+      "format": "svg",
+      "dimensions": { "width": 160, "height": 60 },
+      "hasAlpha": true,
+      "style": { "family": "anime-clean-v1" },
+      "anchor": { "x": 0.5, "y": 0.5 },
+      "attachmentSockets": {
+        "eyes_socket": { "x": 80, "y": 30 }
+      },
+      "requiredSockets": ["eyes"],
+      "capabilities": ["scalable"],
+      "tags": ["character", "eyes", "wink", "playful"],
       "provenance": {
         "source": "original",
         "license": "MIT",

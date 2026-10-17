@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 190" width="260" height="190">
+  <!-- Spiky Anime Hair Bangs & Silhouette -->
+  <path d="M20,95 L40,40 L65,80 L85,25 L110,75 L130,10 L155,70 L180,25 L195,80 L220,40 L240,95 L220,110 L205,75 L190,120 L165,80 L145,130 L125,80 L100,120 L80,75 L60,110 Z" fill="#f97316" stroke="#c2410c" stroke-width="2" />
+  <!-- Highlights -->
+  <polygon points="125,35 135,35 130,65" fill="#fde047" opacity="0.8" />
+  <polygon points="80,45 90,45 85,75" fill="#fde047" opacity="0.8" />
+  <polygon points="175,45 185,45 180,75" fill="#fde047" opacity="0.8" />
+</svg>

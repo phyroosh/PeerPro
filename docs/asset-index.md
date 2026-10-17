@@ -1,14 +1,14 @@
 # PeerPro Asset Index
 
 > Automatically generated index of all available modular assets in PeerPro.
-> Total Assets: **10** | Generated: 2026-10-17
+> Total Assets: **13** | Generated: 2026-10-17
 
 ## Quick Category Navigation
 
-- [base_body (1)](#category-base-body)
+- [base_body (2)](#category-base-body)
 - [head (1)](#category-head)
-- [hair (1)](#category-hair)
-- [eyes (2)](#category-eyes)
+- [hair (2)](#category-hair)
+- [eyes (3)](#category-eyes)
 - [mouth (2)](#category-mouth)
 - [facade (1)](#category-facade)
 - [road (1)](#category-road)
@@ -20,7 +20,8 @@
 
 | ID | Name | Format | Dimensions | Anchor | Sockets | Tags | License |
 |---|---|---|---|---|---|---|---|
-| `starter-char-body-01` | Student Blazer Body | `svg` | 300x600 | (0.5, 1) | neck, shoulder_left, shoulder_right | character, body, uniform, male | MIT |
+| `starter-char-body-01` | Student Blazer Body | `svg` | 300x600 | (0.5, 1) | neck, shoulder_left, shoulder_right | character, body, uniform, male, standing | MIT |
+| `starter-char-body-02-hoodie` | Casual Hoodie Streetwear Body | `svg` | 300x600 | (0.5, 1) | neck, shoulder_left, shoulder_right | character, body, casual, hoodie, streetwear | MIT |
 
 ### Category: `head`
 
@@ -33,6 +34,7 @@
 | ID | Name | Format | Dimensions | Anchor | Sockets | Tags | License |
 |---|---|---|---|---|---|---|---|
 | `starter-char-hair-short` | Short Blue Anime Bangs | `svg` | 260x180 | (0.5, 0.5) | hair_socket | character, hair, short, blue | MIT |
+| `starter-char-hair-spiky` | Spiky Orange Anime Hair | `svg` | 260x190 | (0.5, 0.5) | hair_socket | character, hair, spiky, orange | MIT |
 
 ### Category: `eyes`
 
@@ -40,6 +42,7 @@
 |---|---|---|---|---|---|---|---|
 | `starter-char-eyes-neutral` | Neutral Anime Eyes | `svg` | 160x60 | (0.5, 0.5) | eyes_socket | character, eyes, neutral, blue | MIT |
 | `starter-char-eyes-wide` | Surprised Wide Eyes | `svg` | 160x65 | (0.5, 0.5) | eyes_socket | character, eyes, surprised, wide | MIT |
+| `starter-char-eyes-wink` | Playful Winking Eyes | `svg` | 160x60 | (0.5, 0.5) | eyes_socket | character, eyes, wink, playful | MIT |
 
 ### Category: `mouth`
 

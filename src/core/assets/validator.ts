@@ -1,5 +1,3 @@
-import fs from 'fs';
-import path from 'path';
 import { AssetPackManifestSchema } from './schema';
 import {
   AssetPackManifest,
@@ -10,11 +8,20 @@ import {
 export interface ValidatorOptions {
   assetRootDirectory?: string;
   checkFilesExist?: boolean;
+  fileExists?: (relativePath: string) => boolean;
+}
+
+function isDisallowedPath(filePath: string): boolean {
+  if (filePath.includes('..')) return true;
+  if (filePath.startsWith('/') || filePath.startsWith('\\')) return true;
+  if (/^[a-zA-Z]:[\\/]/.test(filePath)) return true; // Windows drive root
+  return false;
 }
 
 /**
- * Validates an asset pack manifest and verifies integrity, file existence,
+ * Validates an asset pack manifest and verifies integrity, file existence (if checker provided),
  * path containment, and provenance without modifying or deleting files.
+ * Browser-safe (no node fs/path imports).
  */
 export function validateAssetPackManifest(
   rawManifest: unknown,
@@ -38,9 +45,6 @@ export function validateAssetPackManifest(
 
   const manifest: AssetPackManifest = parseResult.data;
   const seenIds = new Set<string>();
-  const resolvedAssetRoot = options.assetRootDirectory
-    ? path.resolve(options.assetRootDirectory)
-    : undefined;
 
   for (let i = 0; i < manifest.assets.length; i++) {
     const asset = manifest.assets[i];
@@ -58,7 +62,7 @@ export function validateAssetPackManifest(
     }
 
     // 3. Path safety & directory traversal prevention
-    if (asset.path.includes('..') || path.isAbsolute(asset.path)) {
+    if (isDisallowedPath(asset.path)) {
       errors.push({
         path: `${assetPathPrefix}.path`,
         code: 'UNSAFE_PATH',
@@ -67,28 +71,15 @@ export function validateAssetPackManifest(
       continue;
     }
 
-    if (resolvedAssetRoot) {
-      const fullPath = path.resolve(resolvedAssetRoot, asset.path);
-
-      // Verify the path stays strictly inside assetRootDirectory
-      if (!fullPath.startsWith(resolvedAssetRoot)) {
+    // 4. File existence check (if fileExists callback provided)
+    if (options.fileExists && asset.format !== 'component') {
+      const exists = options.fileExists(asset.path);
+      if (!exists) {
         errors.push({
           path: `${assetPathPrefix}.path`,
-          code: 'UNSAFE_PATH',
-          message: `Asset path "${asset.path}" resolves outside approved root "${resolvedAssetRoot}".`,
+          code: 'MISSING_FILE',
+          message: `Referenced asset file does not exist: "${asset.path}" (id: "${asset.id}").`,
         });
-        continue;
-      }
-
-      // 4. Physical file existence check
-      if (options.checkFilesExist !== false && asset.format !== 'component') {
-        if (!fs.existsSync(fullPath)) {
-          errors.push({
-            path: `${assetPathPrefix}.path`,
-            code: 'MISSING_FILE',
-            message: `Referenced asset file does not exist: "${fullPath}" (id: "${asset.id}").`,
-          });
-        }
       }
     }
 
@@ -129,7 +120,10 @@ export function validateAssetPackManifest(
     }
 
     // 8. Provenance verification
-    if (asset.provenance.source === 'third-party' && (!asset.provenance.notes || asset.provenance.license.toLowerCase() === 'unknown')) {
+    if (
+      asset.provenance.source === 'third-party' &&
+      (!asset.provenance.notes || asset.provenance.license.toLowerCase() === 'unknown')
+    ) {
       warnings.push({
         path: `${assetPathPrefix}.provenance`,
         code: 'UNKNOWN_PROVENANCE',

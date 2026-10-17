@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 60" width="160" height="60">
+  <!-- Left Eye: Open & Smiling -->
+  <ellipse cx="40" cy="30" rx="18" ry="16" fill="#0f172a" />
+  <circle cx="40" cy="30" r="11" fill="#f59e0b" />
+  <circle cx="36" cy="25" r="4" fill="#ffffff" />
+  <path d="M18,18 Q40,10 62,18" stroke="#0f172a" stroke-width="3" stroke-linecap="round" fill="none" />
+
+  <!-- Right Eye: Playful Winking Arch (>) -->
+  <path d="M102,24 L122,34 L142,24" stroke="#0f172a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  <path d="M108,18 Q122,12 136,18" stroke="#0f172a" stroke-width="3" stroke-linecap="round" fill="none" />
+</svg>

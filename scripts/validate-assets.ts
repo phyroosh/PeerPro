@@ -45,7 +45,7 @@ function main() {
 
     const result = validateAssetPackManifest(rawData, {
       assetRootDirectory: publicDir,
-      checkFilesExist: true,
+      fileExists: (relPath) => fs.existsSync(path.resolve(publicDir, relPath)),
     });
 
     if (result.valid) {

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 600" width="300" height="600">
+  <defs>
+    <linearGradient id="hoodieTeal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d9488" />
+      <stop offset="100%" stop-color="#115e59" />
+    </linearGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffedd5" />
+      <stop offset="100%" stop-color="#fed7aa" />
+    </linearGradient>
+  </defs>
+
+  <!-- Neck -->
+  <rect x="135" y="80" width="30" height="30" rx="6" fill="url(#skin)" />
+
+  <!-- Hoodie Body (Oversized) -->
+  <path d="M70,125 L100,105 L200,105 L230,125 L220,350 L80,350 Z" fill="url(#hoodieTeal)" stroke="#042f2e" stroke-width="2" />
+
+  <!-- Kangaroo Pocket -->
+  <path d="M100,260 L200,260 L210,330 L90,330 Z" fill="#0f766e" stroke="#042f2e" stroke-width="1.5" />
+
+  <!-- Drawstrings -->
+  <line x1="135" y1="110" x2="135" y2="170" stroke="#f0fdfa" stroke-width="3" stroke-linecap="round" />
+  <line x1="165" y1="110" x2="165" y2="170" stroke="#f0fdfa" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Arms / Sleeves (Hands in pockets) -->
+  <path d="M70,125 L50,250 L95,290 L105,260 L80,150 Z" fill="url(#hoodieTeal)" stroke="#042f2e" stroke-width="2" />
+  <path d="M230,125 L250,250 L205,290 L195,260 L220,150 Z" fill="url(#hoodieTeal)" stroke="#042f2e" stroke-width="2" />
+
+  <!-- Ripped Denim Jeans -->
+  <path d="M85,350 L95,550 L135,550 L145,370 L155,370 L165,550 L205,550 L215,350 Z" fill="#1e3a8a" stroke="#172554" stroke-width="2" />
+
+  <!-- Knee Rips -->
+  <line x1="105" y1="440" x2="125" y2="440" stroke="#93c5fd" stroke-width="3" />
+  <line x1="175" y1="450" x2="195" y2="450" stroke="#93c5fd" stroke-width="3" />
+
+  <!-- High-top Sneakers -->
+  <rect x="90" y="550" width="48" height="25" rx="6" fill="#e11d48" />
+  <rect x="90" y="570" width="48" height="6" fill="#ffffff" />
+  <rect x="162" y="550" width="48" height="25" rx="6" fill="#e11d48" />
+  <rect x="162" y="570" width="48" height="6" fill="#ffffff" />
+</svg>

@@ -1,8 +1,8 @@
 # PeerPro Implementation Status
 
 ## Current Status Overview
-- **Active Phase**: Phase 3 — Asset registry, manifest, and validation tools (Completed)
-- **Next Phase**: Phase 4 — Composable character builder
+- **Active Phase**: Phase 4 — Composable character builder (Completed)
+- **Next Phase**: Phase 5 — Modular environment builder
 - **Last Updated**: 2026-10-17
 
 ---
@@ -12,64 +12,49 @@
 ### Phase 0 — Repository Reconnaissance and Technical Audit
 - **Status**: COMPLETED
 - **Date**: 2026-10-17
-- **Scope & Constraints Verified**:
-  - Target directory `/home/phyroosh/PeerPro` was empty and uninitialized.
-  - Git repository initialized on branch `main` and linked to remote `https://github.com/phyroosh/PeerPro`.
-  - Audited toolchain: Node `v22.23.1`, npm `10.9.8`, bun `1.4.2`, ffmpeg `8.1.3`, chrome `154.0.8037.97`.
+- **Scope & Constraints Verified**: Target directory `/home/phyroosh/PeerPro` inspected; clean toolchain and git origin established.
 
 ---
 
 ### Phase 1 — Architecture and Interface Contracts
 - **Status**: COMPLETED
 - **Date**: 2026-10-17
-- **Key Artifacts Created**:
-  - `docs/decisions/0001-peerpro-architecture.md`: Architecture Decision Record.
-  - `schemas/asset-manifest.schema.json`: JSON Schema for asset packs.
-  - `schemas/character-definition.schema.json`: JSON Schema for characters.
-  - `schemas/scene-definition.schema.json`: JSON Schema for 2.5D environment scenes.
-  - `references/coordinate-conventions.md`: Coordinate system and math reference.
-  - `schemas/examples/`: Conforming sample JSON fixtures for manifests, characters, and scenes.
+- **Key Artifacts Created**: ADR 0001, JSON Schemas (`asset-manifest`, `character-definition`, `scene-definition`), coordinate conventions reference, and sample fixtures.
 
 ---
 
 ### Phase 2 — Remotion Runtime Scaffold and First Deterministic Scene
 - **Status**: COMPLETED
 - **Date**: 2026-10-17
-- **Key Artifacts Created**:
-  - `package.json` & `package-lock.json`: Configured with Remotion `4.0.536`, React `19.3.0`, TypeScript `5.8.2`, and exact Zod `4.5.4`.
-  - `tsconfig.json` & `remotion.config.ts`: Modern TypeScript configuration and Remotion concurrency/format settings.
-  - `src/index.ts` & `src/Root.tsx`: Composition registry registering `PeerProSandbox` (1920x1080 @ 30fps, 150 frames).
-  - `src/core/scene/SceneCanvas.tsx`: Viewport wrapper establishing 1920x1080 design space.
-  - `src/compositions/PeerProSandbox.tsx`: Smoke-test composition demonstrating deterministic multi-plane movement.
-  - `public/peerpro-assets/smoke/star.svg`: Starter SVG asset for verifying static file resolution.
-  - `README.md` & `.gitignore`: Setup and render documentation.
-- **Commands Run & Verified**:
-  - `npm run build`: Passed with 0 errors.
-  - `npm run render:still`: Rendered `out/smoke-test.png` (frame 45).
-  - `npm run render:video`: Rendered `out/smoke-test.mp4` (150 frames, 5.0s, 358 kB).
-  - SHA256 checksum comparison: Confirmed bit-for-bit frame determinism.
+- **Key Artifacts Created**: Remotion runtime, `SceneCanvas.tsx`, `PeerProSandbox.tsx` composition, still and video renders verified with bit-for-bit SHA256 determinism.
 
 ---
 
 ### Phase 3 — Asset Registry, Manifest, and Validation Tools
 - **Status**: COMPLETED
 - **Date**: 2026-10-17
+- **Key Artifacts Created**: Asset manifest types, Zod schemas, pure read-only validator, `AssetRegistry`, 10 starter vector assets, CLI scripts (`validate-assets`, `build-asset-index`, `build-contact-sheet`), and 11 unit tests.
+
+---
+
+### Phase 4 — Composable Character Builder
+- **Status**: COMPLETED
+- **Date**: 2026-10-17
 - **Key Artifacts Created**:
-  - `src/core/assets/types.ts`: Comprehensive TypeScript interfaces for manifests, entries, provenance, and validation.
-  - `src/core/assets/schema.ts`: Runtime Zod schemas enforcing kebab-case IDs, categories, normalized anchors, and safe relative paths.
-  - `src/core/assets/validator.ts`: Pure read-only validator checking Zod schema conformance, unique IDs, physical file existence, directory traversal prevention, and provenance.
-  - `src/core/assets/registry.ts`: In-memory `AssetRegistry` with ID lookup, Levenshtein distance error suggestions, category/tag filtering, and path resolution for Remotion `staticFile()`.
-  - `public/peerpro-assets/starter/`: 10 original vector SVG assets (body, head, short hair, neutral eyes, wide eyes, closed mouth, smiling mouth, storefront facade, road segment, streetlight).
-  - `asset-packs/starter-kit/manifest.json`: Verified starter asset pack manifest conforming to schema with complete attachment sockets and MIT licensing.
-  - `scripts/validate-assets.ts`: CLI validator scanning all packs in `asset-packs/`.
-  - `scripts/build-asset-index.ts`: Builds searchable JSON (`schemas/asset-index.json`) and Markdown (`docs/asset-index.md`) catalog.
-  - `scripts/build-contact-sheet.ts`: Builds visual SVG contact sheet (`out/contact-sheet.svg`).
-  - `tests/unit/asset-validator.test.ts` & `tests/unit/asset-registry.test.ts`: 11 unit tests covering all acceptance criteria.
+  - `src/core/characters/types.ts`: TypeScript interfaces for character definitions, slots, variant overrides, and resolved parts.
+  - `src/core/characters/schema.ts`: Runtime Zod schemas validating character definitions and variant maps.
+  - `src/core/characters/solver.ts`: Attachment socket solver implementing exact millimeter-level socket-to-plug mounting math (`neck`, `eyes`, `mouth`, `hair`) and compatibility checks.
+  - `src/core/characters/Character.tsx`: React/Remotion component rendering solved parts with deterministic transform positioning, z-ordering, scale, and flip support.
+  - `src/core/characters/presets.ts`: Pre-configured character definition `studentCharacterDefinition` with default, happy, surprised, and casual variants.
+  - Starter Kit Expansion: Added 3 new vector SVG assets (spiky orange hair, winking eyes, casual hoodie streetwear body) bringing the starter kit to 13 verified assets.
+  - `src/compositions/CharacterShowcase.tsx`: Remotion composition displaying default student and casual streetwear variants side by side with subtle breathing bobbing.
+  - `tests/unit/character-builder.test.ts`: 4 comprehensive unit tests verifying socket solving, variant switching, unknown variant error handling, and missing socket incompatibility detection.
 - **Commands Run & Verified**:
-  - `npm test`: 11/11 tests passed in 456ms.
+  - `npm test`: 15/15 tests passed in 404ms.
   - `npm run build`: 0 TypeScript compiler errors.
-  - `npm run assets:validate`: 10/10 assets verified successfully.
-  - `npm run assets:index`: Generated `schemas/asset-index.json` and `docs/asset-index.md`.
-  - `npm run assets:contact-sheet`: Generated `out/contact-sheet.svg` (17 kB).
+  - `npm run assets:validate`: 13/13 assets verified across starter kit.
+  - `npm run render:showcase:still`: Rendered `out/character-showcase.png` (frame 30) in 321ms.
+  - `npm run render:showcase:video`: Rendered `out/character-showcase.mp4` (120 frames, 4.0s, 277 kB) in 3.75s.
+  - SHA256 checksum comparison: Confirmed identical hash `8545fadf86ebe71209cd92376022104b098d41b49dcd6c03abdcbf7da0ec2284` across separate renders of frame 30.
 - **Known Limitations**:
-  - Character builder component and environment builder component not yet implemented (scheduled for Phases 4 and 5).
+  - Modular environment composition and 2.5D camera/parallax system not yet implemented (scheduled for Phases 5 and 6).

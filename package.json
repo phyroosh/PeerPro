@@ -8,6 +8,8 @@
     "build": "tsc --noEmit",
     "render:still": "remotion still PeerProSandbox out/smoke-test.png --frame=45",
     "render:video": "remotion render PeerProSandbox out/smoke-test.mp4",
+    "render:showcase:still": "remotion still CharacterShowcase out/character-showcase.png --frame=30",
+    "render:showcase:video": "remotion render CharacterShowcase out/character-showcase.mp4",
     "test": "tsx --test tests/**/*.test.ts",
     "assets:validate": "tsx scripts/validate-assets.ts",
     "assets:index": "tsx scripts/build-asset-index.ts",
