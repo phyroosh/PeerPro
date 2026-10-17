@@ -18,6 +18,7 @@ const steps: Step[] = [
   { name: 'Scene Inspection (Tokyo Encounter)', command: 'npx tsx scripts/inspect-scene.ts scenes/agent-dialog-scene.json' },
   { name: 'Scene Inspection (Rainy Evening)', command: 'npx tsx scripts/inspect-scene.ts scenes/rainy-street-encounter.json' },
   { name: 'Agent Introspection CLI Check', command: 'npx tsx scripts/agent-discover.ts' },
+  { name: 'Edge Neural Voiceover Preview Check', command: 'npm run voiceover:preview -- --voice en-US-JennyNeural' },
   { name: '10-Benchmark Visual Regression Suite', command: 'npm run benchmark' },
 ];
 

@@ -293,3 +293,6 @@ Solo character in a hoodie standing in a quiet neighborhood street with directio
    - Focal plane characters should always be set to `depth: 1.0` or slightly staggered (`1.05`, `0.98`) to avoid overlapping depth clipping.
    - Foreground props and trees should be staged at `depth: 1.4` to `1.6`.
    - Distant sky plates should be placed at `depth: 0.2`.
+5. **Neural Voiceover Generation & Synchronization**:
+   - Use `npm run voiceover:sync <scene.json>` to automatically synthesize natural Microsoft Edge neural voiceovers (`en-US-JennyNeural`, etc.), calculate exact durations with `ffprobe`, attach `SceneAudioTrack` entries, and synchronize character mouth visemes with speech.
+   - For complete guidelines on voices, speech parameter presets, and previews, see [docs/voiceover-guide.md](file:///home/phyroosh/PeerPro/docs/voiceover-guide.md).

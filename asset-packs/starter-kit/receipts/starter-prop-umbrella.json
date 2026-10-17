@@ -1,0 +1,109 @@
+{
+  "assetId": "starter-prop-umbrella",
+  "packId": "starter-kit",
+  "sourcePath": "/home/phyroosh/PeerPro/candidates/props/starter-prop-umbrella.svg",
+  "targetPath": "/home/phyroosh/PeerPro/public/peerpro-assets/starter/starter-prop-umbrella.svg",
+  "publicRelativePath": "peerpro-assets/starter/starter-prop-umbrella.svg",
+  "lifecycleState": "approved",
+  "timestamp": "2026-10-17T18:37:02.857Z",
+  "inspection": {
+    "valid": true,
+    "format": "svg",
+    "dimensions": {
+      "width": 320,
+      "height": 320
+    },
+    "viewBox": "0 0 320 320",
+    "hasAlpha": true,
+    "fileSizeBytes": 2868,
+    "checks": [
+      {
+        "check": "file_readable",
+        "passed": true,
+        "details": "Readable file (2868 bytes)."
+      },
+      {
+        "check": "security_sanitization",
+        "passed": true,
+        "details": "No malicious scripts or event handlers detected."
+      },
+      {
+        "check": "svg_viewbox_valid",
+        "passed": true,
+        "details": "viewBox=\"0 0 320 320\" (width=320, height=320)"
+      },
+      {
+        "check": "id_kebab_case",
+        "passed": true,
+        "details": "Valid kebab-case ID: starter-prop-umbrella"
+      },
+      {
+        "check": "id_collision_check",
+        "passed": true,
+        "details": "ID is unique."
+      },
+      {
+        "check": "anchor_coordinates",
+        "passed": true,
+        "details": "Anchor at (0.5, 0.88)"
+      },
+      {
+        "check": "provenance_metadata",
+        "passed": true,
+        "details": "License: MIT, Author: PeerPro Team"
+      }
+    ],
+    "warnings": [],
+    "errors": []
+  },
+  "manifestEntry": {
+    "id": "starter-prop-umbrella",
+    "name": "Classic Cel-Shaded Japanese Umbrella",
+    "kind": "prop",
+    "category": "prop",
+    "path": "peerpro-assets/starter/starter-prop-umbrella.svg",
+    "format": "svg",
+    "dimensions": {
+      "width": 320,
+      "height": 320
+    },
+    "hasAlpha": true,
+    "style": {
+      "family": "anime-clean-v1",
+      "angle": "front",
+      "variant": "navy"
+    },
+    "anchor": {
+      "x": 0.5,
+      "y": 0.88
+    },
+    "attachmentSockets": {
+      "grip": {
+        "x": 160,
+        "y": 280
+      },
+      "tip": {
+        "x": 160,
+        "y": 20
+      }
+    },
+    "capabilities": [
+      "scalable",
+      "flip_x"
+    ],
+    "tags": [
+      "prop",
+      "umbrella",
+      "rain",
+      "weather",
+      "handheld",
+      "outdoor"
+    ],
+    "provenance": {
+      "source": "original",
+      "license": "MIT",
+      "author": "PeerPro Team",
+      "notes": "Ingested via Asset Foundry during Phase 22 to fulfill weather and rain scene capabilities."
+    }
+  }
+}

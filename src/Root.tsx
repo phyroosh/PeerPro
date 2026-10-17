@@ -10,6 +10,7 @@ import { ClassroomShowcase } from './compositions/ClassroomShowcase';
 import { ActionShowcase } from './compositions/ActionShowcase';
 import { CinematicSequenceShowcase } from './compositions/CinematicSequenceShowcase';
 import { AudioNarrativeShowcase } from './compositions/AudioNarrativeShowcase';
+import { EdgeTTSVoiceoverShowcase } from './compositions/EdgeTTSVoiceoverShowcase';
 import { MultiShotIdentityChallenge } from './compositions/challenges/MultiShotIdentityChallenge';
 import { SceneRenderer, SceneRendererProps } from './core/scene/SceneRenderer';
 import { defaultAssetRegistry } from './core/assets/registry';
@@ -138,6 +139,14 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="AudioNarrativeShowcase"
         component={AudioNarrativeShowcase}
+        durationInFrames={180}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="EdgeTTSVoiceoverShowcase"
+        component={EdgeTTSVoiceoverShowcase}
         durationInFrames={180}
         fps={30}
         width={1920}

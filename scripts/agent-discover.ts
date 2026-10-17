@@ -36,6 +36,9 @@ if (isJsonMode) {
   console.log(`Color Grades:        ${discoveryData.sequence.colorGrades.join(', ')}`);
   if (discoveryData.audio) {
     console.log(`Audio Channels:      ${discoveryData.audio.trackTypes.join(', ')} (Automated Ducking + Anime Viseme Lip-Sync)`);
+    if (discoveryData.audio.voiceover) {
+      console.log(`Neural Voiceover:    ${discoveryData.audio.voiceover.defaultProvider} (Default: ${discoveryData.audio.voiceover.defaultVoice}, Presets: ${discoveryData.audio.voiceover.presets.join(', ')})`);
+    }
   }
   console.log('---------------------------------------------------------------');
   console.log('Run with --json to get full machine-readable schema & metadata.');

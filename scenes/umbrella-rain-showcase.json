@@ -1,0 +1,165 @@
+{
+  "$schema": "../schemas/scene-definition.schema.json",
+  "id": "umbrella-rain-showcase",
+  "name": "Umbrella Rain Showcase (Asset Foundry Proof)",
+  "description": "Showcases the newly ingested starter-prop-umbrella asset in a rainy Japanese street atmosphere with student Ren sheltering under the umbrella.",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationInFrames": 120,
+    "backgroundColor": "#090d16"
+  },
+  "camera": {
+    "preset": "slow-push-in",
+    "intensity": 0.5,
+    "focalDepth": 1.0,
+    "depthOfField": {
+      "enabled": true,
+      "focalPlane": 1.0,
+      "aperture": 0.4,
+      "maxBlur": 10.0
+    }
+  },
+  "environment": {
+    "custom": {
+      "id": "rainy-street-with-umbrella",
+      "name": "Rainy Tokyo Street Corner",
+      "domain": "outdoor",
+      "backgroundColor": "#090d16",
+      "layers": [
+        {
+          "id": "bg-sky",
+          "name": "Dusk Sky Plate",
+          "assetId": "starter-env-sky-dusk",
+          "depth": 0.2,
+          "order": 1,
+          "transform": {
+            "x": 960,
+            "y": 0,
+            "scale": 1.0,
+            "anchor": { "x": 0.5, "y": 0.0 }
+          }
+        },
+        {
+          "id": "mid-building-facade",
+          "name": "Apartment Facade",
+          "assetId": "starter-env-building-facade-02",
+          "depth": 0.7,
+          "order": 5,
+          "transform": {
+            "x": 1380,
+            "y": 880,
+            "scale": 1.0,
+            "anchor": { "x": 0.5, "y": 1.0 }
+          }
+        },
+        {
+          "id": "conbini-storefront",
+          "name": "Conbini Storefront",
+          "assetId": "starter-env-building-facade-01",
+          "depth": 0.95,
+          "order": 8,
+          "transform": {
+            "x": 480,
+            "y": 880,
+            "scale": 1.0,
+            "anchor": { "x": 0.5, "y": 1.0 }
+          }
+        },
+        {
+          "id": "street-vending-machine",
+          "name": "Vending Machine",
+          "assetId": "starter-env-vending-machine",
+          "depth": 1.0,
+          "order": 12,
+          "transform": {
+            "x": 1320,
+            "y": 880,
+            "scale": 1.0,
+            "anchor": { "x": 0.5, "y": 1.0 }
+          }
+        },
+        {
+          "id": "road-base",
+          "name": "Street Asphalt",
+          "assetId": "starter-env-road-segment",
+          "depth": 1.0,
+          "order": 14,
+          "transform": {
+            "x": 960,
+            "y": 880,
+            "scale": 1.0,
+            "anchor": { "x": 0.5, "y": 1.0 }
+          }
+        },
+        {
+          "id": "ren-umbrella-held",
+          "name": "Ren's Cel-Shaded Navy Umbrella",
+          "assetId": "starter-prop-umbrella",
+          "depth": 1.0,
+          "order": 125,
+          "plane": "character_occluder",
+          "transform": {
+            "x": 940,
+            "y": 440,
+            "scale": 1.4,
+            "rotation": 5,
+            "anchor": { "x": 0.5, "y": 0.88 }
+          }
+        },
+        {
+          "id": "foreground-streetlight",
+          "name": "Streetlight",
+          "assetId": "starter-env-streetlight",
+          "depth": 1.35,
+          "order": 30,
+          "transform": {
+            "x": 1740,
+            "y": 880,
+            "scale": 1.0,
+            "anchor": { "x": 0.5, "y": 1.0 }
+          }
+        }
+      ]
+    }
+  },
+  "characters": [
+    {
+      "id": "student-ren-sheltered",
+      "characterId": "student-ren-v2",
+      "variant": "default",
+      "depth": 1.0,
+      "position": {
+        "x": 960,
+        "y": 920
+      },
+      "scale": 1.0,
+      "animation": {
+        "breathing": {
+          "frequency": 0.5,
+          "amplitude": 2.5
+        }
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "rain",
+      "depth": 1.2,
+      "count": 75,
+      "speed": 1.4,
+      "opacity": 0.65
+    }
+  ],
+  "dialog": [
+    {
+      "id": "line-umbrella",
+      "characterId": "student-ren-sheltered",
+      "speaker": "Ren",
+      "text": "Good thing I brought this umbrella. Let's wait out the rain together.",
+      "startFrame": 15,
+      "endFrame": 105
+    }
+  ]
+}

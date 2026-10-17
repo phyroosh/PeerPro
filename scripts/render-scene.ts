@@ -56,16 +56,21 @@ const isVideo = args.includes('--video') || outPath.endsWith('.mp4');
 const frameArgIdx = args.indexOf('--frame');
 const frameNum = frameArgIdx !== -1 && args[frameArgIdx + 1] ? parseInt(args[frameArgIdx + 1], 10) : 45;
 
-const escapedProps = JSON.stringify({ manifest: scene });
+const cacheDir = path.join(projectRoot, '.cache');
+if (!fs.existsSync(cacheDir)) {
+  fs.mkdirSync(cacheDir, { recursive: true });
+}
+const tempPropsPath = path.join(cacheDir, `render-props-${scene.id}.json`);
+fs.writeFileSync(tempPropsPath, JSON.stringify({ manifest: scene }, null, 2), 'utf8');
 
 console.log(`Rendering scene "${scene.id}" -> ${outPath}`);
 try {
   if (isVideo) {
-    const cmd = `npx remotion render AgentScene "${outPath}" --props='${escapedProps}'`;
+    const cmd = `npx remotion render AgentScene "${outPath}" --props="${tempPropsPath}"`;
     console.log(`Running: ${cmd}`);
     execSync(cmd, { stdio: 'inherit', cwd: projectRoot });
   } else {
-    const cmd = `npx remotion still AgentScene "${outPath}" --frame=${frameNum} --props='${escapedProps}'`;
+    const cmd = `npx remotion still AgentScene "${outPath}" --frame=${frameNum} --props="${tempPropsPath}"`;
     console.log(`Running: ${cmd}`);
     execSync(cmd, { stdio: 'inherit', cwd: projectRoot });
   }

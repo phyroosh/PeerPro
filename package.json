@@ -46,6 +46,9 @@
     "render:cinematic:video": "remotion render CinematicSequenceShowcase out/cinematic-sequence.mp4",
     "render:audio:still": "remotion still AudioNarrativeShowcase out/audio-narrative-showcase.png --frame=45",
     "render:audio:video": "remotion render AudioNarrativeShowcase out/audio-narrative-showcase.mp4",
+    "voiceover:list": "tsx scripts/voiceover.ts list",
+    "voiceover:preview": "tsx scripts/voiceover.ts preview",
+    "voiceover:sync": "tsx scripts/voiceover.ts sync-scene",
     "agent:discover": "tsx scripts/agent-discover.ts",
     "scene:inspect": "tsx scripts/inspect-scene.ts",
     "scene:analyze": "tsx scripts/analyze-scene.ts",
@@ -58,7 +61,8 @@
     "verify:all": "tsx scripts/verify-all.ts",
     "assets:validate": "tsx scripts/validate-assets.ts",
     "assets:index": "tsx scripts/build-asset-index.ts",
-    "assets:contact-sheet": "tsx scripts/build-contact-sheet.ts"
+    "assets:contact-sheet": "tsx scripts/build-contact-sheet.ts",
+    "asset:ingest": "tsx scripts/ingest-asset.ts"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.528",

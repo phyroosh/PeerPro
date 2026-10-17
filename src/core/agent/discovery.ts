@@ -262,6 +262,18 @@ export function getAgentDiscoveryData(options: DiscoveryOptions = {}): AgentDisc
       supportsDucking: true,
       supportsLipSync: true,
       visemes: ['closed', 'open', 'half', 'wide', 'smile'],
+      voiceover: {
+        defaultProvider: 'edge-tts',
+        providers: ['edge-tts', 'espeak'],
+        defaultVoice: 'en-US-JennyNeural',
+        presets: [
+          'natural-narration',
+          'calm-storytelling',
+          'energetic-narration',
+          'reflective-narration',
+        ],
+        supportsParameters: ['rate', 'pitch', 'volume'],
+      },
     },
     sceneManifestTemplate: {
       $schema: '../schemas/scene-definition.schema.json',

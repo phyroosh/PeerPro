@@ -138,6 +138,16 @@ export const SceneDialogLineSchema = z.object({
   startFrame: z.number().min(0),
   endFrame: z.number().min(0),
   position: z.enum(['bottom', 'top']).default('bottom').optional(),
+  voice: z.string().optional(),
+  preset: z.string().optional(),
+  speechParams: z
+    .object({
+      rate: z.string().optional(),
+      pitch: z.string().optional(),
+      volume: z.string().optional(),
+    })
+    .optional(),
+  audioTrackId: z.string().optional(),
 }).refine((data) => data.endFrame >= data.startFrame, {
   message: 'Dialog endFrame must be greater than or equal to startFrame.',
 });

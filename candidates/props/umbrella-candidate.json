@@ -1,0 +1,40 @@
+{
+  "sourcePath": "candidates/props/starter-prop-umbrella.svg",
+  "targetId": "starter-prop-umbrella",
+  "name": "Classic Cel-Shaded Japanese Umbrella",
+  "kind": "prop",
+  "category": "prop",
+  "styleFamily": "anime-clean-v1",
+  "viewAngle": "front",
+  "variant": "navy",
+  "anchor": {
+    "x": 0.5,
+    "y": 0.88
+  },
+  "attachmentSockets": {
+    "grip": {
+      "x": 160,
+      "y": 280
+    },
+    "tip": {
+      "x": 160,
+      "y": 20
+    }
+  },
+  "tags": [
+    "prop",
+    "umbrella",
+    "rain",
+    "weather",
+    "handheld",
+    "outdoor"
+  ],
+  "provenance": {
+    "source": "original",
+    "license": "MIT",
+    "author": "PeerPro Team",
+    "notes": "Ingested via Asset Foundry during Phase 22 to fulfill weather and rain scene capabilities."
+  },
+  "targetPackId": "starter-kit",
+  "targetSubdir": "peerpro-assets/starter"
+}

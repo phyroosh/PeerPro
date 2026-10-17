@@ -81,6 +81,14 @@ export interface SceneDialogLine {
   startFrame: number;
   endFrame: number;
   position?: 'bottom' | 'top';
+  voice?: string;
+  preset?: string;
+  speechParams?: {
+    rate?: string;
+    pitch?: string;
+    volume?: string;
+  };
+  audioTrackId?: string;
 }
 
 export interface SceneManifest {

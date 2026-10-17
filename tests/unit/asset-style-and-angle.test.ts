@@ -21,11 +21,11 @@ function createRegistry(): AssetRegistry {
   return registry;
 }
 
-test('Style & Angle System: registry contains 44 assets with valid angle metadata', () => {
+test('Style & Angle System: registry contains 45 assets with valid angle metadata', () => {
   const registry = createRegistry();
   const allAssets = registry.getAll();
 
-  assert.strictEqual(allAssets.length, 44);
+  assert.strictEqual(allAssets.length, 45);
 
   // Check 3/4 assets
   const threeQuarterAssets = registry.filter({ angle: 'three_quarter' });

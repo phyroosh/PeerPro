@@ -1,9 +1,9 @@
 # PeerPro Implementation Status
 
 ## Current Status Overview
-- **Active Phase**: Phase 18 — Voiceover, Sound, and Shot Timing Integration (Completed)
-- **Overall Status**: **PHASE 18 DELIVERED & FULLY VERIFIED (107/107 TESTS PASSING)**
-- **Last Updated**: 2026-10-17
+- **Active Phase**: Phase 22 — Asset Foundry and Pack Ingestion (Completed)
+- **Overall Status**: **PHASE 22 DELIVERED & FULLY VERIFIED (146/146 TESTS PASSING, 7/7 RELEASE GATES)**
+- **Last Updated**: 2026-10-18
 
 ---
 
@@ -641,7 +641,114 @@
   3. **Rank 3: Asset Ingestion & Capability Expansion Workflow (P1 / Phase 22)** — When creative requests require novel props (e.g. bicycles, sports equipment) or actions, adding new assets is currently a manual multi-step catalog edit.
   4. **Rank 4: Multi-Shot Character Continuity State Management (P1 / Phase 31)** — Identity preservation across multi-shot cuts relies on manual definition copying rather than an automated project-level Character Continuity Contract.
 - **Known Limitations**:
-  - Architectural gaps will be methodically addressed in prioritized order across Phases 22–32.
+  - Architectural gaps will be methodically addressed in prioritized order across Phases 23–32.
+
+---
+
+### Phase 22 — Microsoft Edge Neural Voiceover System Upgrade
+- **Status**: COMPLETED
+- **Date**: 2026-10-18
+- **Key Artifacts Created & Modified**:
+  - `src/core/voiceover/types.ts`:
+    - TypeScript contracts for `VoiceoverProviderId`, `VoiceMetadata`, `SpeechParameters`, `VoiceoverPresetName`, `VoiceoverSynthesisRequest`, `VoiceoverSynthesisResult`, `VoiceoverPreviewRequest`, `VoiceoverPreviewResult`, `VoiceoverProvider`, and `SceneVoiceoverSyncResult`.
+  - `src/core/voiceover/presets.ts`:
+    - Speech parameter validation (`rate`, `pitch`, `volume`) and 4 curated presets (`natural-narration`, `calm-storytelling`, `energetic-narration`, `reflective-narration`).
+  - `src/core/voiceover/text.ts`:
+    - Narration text preparation, punctuation cleaning, and sentence-boundary chunking without word-dropping.
+  - `src/core/voiceover/cache.ts`:
+    - SHA-256 content-addressable key computation and atomic file movements.
+  - `src/core/voiceover/adapters/edge-tts-adapter.py`:
+    - Standalone Python bridge for safe invocation of `edge-tts` without shell injection.
+  - `src/core/voiceover/providers/edge-tts.provider.ts`:
+    - First-class `EdgeTTSVoiceoverProvider` with disk-cached voice listing, bounded exponential backoff retries, duration extraction via `ffprobe`, and 48kHz WAV conversion for Remotion frame accuracy.
+  - `src/core/voiceover/providers/espeak.provider.ts`:
+    - Preserved fallback provider for offline/robotic voice synthesis when explicitly requested.
+  - `src/core/voiceover/registry.ts`:
+    - Provider registry defaulting to `edge-tts`.
+  - `src/core/voiceover/service.ts`:
+    - High-level orchestration for discovery, previews with in-flight deduplication, chunked synthesis, and automated scene timeline synchronization.
+  - `src/core/scene/types.ts` & `src/core/scene/schema.ts`:
+    - Extended `SceneDialogLine` with optional voiceover options (`voice`, `preset`, `speechParams`, `audioTrackId`).
+  - `src/core/agent/discovery.ts` & `scripts/agent-discover.ts`:
+    - Exposed neural voiceover capabilities to AI agents.
+  - `scripts/voiceover.ts` & `package.json`:
+    - Added CLI tools `voiceover:list`, `voiceover:preview`, `voiceover:sync`.
+  - `src/compositions/EdgeTTSVoiceoverShowcase.tsx` & `src/Root.tsx`:
+    - Dedicated Remotion showcase composition with active Edge TTS audio track, lip-sync visemes, and audio meters.
+  - `tests/unit/voiceover.test.ts` & `tests/integration/voiceover-edge-tts.test.ts`:
+    - 19 new unit and integration tests passing cleanly.
+  - `docs/voiceover-guide.md` & `docs/agent-cookbook.md`:
+    - Comprehensive guide and agent prompting instructions.
+- **Commands Run & Verified**:
+  - `npm test`: 137/137 tests passed across 26 suites (100% pass rate).
+  - `npm run release:gate`: All 7/7 pre-release gates passed in 46.69s.
+  - `npx remotion still EdgeTTSVoiceoverShowcase out/edge-tts-voiceover-showcase.png --frame=45`: Rendered in 399ms.
+  - `npx remotion render EdgeTTSVoiceoverShowcase out/edge-tts-voiceover-showcase.mp4`: 180 frames (6.0s, 1.6 MB) rendered with AAC 48kHz audio stream in 11.74s.
+
+---
+
+### Phase 22 — Asset Foundry and Pack Ingestion
+- **Status**: COMPLETED
+- **Date**: 2026-10-18
+- **Core Architecture & Interfaces Created**:
+  - `src/core/foundry/types.ts`:
+    - Strict 6-stage lifecycle state: `'candidate' | 'inspected' | 'normalized' | 'metadata_complete' | 'compatibility_tested' | 'approved' | 'rejected'`.
+    - `AssetIngestionCandidate`: Candidate source path, kebab-case target ID, name, kind, category, style, anchor, attachment sockets, tags, and mandatory provenance.
+    - `InspectionReport`: Pre-flight report containing format, dimensions, viewBox, alpha, byte size, granular check results, warnings, and errors.
+    - `IngestionReceipt`: Immutable audit trail containing source, target, timestamp, inspection summary, and manifest entry.
+    - `IngestionResult`: Complete return signature containing status, receipt, warnings, and error messages.
+  - `src/core/foundry/inspector.ts`:
+    - File existence & readability check (>50 byte corrupt/empty guard).
+    - Format verification (`.svg`, `.png`, `.webp`).
+    - SVG root tag validation and viewBox / dimension extraction.
+    - Security sanitization: rejects `<script>` tags, inline event handlers (`onload=`, `onerror=`), and `javascript:` URIs.
+    - Kebab-case ID validation and collision check against both in-memory registry and on-disk pack manifests.
+    - Anchor bounds validation (`[0.0, 1.0]`).
+    - Mandatory provenance verification (author and license required).
+  - `src/core/foundry/normalizer.ts`:
+    - Enforces standard `xmlns="http://www.w3.org/2000/svg"`.
+    - Strips XML headers (`<?xml ... ?>`), DOCTYPE declarations, and comments.
+    - Strips embedded scripts and inline event handlers.
+    - Synthesizes clean `viewBox="0 0 W H"` from width/height attributes if missing.
+  - `src/core/foundry/pipeline.ts`:
+    - End-to-end 6-stage lifecycle coordinator with `--dry-run` simulation support.
+    - Automatic sorting and persistence of updated pack manifests.
+    - Automatic emission of audit receipts into `asset-packs/<pack>/receipts/<id>.json`.
+  - `src/core/foundry/index.ts`:
+    - Clean barrel export.
+- **CLI & Automation**:
+  - `scripts/ingest-asset.ts`:
+    - Command-line asset ingestion tool supporting `--config=<path>`, `--dry-run`, `--no-reindex`, or manual flag parameters.
+    - Automatically triggers asset index (`scripts/build-asset-index.ts`) and contact sheet (`scripts/build-contact-sheet.ts`) regeneration upon approval.
+  - `package.json`:
+    - Added `"asset:ingest": "tsx scripts/ingest-asset.ts"`.
+  - `scripts/render-scene.ts`:
+    - Upgraded Remotion props injection to write safe temporary JSON cache files, preventing shell quotation escaping failures on complex scene dialogs.
+- **Artwork, Proof Candidate & Scene**:
+  - `candidates/props/starter-prop-umbrella.svg`:
+    - High-fidelity 320x320 cel-shaded Japanese indigo umbrella vector asset with silver ferrule, dark metal shaft, and J-hook handle.
+  - `candidates/props/umbrella-candidate.json`:
+    - Candidate configuration specifying `anchor: (0.5, 0.88)`, `attachmentSockets: { grip: (160, 280), tip: (160, 20) }`, and MIT provenance.
+  - Ingestion Execution:
+    - Successfully ingested `starter-prop-umbrella` into `asset-packs/starter-kit/`, expanding the starter kit from **44 to 45 vector assets**.
+    - Verified `npm run agent:discover` and `npm run assets:validate` both report 45 verified assets.
+  - `scenes/umbrella-rain-showcase.json`:
+    - Real proof scene featuring the newly ingested umbrella held by Ren during a rainy dusk Tokyo street sequence with optical DoF, falling rain particles, and expressive speech visemes.
+  - `out/umbrella-rain-showcase.png`:
+    - Rendered frame 45 proof still in 363ms, visually verifying correct spatial placement, occlusion, and lighting integration.
+- **Testing & Documentation**:
+  - `tests/unit/asset-foundry.test.ts`:
+    - 9 comprehensive unit tests covering inspection, normalizer sanitization, ID collisions, missing provenance, and dry-run pipeline execution.
+  - `docs/foundry/asset-foundry-guide.md`:
+    - Complete guide detailing the 6-stage lifecycle, CLI usage, JSON schema, and umbrella case study.
+- **Commands Run & Verified**:
+  - `npm test`: 146/146 tests passed across 26 suites (100% pass rate).
+  - `npm run release:gate`: All 7/7 pre-release gates passed in 43.86s.
+  - `npm run agent:discover`: 45 vector assets introspected.
+  - `npm run assets:validate`: 45 assets verified with 0 errors.
+  - `npx tsx scripts/render-scene.ts scenes/umbrella-rain-showcase.json out/umbrella-rain-showcase.png --frame 45`: Verified in 363ms.
+
+
 
 
 

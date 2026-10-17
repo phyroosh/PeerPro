@@ -112,6 +112,13 @@ export interface AgentDiscoveryData {
     supportsDucking: boolean;
     supportsLipSync: boolean;
     visemes: LipSyncViseme[];
+    voiceover?: {
+      defaultProvider: string;
+      providers: string[];
+      defaultVoice: string;
+      presets: string[];
+      supportsParameters: string[];
+    };
   };
   sceneManifestTemplate: SceneManifest;
 }
