@@ -1,0 +1,43 @@
+{
+  "$schema": "../character-definition.schema.json",
+  "id": "student-hero",
+  "name": "Ren - High School Student",
+  "styleFamily": "anime-clean-v1",
+  "defaultScale": 1.0,
+  "rootPart": {
+    "assetId": "starter-char-body-01"
+  },
+  "slots": {
+    "head": { "assetId": "starter-char-head-01" },
+    "hairBack": { "assetId": "starter-char-hair-short-back" },
+    "hairFront": { "assetId": "starter-char-hair-short-front" },
+    "eyes": { "assetId": "starter-char-eyes-neutral" },
+    "mouth": { "assetId": "starter-char-mouth-closed" },
+    "clothing": { "assetId": "starter-char-cloth-blazer" }
+  },
+  "layerOrder": [
+    "hairBack",
+    "rootPart",
+    "clothing",
+    "head",
+    "eyes",
+    "mouth",
+    "hairFront"
+  ],
+  "variants": {
+    "tired": {
+      "name": "Tired / Late for School",
+      "overrides": {
+        "eyes": "starter-char-eyes-droopy",
+        "mouth": "starter-char-mouth-sigh"
+      }
+    },
+    "surprised": {
+      "name": "Surprised Reaction",
+      "overrides": {
+        "eyes": "starter-char-eyes-wide",
+        "mouth": "starter-char-mouth-gasp"
+      }
+    }
+  }
+}

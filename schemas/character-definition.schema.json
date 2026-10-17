@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://peerpro.dev/schemas/character-definition.schema.json",
+  "title": "PeerProCharacterDefinition",
+  "description": "Schema defining a modular character composed of compatible parts, sockets, and variants.",
+  "type": "object",
+  "required": ["id", "name", "styleFamily", "rootPart", "layerOrder"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "name": {
+      "type": "string"
+    },
+    "styleFamily": {
+      "type": "string"
+    },
+    "defaultScale": {
+      "type": "number",
+      "default": 1.0,
+      "minimum": 0.01
+    },
+    "rootPart": {
+      "type": "object",
+      "required": ["assetId"],
+      "properties": {
+        "assetId": { "type": "string" },
+        "offset": {
+          "type": "object",
+          "properties": {
+            "x": { "type": "number" },
+            "y": { "type": "number" }
+          }
+        },
+        "scale": { "type": "number" },
+        "rotation": { "type": "number" },
+        "opacity": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "slots": {
+      "type": "object",
+      "properties": {
+        "head": { "$ref": "#/$defs/partSlot" },
+        "hairBack": { "$ref": "#/$defs/partSlot" },
+        "hairFront": { "$ref": "#/$defs/partSlot" },
+        "eyes": { "$ref": "#/$defs/partSlot" },
+        "mouth": { "$ref": "#/$defs/partSlot" },
+        "clothing": { "$ref": "#/$defs/partSlot" },
+        "armsLeft": { "$ref": "#/$defs/partSlot" },
+        "armsRight": { "$ref": "#/$defs/partSlot" },
+        "accessory": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/partSlot" }
+        }
+      }
+    },
+    "layerOrder": {
+      "type": "array",
+      "description": "Back-to-front rendering order of slots",
+      "items": { "type": "string" }
+    },
+    "variants": {
+      "type": "object",
+      "description": "Named expression or pose overrides",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["name", "overrides"],
+        "properties": {
+          "name": { "type": "string" },
+          "overrides": {
+            "type": "object",
+            "properties": {
+              "eyes": { "type": "string" },
+              "mouth": { "type": "string" },
+              "hair": { "type": "string" },
+              "clothing": { "type": "string" },
+              "arms": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "partSlot": {
+      "type": "object",
+      "required": ["assetId"],
+      "properties": {
+        "assetId": { "type": "string" },
+        "offset": {
+          "type": "object",
+          "properties": {
+            "x": { "type": "number" },
+            "y": { "type": "number" }
+          }
+        },
+        "scale": { "type": "number" },
+        "rotation": { "type": "number" },
+        "opacity": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    }
+  }
+}

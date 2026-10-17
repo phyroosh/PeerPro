@@ -1,0 +1,60 @@
+{
+  "$schema": "../asset-manifest.schema.json",
+  "packId": "starter-character-kit",
+  "name": "Starter Anime Character Kit",
+  "version": "1.0.0",
+  "styleFamily": "anime-clean-v1",
+  "description": "Minimal starter character kit for proof of socket-based assembly and recombination.",
+  "assets": [
+    {
+      "id": "starter-char-body-01",
+      "name": "Standard Student Body",
+      "kind": "character_part",
+      "category": "base_body",
+      "path": "peerpro-assets/characters/starter/body-01.svg",
+      "format": "svg",
+      "dimensions": { "width": 300, "height": 600 },
+      "hasAlpha": true,
+      "style": { "family": "anime-clean-v1" },
+      "anchor": { "x": 0.5, "y": 1.0 },
+      "attachmentSockets": {
+        "neck": { "x": 150, "y": 90 },
+        "shoulder_left": { "x": 80, "y": 130 },
+        "shoulder_right": { "x": 220, "y": 130 }
+      },
+      "capabilities": ["scalable", "flip_x"],
+      "tags": ["character", "body", "school-uniform"],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-char-head-01",
+      "name": "Neutral Anime Head Base",
+      "kind": "character_part",
+      "category": "head",
+      "path": "peerpro-assets/characters/starter/head-01.svg",
+      "format": "svg",
+      "dimensions": { "width": 240, "height": 260 },
+      "hasAlpha": true,
+      "style": { "family": "anime-clean-v1" },
+      "anchor": { "x": 0.5, "y": 0.5 },
+      "attachmentSockets": {
+        "neck_socket": { "x": 120, "y": 240 },
+        "eyes": { "x": 120, "y": 140 },
+        "mouth": { "x": 120, "y": 195 },
+        "hair": { "x": 120, "y": 100 }
+      },
+      "requiredSockets": ["neck"],
+      "capabilities": ["scalable"],
+      "tags": ["character", "head", "face"],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    }
+  ]
+}

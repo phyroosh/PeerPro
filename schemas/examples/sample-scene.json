@@ -1,0 +1,88 @@
+{
+  "$schema": "../scene-definition.schema.json",
+  "id": "japanese-street-corner-dusk",
+  "name": "Tokyo Street Corner - Dusk",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationInFrames": 150
+  },
+  "camera": {
+    "preset": "slow-push-in",
+    "focalDepth": 1.0,
+    "bounds": {
+      "maxDisplacementX": 120,
+      "maxDisplacementY": 60,
+      "maxZoom": 1.15
+    }
+  },
+  "layers": [
+    {
+      "id": "sky-dusk",
+      "name": "Dusk Gradient Sky",
+      "assetId": "jp-street-sky-dusk",
+      "depth": 0.2,
+      "order": 1,
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scale": 1.2,
+        "anchor": { "x": 0, "y": 0 }
+      }
+    },
+    {
+      "id": "background-buildings",
+      "name": "Distant Tokyo Skyline",
+      "assetId": "jp-street-skyline",
+      "depth": 0.5,
+      "order": 2,
+      "transform": {
+        "x": 960,
+        "y": 600,
+        "scale": 1.0,
+        "anchor": { "x": 0.5, "y": 1.0 }
+      }
+    },
+    {
+      "id": "midground-shop",
+      "name": "Corner Convenience Store",
+      "assetId": "jp-street-conbini",
+      "depth": 1.0,
+      "order": 10,
+      "transform": {
+        "x": 650,
+        "y": 880,
+        "scale": 1.0,
+        "anchor": { "x": 0.5, "y": 1.0 }
+      }
+    },
+    {
+      "id": "midground-road",
+      "name": "Asphalt Road & Sidewalk",
+      "assetId": "jp-street-road",
+      "depth": 1.0,
+      "order": 11,
+      "transform": {
+        "x": 960,
+        "y": 1080,
+        "scale": 1.0,
+        "anchor": { "x": 0.5, "y": 1.0 }
+      }
+    },
+    {
+      "id": "foreground-streetlight",
+      "name": "Foreground Streetlight Post",
+      "assetId": "jp-street-lamp",
+      "depth": 1.4,
+      "order": 20,
+      "transform": {
+        "x": 1650,
+        "y": 1080,
+        "scale": 1.1,
+        "anchor": { "x": 0.5, "y": 1.0 }
+      },
+      "animationPreset": "flicker-subtle"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://peerpro.dev/schemas/asset-manifest.schema.json",
+  "title": "PeerProAssetManifest",
+  "description": "Schema for PeerPro asset packs, describing parts, pivots, sockets, and provenance.",
+  "type": "object",
+  "required": ["packId", "name", "version", "styleFamily", "assets"],
+  "properties": {
+    "packId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "styleFamily": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "kind", "category", "path", "format", "dimensions", "hasAlpha", "style", "anchor", "provenance"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": ["character_part", "environment_layer", "prop", "effect"]
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "base_body", "head", "hair", "eyes", "mouth", "expression",
+              "clothing", "arms", "accessory",
+              "building", "facade", "road", "sidewalk", "sign", "foliage",
+              "prop", "sky", "atmosphere"
+            ]
+          },
+          "path": {
+            "type": "string"
+          },
+          "format": {
+            "type": "string",
+            "enum": ["svg", "png", "webp", "component"]
+          },
+          "dimensions": {
+            "type": "object",
+            "required": ["width", "height"],
+            "properties": {
+              "width": { "type": "number", "minimum": 1 },
+              "height": { "type": "number", "minimum": 1 }
+            }
+          },
+          "hasAlpha": {
+            "type": "boolean"
+          },
+          "style": {
+            "type": "object",
+            "required": ["family"],
+            "properties": {
+              "family": { "type": "string" },
+              "variant": { "type": "string" }
+            }
+          },
+          "anchor": {
+            "type": "object",
+            "required": ["x", "y"],
+            "properties": {
+              "x": { "type": "number", "minimum": 0, "maximum": 1 },
+              "y": { "type": "number", "minimum": 0, "maximum": 1 }
+            }
+          },
+          "attachmentSockets": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "required": ["x", "y"],
+              "properties": {
+                "x": { "type": "number" },
+                "y": { "type": "number" },
+                "rotation": { "type": "number" }
+              }
+            }
+          },
+          "requiredSockets": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "capabilities": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["scalable", "tintable", "flip_x", "flip_y"]
+            }
+          },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "provenance": {
+            "type": "object",
+            "required": ["source", "license", "author"],
+            "properties": {
+              "source": {
+                "type": "string",
+                "enum": ["original", "licensed", "public-domain", "third-party"]
+              },
+              "license": { "type": "string" },
+              "author": { "type": "string" },
+              "notes": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

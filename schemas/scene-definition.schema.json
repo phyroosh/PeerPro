@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://peerpro.dev/schemas/scene-definition.schema.json",
+  "title": "PeerProSceneDefinition",
+  "description": "Schema defining modular environment layers, transforms, 2.5D depth planes, and groups.",
+  "type": "object",
+  "required": ["id", "name", "layers"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "canvas": {
+      "type": "object",
+      "properties": {
+        "width": { "type": "number", "default": 1920 },
+        "height": { "type": "number", "default": 1080 },
+        "fps": { "type": "number", "default": 30 },
+        "durationInFrames": { "type": "number", "default": 150 }
+      }
+    },
+    "camera": {
+      "type": "object",
+      "properties": {
+        "preset": {
+          "type": "string",
+          "enum": ["static", "slow-push-in", "slow-pull-out", "pan-left-to-right", "pan-right-to-left", "custom"]
+        },
+        "focalDepth": {
+          "type": "number",
+          "default": 1.0,
+          "description": "The depth plane that remains sharp and 1:1 anchored to camera movement"
+        },
+        "bounds": {
+          "type": "object",
+          "properties": {
+            "maxDisplacementX": { "type": "number", "default": 150 },
+            "maxDisplacementY": { "type": "number", "default": 80 },
+            "maxZoom": { "type": "number", "default": 1.25 }
+          }
+        }
+      }
+    },
+    "layers": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/sceneLayer" }
+    }
+  },
+  "$defs": {
+    "sceneLayer": {
+      "type": "object",
+      "required": ["id", "depth", "order", "transform"],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "assetId": {
+          "type": "string",
+          "description": "Asset ID in manifest. Omit if this is a grouping container."
+        },
+        "depth": {
+          "type": "number",
+          "description": "Depth factor determining parallax response: <1.0 background, 1.0 focal/midground, >1.0 foreground."
+        },
+        "order": {
+          "type": "number",
+          "description": "Rendering order (z-index) back-to-front."
+        },
+        "transform": {
+          "type": "object",
+          "required": ["x", "y"],
+          "properties": {
+            "x": { "type": "number" },
+            "y": { "type": "number" },
+            "scale": {
+              "oneOf": [
+                { "type": "number" },
+                {
+                  "type": "array",
+                  "items": { "type": "number" },
+                  "minItems": 2,
+                  "maxItems": 2
+                }
+              ],
+              "default": 1.0
+            },
+            "rotation": { "type": "number", "default": 0 },
+            "opacity": { "type": "number", "minimum": 0, "maximum": 1, "default": 1.0 },
+            "anchor": {
+              "type": "object",
+              "properties": {
+                "x": { "type": "number", "minimum": 0, "maximum": 1 },
+                "y": { "type": "number", "minimum": 0, "maximum": 1 }
+              }
+            }
+          }
+        },
+        "animationPreset": {
+          "type": "string",
+          "enum": ["gentle-sway", "drift-slow", "flicker-subtle"]
+        },
+        "children": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/sceneLayer" }
+        }
+      }
+    }
+  }
+}
