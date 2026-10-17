@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 60" width="160" height="60">
+  <!-- Left Eye -->
+  <ellipse cx="40" cy="30" rx="20" ry="16" fill="#0f172a" />
+  <circle cx="40" cy="30" r="12" fill="#2563eb" />
+  <circle cx="36" cy="25" r="4.5" fill="#ffffff" />
+  <path d="M18,18 Q40,10 62,20" stroke="#0f172a" stroke-width="3" stroke-linecap="round" fill="none" />
+
+  <!-- Right Eye -->
+  <ellipse cx="120" cy="30" rx="20" ry="16" fill="#0f172a" />
+  <circle cx="120" cy="30" r="12" fill="#2563eb" />
+  <circle cx="116" cy="25" r="4.5" fill="#ffffff" />
+  <path d="M98,20 Q120,10 142,18" stroke="#0f172a" stroke-width="3" stroke-linecap="round" fill="none" />
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 600" width="300" height="600">
+  <defs>
+    <linearGradient id="bodySkin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fed7aa" />
+      <stop offset="100%" stop-color="#fcd34d" />
+    </linearGradient>
+    <linearGradient id="uniformNavy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+
+  <!-- Neck -->
+  <rect x="135" y="80" width="30" height="30" rx="6" fill="url(#bodySkin)" />
+
+  <!-- Torso / Blazer -->
+  <path d="M75,130 L100,105 L200,105 L225,130 L210,340 L90,340 Z" fill="url(#uniformNavy)" stroke="#334155" stroke-width="2" />
+  
+  <!-- White Inner Shirt & Collar -->
+  <polygon points="135,105 165,105 150,165" fill="#f8fafc" />
+  <polygon points="144,145 156,145 150,175" fill="#ef4444" /> <!-- Red Tie -->
+
+  <!-- Arms / Sleeves -->
+  <path d="M75,130 L55,280 L80,285 L95,155 Z" fill="#1e293b" stroke="#334155" stroke-width="2" />
+  <path d="M225,130 L245,280 L220,285 L205,155 Z" fill="#1e293b" stroke="#334155" stroke-width="2" />
+
+  <!-- Hands -->
+  <ellipse cx="65" cy="295" rx="12" ry="15" fill="url(#bodySkin)" />
+  <ellipse cx="235" cy="295" rx="12" ry="15" fill="url(#bodySkin)" />
+
+  <!-- Pants / Legs -->
+  <path d="M95,340 L105,550 L140,550 L145,360 L155,360 L160,550 L195,550 L205,340 Z" fill="#334155" stroke="#1e293b" stroke-width="2" />
+
+  <!-- Shoes -->
+  <rect x="98" y="550" width="44" height="25" rx="8" fill="#0f172a" />
+  <rect x="158" y="550" width="44" height="25" rx="8" fill="#0f172a" />
+</svg>

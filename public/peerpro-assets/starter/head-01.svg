@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 260" width="240" height="260">
+  <defs>
+    <linearGradient id="headSkin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffedd5" />
+      <stop offset="100%" stop-color="#fed7aa" />
+    </linearGradient>
+  </defs>
+
+  <!-- Anime Face Contour -->
+  <path d="M40,90 Q40,170 120,240 Q200,170 200,90 Q200,30 120,30 Q40,30 40,90 Z" fill="url(#headSkin)" stroke="#fbbf24" stroke-width="1.5" />
+
+  <!-- Ears -->
+  <ellipse cx="38" cy="115" rx="10" ry="16" fill="url(#headSkin)" stroke="#f59e0b" stroke-width="1" />
+  <ellipse cx="202" cy="115" rx="10" ry="16" fill="url(#headSkin)" stroke="#f59e0b" stroke-width="1" />
+
+  <!-- Subtle Nose -->
+  <polygon points="120,165 117,175 123,175" fill="#f59e0b" opacity="0.6" />
+</svg>

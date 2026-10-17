@@ -1,0 +1,232 @@
+{
+  "$schema": "../../schemas/asset-manifest.schema.json",
+  "packId": "starter-kit",
+  "name": "PeerPro Starter Anime & City Kit",
+  "version": "1.0.0",
+  "styleFamily": "anime-clean-v1",
+  "description": "Foundational vector parts for character assembly and 2.5D Japanese street composition.",
+  "assets": [
+    {
+      "id": "starter-char-body-01",
+      "name": "Student Blazer Body",
+      "kind": "character_part",
+      "category": "base_body",
+      "path": "peerpro-assets/starter/body-01.svg",
+      "format": "svg",
+      "dimensions": { "width": 300, "height": 600 },
+      "hasAlpha": true,
+      "style": { "family": "anime-clean-v1" },
+      "anchor": { "x": 0.5, "y": 1.0 },
+      "attachmentSockets": {
+        "neck": { "x": 150, "y": 95 },
+        "shoulder_left": { "x": 75, "y": 130 },
+        "shoulder_right": { "x": 225, "y": 130 }
+      },
+      "capabilities": ["scalable", "flip_x"],
+      "tags": ["character", "body", "uniform", "male"],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-char-head-01",
+      "name": "Anime Head Base",
+      "kind": "character_part",
+      "category": "head",
+      "path": "peerpro-assets/starter/head-01.svg",
+      "format": "svg",
+      "dimensions": { "width": 240, "height": 260 },
+      "hasAlpha": true,
+      "style": { "family": "anime-clean-v1" },
+      "anchor": { "x": 0.5, "y": 0.5 },
+      "attachmentSockets": {
+        "neck_socket": { "x": 120, "y": 240 },
+        "eyes": { "x": 120, "y": 135 },
+        "mouth": { "x": 120, "y": 195 },
+        "hair": { "x": 120, "y": 70 }
+      },
+      "requiredSockets": ["neck"],
+      "capabilities": ["scalable"],
+      "tags": ["character", "head", "face"],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-char-hair-short",
+      "name": "Short Blue Anime Bangs",
+      "kind": "character_part",
+      "category": "hair",
+      "path": "peerpro-assets/starter/hair-short-front.svg",
+      "format": "svg",
+      "dimensions": { "width": 260, "height": 180 },
+      "hasAlpha": true,
+      "style": { "family": "anime-clean-v1" },
+      "anchor": { "x": 0.5, "y": 0.5 },
+      "attachmentSockets": {
+        "hair_socket": { "x": 130, "y": 75 }
+      },
+      "requiredSockets": ["hair"],
+      "capabilities": ["scalable", "tintable"],
+      "tags": ["character", "hair", "short", "blue"],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-char-eyes-neutral",
+      "name": "Neutral Anime Eyes",
+      "kind": "character_part",
+      "category": "eyes",
+      "path": "peerpro-assets/starter/eyes-neutral.svg",
+      "format": "svg",
+      "dimensions": { "width": 160, "height": 60 },
+      "hasAlpha": true,
+      "style": { "family": "anime-clean-v1" },
+      "anchor": { "x": 0.5, "y": 0.5 },
+      "attachmentSockets": {
+        "eyes_socket": { "x": 80, "y": 30 }
+      },
+      "requiredSockets": ["eyes"],
+      "capabilities": ["scalable"],
+      "tags": ["character", "eyes", "neutral", "blue"],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-char-eyes-wide",
+      "name": "Surprised Wide Eyes",
+      "kind": "character_part",
+      "category": "eyes",
+      "path": "peerpro-assets/starter/eyes-wide.svg",
+      "format": "svg",
+      "dimensions": { "width": 160, "height": 65 },
+      "hasAlpha": true,
+      "style": { "family": "anime-clean-v1" },
+      "anchor": { "x": 0.5, "y": 0.5 },
+      "attachmentSockets": {
+        "eyes_socket": { "x": 80, "y": 32 }
+      },
+      "requiredSockets": ["eyes"],
+      "capabilities": ["scalable"],
+      "tags": ["character", "eyes", "surprised", "wide"],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-char-mouth-closed",
+      "name": "Neutral Closed Mouth",
+      "kind": "character_part",
+      "category": "mouth",
+      "path": "peerpro-assets/starter/mouth-closed.svg",
+      "format": "svg",
+      "dimensions": { "width": 60, "height": 30 },
+      "hasAlpha": true,
+      "style": { "family": "anime-clean-v1" },
+      "anchor": { "x": 0.5, "y": 0.5 },
+      "attachmentSockets": {
+        "mouth_socket": { "x": 30, "y": 15 }
+      },
+      "requiredSockets": ["mouth"],
+      "capabilities": ["scalable"],
+      "tags": ["character", "mouth", "neutral"],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-char-mouth-smile",
+      "name": "Smiling Open Mouth",
+      "kind": "character_part",
+      "category": "mouth",
+      "path": "peerpro-assets/starter/mouth-smile.svg",
+      "format": "svg",
+      "dimensions": { "width": 70, "height": 40 },
+      "hasAlpha": true,
+      "style": { "family": "anime-clean-v1" },
+      "anchor": { "x": 0.5, "y": 0.5 },
+      "attachmentSockets": {
+        "mouth_socket": { "x": 35, "y": 20 }
+      },
+      "requiredSockets": ["mouth"],
+      "capabilities": ["scalable"],
+      "tags": ["character", "mouth", "smile", "happy"],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-env-building-facade-01",
+      "name": "Tokyo Storefront Facade",
+      "kind": "environment_layer",
+      "category": "facade",
+      "path": "peerpro-assets/starter/building-facade-01.svg",
+      "format": "svg",
+      "dimensions": { "width": 600, "height": 800 },
+      "hasAlpha": true,
+      "style": { "family": "anime-clean-v1" },
+      "anchor": { "x": 0.5, "y": 1.0 },
+      "capabilities": ["scalable"],
+      "tags": ["environment", "building", "shop", "city", "midground"],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-env-road-segment",
+      "name": "Urban Road & Sidewalk Segment",
+      "kind": "environment_layer",
+      "category": "road",
+      "path": "peerpro-assets/starter/road-segment.svg",
+      "format": "svg",
+      "dimensions": { "width": 1920, "height": 300 },
+      "hasAlpha": true,
+      "style": { "family": "anime-clean-v1" },
+      "anchor": { "x": 0.5, "y": 1.0 },
+      "capabilities": ["scalable"],
+      "tags": ["environment", "road", "sidewalk", "ground"],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-env-streetlight",
+      "name": "Tokyo Streetlight",
+      "kind": "prop",
+      "category": "prop",
+      "path": "peerpro-assets/starter/streetlight.svg",
+      "format": "svg",
+      "dimensions": { "width": 120, "height": 500 },
+      "hasAlpha": true,
+      "style": { "family": "anime-clean-v1" },
+      "anchor": { "x": 0.5, "y": 1.0 },
+      "capabilities": ["scalable", "flip_x"],
+      "tags": ["environment", "prop", "lamp", "foreground"],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    }
+  ]
+}

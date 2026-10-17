@@ -8,7 +8,10 @@
     "build": "tsc --noEmit",
     "render:still": "remotion still PeerProSandbox out/smoke-test.png --frame=45",
     "render:video": "remotion render PeerProSandbox out/smoke-test.mp4",
-    "test": "node --test"
+    "test": "tsx --test tests/**/*.test.ts",
+    "assets:validate": "tsx scripts/validate-assets.ts",
+    "assets:index": "tsx scripts/build-asset-index.ts",
+    "assets:contact-sheet": "tsx scripts/build-contact-sheet.ts"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.528",
@@ -21,6 +24,7 @@
     "@types/node": "^22.13.9",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "tsx": "^4.23.15",
     "typescript": "^5.8.2"
   }
 }

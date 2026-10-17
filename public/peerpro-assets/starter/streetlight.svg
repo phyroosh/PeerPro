@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 500" width="120" height="500">
+  <defs>
+    <linearGradient id="poleMetal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#475569" />
+      <stop offset="50%" stop-color="#64748b" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+    <filter id="lampGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Base Flange -->
+  <rect x="35" y="480" width="50" height="20" rx="4" fill="#1e293b" />
+  <polygon points="45,480 75,480 70,450 50,450" fill="#334155" />
+
+  <!-- Vertical Pole -->
+  <rect x="54" y="90" width="12" height="360" fill="url(#poleMetal)" />
+
+  <!-- Curved Arm -->
+  <path d="M60,90 Q60,30 100,25" stroke="url(#poleMetal)" stroke-width="10" stroke-linecap="round" fill="none" />
+
+  <!-- Lamp Fixture Hood -->
+  <polygon points="85,30 115,25 110,40 85,42" fill="#1e293b" />
+
+  <!-- Glowing Lamp Bulb -->
+  <ellipse cx="98" cy="42" rx="14" ry="7" fill="#fef08a" filter="url(#lampGlow)" />
+</svg>

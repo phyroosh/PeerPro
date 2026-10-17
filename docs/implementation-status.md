@@ -1,8 +1,8 @@
 # PeerPro Implementation Status
 
 ## Current Status Overview
-- **Active Phase**: Phase 2 — Remotion runtime scaffold and first deterministic scene (Completed)
-- **Next Phase**: Phase 3 — Asset registry, manifest, and validation tools
+- **Active Phase**: Phase 3 — Asset registry, manifest, and validation tools (Completed)
+- **Next Phase**: Phase 4 — Composable character builder
 - **Last Updated**: 2026-10-17
 
 ---
@@ -40,17 +40,36 @@
   - `tsconfig.json` & `remotion.config.ts`: Modern TypeScript configuration and Remotion concurrency/format settings.
   - `src/index.ts` & `src/Root.tsx`: Composition registry registering `PeerProSandbox` (1920x1080 @ 30fps, 150 frames).
   - `src/core/scene/SceneCanvas.tsx`: Viewport wrapper establishing 1920x1080 design space.
-  - `src/compositions/PeerProSandbox.tsx`: Smoke-test composition demonstrating deterministic multi-plane movement, spring-driven scaling, and SVG asset loading via `staticFile()`.
+  - `src/compositions/PeerProSandbox.tsx`: Smoke-test composition demonstrating deterministic multi-plane movement.
   - `public/peerpro-assets/smoke/star.svg`: Starter SVG asset for verifying static file resolution.
-  - `README.md`: Documented setup, build, preview, and render procedures.
-  - `.gitignore`: Ignoring build outputs and dependencies.
+  - `README.md` & `.gitignore`: Setup and render documentation.
 - **Commands Run & Verified**:
-  - `npm install`: Added 261 packages with 0 vulnerabilities.
-  - `npx remotion versions`: Confirmed all Remotion packages and Zod exact version match.
-  - `npm run build` (`tsc --noEmit`): Passed with 0 errors.
-  - Remotion Studio launch probe: Started on port 3333 with HTTP server ready confirmation.
-  - `npm run render:still` (`remotion still`): Rendered frame 45 to `out/smoke-test.png` in 491ms.
-  - `npm run render:video` (`remotion render`): Rendered 150 frames to `out/smoke-test.mp4` (358 kB) in 7.36s.
-  - SHA256 checksum comparison on repeated renders of frame 45: Identical hash (`f18d836f849beb9cbc0568f5dd842544a4b4ed29c64491018b0186b468f30c22`), confirming strict frame determinism.
+  - `npm run build`: Passed with 0 errors.
+  - `npm run render:still`: Rendered `out/smoke-test.png` (frame 45).
+  - `npm run render:video`: Rendered `out/smoke-test.mp4` (150 frames, 5.0s, 358 kB).
+  - SHA256 checksum comparison: Confirmed bit-for-bit frame determinism.
+
+---
+
+### Phase 3 — Asset Registry, Manifest, and Validation Tools
+- **Status**: COMPLETED
+- **Date**: 2026-10-17
+- **Key Artifacts Created**:
+  - `src/core/assets/types.ts`: Comprehensive TypeScript interfaces for manifests, entries, provenance, and validation.
+  - `src/core/assets/schema.ts`: Runtime Zod schemas enforcing kebab-case IDs, categories, normalized anchors, and safe relative paths.
+  - `src/core/assets/validator.ts`: Pure read-only validator checking Zod schema conformance, unique IDs, physical file existence, directory traversal prevention, and provenance.
+  - `src/core/assets/registry.ts`: In-memory `AssetRegistry` with ID lookup, Levenshtein distance error suggestions, category/tag filtering, and path resolution for Remotion `staticFile()`.
+  - `public/peerpro-assets/starter/`: 10 original vector SVG assets (body, head, short hair, neutral eyes, wide eyes, closed mouth, smiling mouth, storefront facade, road segment, streetlight).
+  - `asset-packs/starter-kit/manifest.json`: Verified starter asset pack manifest conforming to schema with complete attachment sockets and MIT licensing.
+  - `scripts/validate-assets.ts`: CLI validator scanning all packs in `asset-packs/`.
+  - `scripts/build-asset-index.ts`: Builds searchable JSON (`schemas/asset-index.json`) and Markdown (`docs/asset-index.md`) catalog.
+  - `scripts/build-contact-sheet.ts`: Builds visual SVG contact sheet (`out/contact-sheet.svg`).
+  - `tests/unit/asset-validator.test.ts` & `tests/unit/asset-registry.test.ts`: 11 unit tests covering all acceptance criteria.
+- **Commands Run & Verified**:
+  - `npm test`: 11/11 tests passed in 456ms.
+  - `npm run build`: 0 TypeScript compiler errors.
+  - `npm run assets:validate`: 10/10 assets verified successfully.
+  - `npm run assets:index`: Generated `schemas/asset-index.json` and `docs/asset-index.md`.
+  - `npm run assets:contact-sheet`: Generated `out/contact-sheet.svg` (17 kB).
 - **Known Limitations**:
-  - Asset registry, character builder, and environment builder not yet implemented (scheduled for Phases 3, 4, 5).
+  - Character builder component and environment builder component not yet implemented (scheduled for Phases 4 and 5).

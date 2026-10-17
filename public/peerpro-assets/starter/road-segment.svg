@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 300" width="1920" height="300">
+  <defs>
+    <linearGradient id="roadAsphalt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="curbGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#64748b" />
+      <stop offset="100%" stop-color="#475569" />
+    </linearGradient>
+  </defs>
+
+  <!-- Sidewalk Pavement -->
+  <rect x="0" y="0" width="1920" height="90" fill="#94a3b8" />
+  <!-- Pavement Slab Lines -->
+  <line x1="0" y1="45" x2="1920" y2="45" stroke="#cbd5e1" stroke-width="2" />
+  <line x1="300" y1="0" x2="300" y2="90" stroke="#cbd5e1" stroke-width="2" />
+  <line x1="600" y1="0" x2="600" y2="90" stroke="#cbd5e1" stroke-width="2" />
+  <line x1="900" y1="0" x2="900" y2="90" stroke="#cbd5e1" stroke-width="2" />
+  <line x1="1200" y1="0" x2="1200" y2="90" stroke="#cbd5e1" stroke-width="2" />
+  <line x1="1500" y1="0" x2="1500" y2="90" stroke="#cbd5e1" stroke-width="2" />
+  <line x1="1800" y1="0" x2="1800" y2="90" stroke="#cbd5e1" stroke-width="2" />
+
+  <!-- Curb Boundary -->
+  <rect x="0" y="90" width="1920" height="25" fill="url(#curbGrad)" stroke="#334155" stroke-width="2" />
+
+  <!-- Asphalt Roadway -->
+  <rect x="0" y="115" width="1920" height="185" fill="url(#roadAsphalt)" />
+
+  <!-- Road White Dash Markings -->
+  <line x1="100" y1="200" x2="260" y2="200" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity="0.9" />
+  <line x1="450" y1="200" x2="610" y2="200" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity="0.9" />
+  <line x1="800" y1="200" x2="960" y2="200" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity="0.9" />
+  <line x1="1150" y1="200" x2="1310" y2="200" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity="0.9" />
+  <line x1="1500" y1="200" x2="1660" y2="200" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity="0.9" />
+</svg>
