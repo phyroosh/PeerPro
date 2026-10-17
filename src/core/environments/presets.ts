@@ -251,7 +251,157 @@ export const japaneseQuietStreetPreset: EnvironmentDefinition = {
   ],
 };
 
+/**
+ * Layout 3: High School Japanese Classroom (Daylight).
+ * Features an enclosed indoor room with wainscot wood wall, perspective plank floor,
+ * blackboard with geometry notes, window overlooking sunny sakura, student desks/chairs,
+ * teacher podium, and school clock.
+ */
+export const japaneseClassroomPreset: EnvironmentDefinition = {
+  id: 'japanese-classroom',
+  name: 'Japanese High School Classroom (Daylight)',
+  domain: 'indoor',
+  description: 'Enclosed daytime Japanese classroom with wainscot wall, wood floor, blackboard, window with cherry tree view, student desks, chairs, teacher lectern, and school clock.',
+  backgroundColor: '#f1f5f9',
+  grammar: {
+    wallDepth: 0.35,
+    floorBaselineY: 890,
+    ceilingTrimY: 42,
+    perspectiveVanishingPoint: { x: 960, y: 540 },
+  },
+  layers: [
+    // 1. Back Wall Plane (Depth: 0.35)
+    {
+      id: 'classroom-wall',
+      name: 'Classroom Wainscot Wall',
+      assetId: 'starter-env-classroom-wall',
+      depth: 0.35,
+      order: 2,
+      plane: 'background',
+      transform: {
+        x: 960,
+        y: 0,
+        scale: 1.0,
+        anchor: { x: 0.5, y: 0.0 },
+      },
+    },
+
+    // 2. Multi-pane Window with Outdoor Sakura View (Depth: 0.38)
+    {
+      id: 'classroom-window',
+      name: 'Classroom Window',
+      assetId: 'starter-env-classroom-window',
+      depth: 0.38,
+      order: 5,
+      plane: 'mid_back',
+      transform: {
+        x: 340,
+        y: 360,
+        scale: 1.0,
+        anchor: { x: 0.5, y: 0.5 },
+      },
+    },
+
+    // 3. Green Magnetic Blackboard (Depth: 0.38)
+    {
+      id: 'classroom-blackboard',
+      name: 'Chalkboard',
+      assetId: 'starter-env-classroom-blackboard',
+      depth: 0.38,
+      order: 8,
+      plane: 'mid_back',
+      transform: {
+        x: 1100,
+        y: 350,
+        scale: 1.0,
+        anchor: { x: 0.5, y: 0.5 },
+      },
+    },
+
+    // 4. Wall Clock (Depth: 0.38)
+    {
+      id: 'classroom-clock',
+      name: 'School Wall Clock',
+      assetId: 'starter-env-classroom-clock',
+      depth: 0.38,
+      order: 10,
+      plane: 'mid_back',
+      transform: {
+        x: 1560,
+        y: 150,
+        scale: 1.0,
+        anchor: { x: 0.5, y: 0.5 },
+      },
+    },
+
+    // 5. Hardwood Perspective Floor (Depth: 1.0)
+    {
+      id: 'classroom-floor',
+      name: 'Perspective Wood Floor',
+      assetId: 'starter-env-classroom-floor',
+      depth: 1.0,
+      order: 15,
+      plane: 'background',
+      transform: {
+        x: 960,
+        y: 1080,
+        scale: 1.0,
+        anchor: { x: 0.5, y: 1.0 },
+      },
+    },
+
+    // 6. Student Chair Behind Desk (Depth: 0.96)
+    {
+      id: 'classroom-student-chair-1',
+      name: 'Student Chair',
+      assetId: 'starter-env-classroom-chair',
+      depth: 0.96,
+      order: 24,
+      plane: 'mid_back',
+      transform: {
+        x: 1400,
+        y: 890,
+        scale: 0.95,
+        anchor: { x: 0.5, y: 1.0 },
+      },
+    },
+
+    // 7. Teacher Presentation Lectern (Depth: 1.02)
+    {
+      id: 'classroom-teacher-lectern',
+      name: 'Teacher Lectern',
+      assetId: 'starter-env-classroom-lectern',
+      depth: 1.02,
+      order: 28,
+      plane: 'mid_back',
+      transform: {
+        x: 500,
+        y: 900,
+        scale: 0.95,
+        anchor: { x: 0.5, y: 1.0 },
+      },
+    },
+
+    // 8. Foreground Student Desk (Depth: 1.15, Occludes character legs)
+    {
+      id: 'classroom-student-desk-1',
+      name: 'Foreground Student Desk',
+      assetId: 'starter-env-classroom-desk',
+      depth: 1.15,
+      order: 65,
+      plane: 'character_occluder',
+      transform: {
+        x: 1400,
+        y: 920,
+        scale: 1.0,
+        anchor: { x: 0.5, y: 1.0 },
+      },
+    },
+  ],
+};
+
 export const defaultEnvironmentPresets: Record<string, EnvironmentDefinition> = {
   'japanese-street-corner': japaneseStreetCornerPreset,
   'japanese-quiet-street': japaneseQuietStreetPreset,
+  'japanese-classroom': japaneseClassroomPreset,
 };

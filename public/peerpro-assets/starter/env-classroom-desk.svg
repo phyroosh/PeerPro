@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 300" width="240" height="300">
+  <defs>
+    <linearGradient id="desktopWood" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="60%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="metalLegs" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="40%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <filter id="deskDropShadow" x="-20" y="270" width="280" height="30" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- Ground Contact Shadow -->
+  <ellipse cx="120" cy="288" rx="100" ry="8" fill="#0f172a" opacity="0.35" filter="url(#deskDropShadow)"/>
+
+  <!-- Rear Desk Legs (Darker tone for depth) -->
+  <g stroke="#1e293b" stroke-width="8" stroke-linecap="round">
+    <line x1="42" y1="50" x2="38" y2="284"/>
+    <line x1="198" y1="50" x2="202" y2="284"/>
+    <!-- Rear Cross Brace -->
+    <line x1="40" y1="200" x2="200" y2="200" stroke-width="6"/>
+  </g>
+
+  <!-- Lower Wire Mesh Book Basket beneath Desktop -->
+  <rect x="36" y="44" width="168" height="32" rx="4" fill="#0f172a" opacity="0.15"/>
+  <rect x="36" y="44" width="168" height="32" rx="4" fill="none" stroke="#334155" stroke-width="3"/>
+  <line x1="36" y1="60" x2="204" y2="60" stroke="#475569" stroke-width="2"/>
+  <line x1="80" y1="44" x2="80" y2="76" stroke="#475569" stroke-width="2"/>
+  <line x1="120" y1="44" x2="120" y2="76" stroke="#475569" stroke-width="2"/>
+  <line x1="160" y1="44" x2="160" y2="76" stroke="#475569" stroke-width="2"/>
+
+  <!-- Textbook Spine resting inside basket -->
+  <rect x="52" y="52" width="70" height="16" rx="2" fill="#2563eb"/>
+  <rect x="52" y="54" width="6" height="12" fill="#60a5fa"/>
+
+  <!-- Front Desk Legs -->
+  <g stroke="url(#metalLegs)" stroke-width="10" stroke-linecap="round">
+    <!-- Left Leg -->
+    <line x1="28" y1="40" x2="24" y2="286"/>
+    <!-- Right Leg -->
+    <line x1="212" y1="40" x2="216" y2="286"/>
+    <!-- Lower Crossbar Bracing -->
+    <line x1="26" y1="210" x2="214" y2="210" stroke-width="7"/>
+  </g>
+
+  <!-- Rubber Foot Caps on All 4 Legs -->
+  <rect x="18" y="282" width="12" height="7" rx="2" fill="#0f172a"/>
+  <rect x="210" y="282" width="12" height="7" rx="2" fill="#0f172a"/>
+  <rect x="32" y="280" width="12" height="6" rx="2" fill="#0f172a" opacity="0.8"/>
+  <rect x="196" y="280" width="12" height="6" rx="2" fill="#0f172a" opacity="0.8"/>
+
+  <!-- Side Bag Hook on Left Front Leg -->
+  <path d="M 23 90 Q 14 90 14 100 Q 14 108 22 108" fill="none" stroke="#64748b" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Desktop Surface Drop Shadow on Legs -->
+  <rect x="10" y="36" width="220" height="8" rx="2" fill="#0f172a" opacity="0.25"/>
+
+  <!-- Wooden Tabletop (Honey Oak Laminate) -->
+  <rect x="10" y="16" width="220" height="24" rx="5" fill="url(#desktopWood)"/>
+  <!-- Beveled Front Highlight -->
+  <rect x="10" y="16" width="220" height="3" rx="1" fill="#fde68a" opacity="0.6"/>
+  <!-- Dark Bevel Underside -->
+  <rect x="10" y="37" width="220" height="3" rx="1" fill="#78350f"/>
+
+  <!-- Pen Groove / Pencil Tray routed into wood -->
+  <rect x="140" y="21" width="75" height="5" rx="2.5" fill="#92400e"/>
+  <!-- Red Ballpoint Pen in Groove -->
+  <line x1="145" y1="23.5" x2="205" y2="23.5" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="145" y1="23.5" x2="152" y2="23.5" stroke="#ffffff" stroke-width="2"/>
+</svg>

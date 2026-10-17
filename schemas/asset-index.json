@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-17T10:38:18.911Z",
-  "totalAssets": 36,
+  "generatedAt": "2026-10-17T11:32:21.717Z",
+  "totalAssets": 44,
   "categories": {
     "base_body": [
       "starter-char-body-01",
@@ -39,7 +39,9 @@
     ],
     "facade": [
       "starter-env-building-facade-01",
-      "starter-env-building-facade-02"
+      "starter-env-building-facade-02",
+      "starter-env-classroom-wall",
+      "starter-env-classroom-window"
     ],
     "sign": [
       "starter-env-conbini-sign"
@@ -50,10 +52,16 @@
     "prop": [
       "starter-env-vending-machine",
       "starter-env-streetlight",
-      "starter-prop-contact-shadow"
+      "starter-prop-contact-shadow",
+      "starter-env-classroom-blackboard",
+      "starter-env-classroom-desk",
+      "starter-env-classroom-chair",
+      "starter-env-classroom-lectern",
+      "starter-env-classroom-clock"
     ],
     "road": [
-      "starter-env-road-segment"
+      "starter-env-road-segment",
+      "starter-env-classroom-floor"
     ],
     "arms": [
       "starter-char-arm-01-left-idle",
@@ -201,7 +209,15 @@
       "starter-env-tree-cherry",
       "starter-env-vending-machine",
       "starter-env-road-segment",
-      "starter-env-streetlight"
+      "starter-env-streetlight",
+      "starter-env-classroom-wall",
+      "starter-env-classroom-floor",
+      "starter-env-classroom-blackboard",
+      "starter-env-classroom-window",
+      "starter-env-classroom-desk",
+      "starter-env-classroom-chair",
+      "starter-env-classroom-lectern",
+      "starter-env-classroom-clock"
     ],
     "sky": [
       "starter-env-sky-dusk"
@@ -213,7 +229,8 @@
       "starter-env-sky-dusk"
     ],
     "background": [
-      "starter-env-sky-dusk"
+      "starter-env-sky-dusk",
+      "starter-env-classroom-wall"
     ],
     "overscan": [
       "starter-env-sky-dusk"
@@ -250,7 +267,12 @@
       "starter-env-conbini-sign",
       "starter-env-vending-machine",
       "starter-env-streetlight",
-      "starter-prop-contact-shadow"
+      "starter-prop-contact-shadow",
+      "starter-env-classroom-blackboard",
+      "starter-env-classroom-desk",
+      "starter-env-classroom-chair",
+      "starter-env-classroom-lectern",
+      "starter-env-classroom-clock"
     ],
     "tree": [
       "starter-env-tree-cherry"
@@ -259,7 +281,8 @@
       "starter-env-tree-cherry"
     ],
     "sakura": [
-      "starter-env-tree-cherry"
+      "starter-env-tree-cherry",
+      "starter-env-classroom-window"
     ],
     "foreground": [
       "starter-env-tree-cherry",
@@ -282,7 +305,8 @@
     ],
     "ground": [
       "starter-env-road-segment",
-      "starter-prop-contact-shadow"
+      "starter-prop-contact-shadow",
+      "starter-env-classroom-floor"
     ],
     "lamp": [
       "starter-env-streetlight"
@@ -362,6 +386,67 @@
     ],
     "talk": [
       "starter-char-arm-01-left-bent-talk"
+    ],
+    "indoor": [
+      "starter-env-classroom-wall",
+      "starter-env-classroom-floor",
+      "starter-env-classroom-blackboard",
+      "starter-env-classroom-window",
+      "starter-env-classroom-desk",
+      "starter-env-classroom-chair",
+      "starter-env-classroom-lectern",
+      "starter-env-classroom-clock"
+    ],
+    "classroom": [
+      "starter-env-classroom-wall",
+      "starter-env-classroom-floor",
+      "starter-env-classroom-blackboard",
+      "starter-env-classroom-window",
+      "starter-env-classroom-desk",
+      "starter-env-classroom-chair",
+      "starter-env-classroom-lectern",
+      "starter-env-classroom-clock"
+    ],
+    "wall": [
+      "starter-env-classroom-wall"
+    ],
+    "floor": [
+      "starter-env-classroom-floor"
+    ],
+    "wood": [
+      "starter-env-classroom-floor"
+    ],
+    "blackboard": [
+      "starter-env-classroom-blackboard"
+    ],
+    "chalkboard": [
+      "starter-env-classroom-blackboard"
+    ],
+    "window": [
+      "starter-env-classroom-window"
+    ],
+    "daylight": [
+      "starter-env-classroom-window"
+    ],
+    "desk": [
+      "starter-env-classroom-desk"
+    ],
+    "furniture": [
+      "starter-env-classroom-desk",
+      "starter-env-classroom-chair",
+      "starter-env-classroom-lectern"
+    ],
+    "chair": [
+      "starter-env-classroom-chair"
+    ],
+    "lectern": [
+      "starter-env-classroom-lectern"
+    ],
+    "podium": [
+      "starter-env-classroom-lectern"
+    ],
+    "clock": [
+      "starter-env-classroom-clock"
     ]
   },
   "assets": [
@@ -1997,6 +2082,329 @@
         "left",
         "talk",
         "cutout"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-env-classroom-wall",
+      "name": "High School Classroom Wall",
+      "kind": "environment_layer",
+      "category": "facade",
+      "path": "peerpro-assets/starter/env-classroom-wall.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "hasAlpha": false,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front",
+        "lighting": "daylight"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0
+      },
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "environment",
+        "indoor",
+        "classroom",
+        "wall",
+        "background"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-env-classroom-floor",
+      "name": "Polished Classroom Wood Floor",
+      "kind": "environment_layer",
+      "category": "road",
+      "path": "peerpro-assets/starter/env-classroom-floor.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 1920,
+        "height": 380
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front",
+        "lighting": "daylight"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "environment",
+        "indoor",
+        "classroom",
+        "floor",
+        "wood",
+        "ground"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-env-classroom-blackboard",
+      "name": "School Classroom Blackboard",
+      "kind": "prop",
+      "category": "prop",
+      "path": "peerpro-assets/starter/env-classroom-blackboard.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 720,
+        "height": 320
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front",
+        "lighting": "daylight"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "environment",
+        "indoor",
+        "classroom",
+        "blackboard",
+        "chalkboard",
+        "prop"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-env-classroom-window",
+      "name": "Classroom Window with Sakura View",
+      "kind": "environment_layer",
+      "category": "facade",
+      "path": "peerpro-assets/starter/env-classroom-window.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 480,
+        "height": 500
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front",
+        "lighting": "daylight"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "capabilities": [
+        "scalable",
+        "flip_x"
+      ],
+      "tags": [
+        "environment",
+        "indoor",
+        "classroom",
+        "window",
+        "sakura",
+        "daylight"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-env-classroom-desk",
+      "name": "Japanese Student Desk",
+      "kind": "prop",
+      "category": "prop",
+      "path": "peerpro-assets/starter/env-classroom-desk.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 240,
+        "height": 300
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front",
+        "lighting": "daylight"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "capabilities": [
+        "scalable",
+        "flip_x"
+      ],
+      "tags": [
+        "environment",
+        "indoor",
+        "classroom",
+        "desk",
+        "furniture",
+        "prop"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-env-classroom-chair",
+      "name": "Japanese Student Chair",
+      "kind": "prop",
+      "category": "prop",
+      "path": "peerpro-assets/starter/env-classroom-chair.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 160,
+        "height": 260
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front",
+        "lighting": "daylight"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "capabilities": [
+        "scalable",
+        "flip_x"
+      ],
+      "tags": [
+        "environment",
+        "indoor",
+        "classroom",
+        "chair",
+        "furniture",
+        "prop"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-env-classroom-lectern",
+      "name": "Teacher Presentation Lectern",
+      "kind": "prop",
+      "category": "prop",
+      "path": "peerpro-assets/starter/env-classroom-lectern.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 200,
+        "height": 360
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front",
+        "lighting": "daylight"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "capabilities": [
+        "scalable",
+        "flip_x"
+      ],
+      "tags": [
+        "environment",
+        "indoor",
+        "classroom",
+        "lectern",
+        "podium",
+        "furniture",
+        "prop"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-env-classroom-clock",
+      "name": "School Classroom Wall Clock",
+      "kind": "prop",
+      "category": "prop",
+      "path": "peerpro-assets/starter/env-classroom-clock.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 120,
+        "height": 120
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front",
+        "lighting": "daylight"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "environment",
+        "indoor",
+        "classroom",
+        "clock",
+        "prop"
       ],
       "provenance": {
         "source": "original",

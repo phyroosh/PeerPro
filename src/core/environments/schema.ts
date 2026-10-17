@@ -25,6 +25,7 @@ const BaseEnvironmentLayerSchema = z.object({
   assetId: z.string().optional(),
   depth: z.number(),
   order: z.number(),
+  plane: z.enum(['background', 'mid_back', 'character_occluder', 'foreground']).optional(),
   transform: LayerTransformSchema,
   animationPreset: z.string().optional(),
 });
@@ -33,10 +34,24 @@ export const EnvironmentLayerSchema: z.ZodType<any> = BaseEnvironmentLayerSchema
   children: z.lazy(() => z.array(EnvironmentLayerSchema)).optional(),
 });
 
+export const RoomGrammarSchema = z.object({
+  wallDepth: z.number().optional(),
+  floorBaselineY: z.number().optional(),
+  ceilingTrimY: z.number().optional(),
+  perspectiveVanishingPoint: z
+    .object({
+      x: z.number(),
+      y: z.number(),
+    })
+    .optional(),
+});
+
 export const EnvironmentDefinitionSchema = z.object({
   id: z.string().min(1, 'Environment ID must be non-empty'),
   name: z.string().min(1, 'Environment name must be non-empty'),
+  domain: z.enum(['outdoor', 'indoor', 'hybrid']).optional(),
   description: z.string().optional(),
   backgroundColor: z.string().optional(),
+  grammar: RoomGrammarSchema.optional(),
   layers: z.array(EnvironmentLayerSchema).min(1, 'Environment must define at least one layer'),
 });

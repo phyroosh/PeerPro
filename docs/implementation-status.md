@@ -1,8 +1,8 @@
 # PeerPro Implementation Status
 
 ## Current Status Overview
-- **Active Phase**: Phase 13 — Character Continuity and Cutout-Rig Foundation (Completed)
-- **Overall Status**: **PHASE 13 DELIVERED & FULLY VERIFIED (53/53 TESTS PASSING)**
+- **Active Phase**: Phase 14 — Environment Kits and World-Building Grammar (Completed)
+- **Overall Status**: **PHASE 14 DELIVERED & FULLY VERIFIED (58/58 TESTS PASSING)**
 - **Last Updated**: 2026-10-17
 
 ---
@@ -305,7 +305,53 @@
   - `npm run render:cutout:video`: Rendered `out/cutout-showcase.mp4` in 6.03s.
   - `npm run assets:validate`: 36/36 assets verified across starter kit.
 - **Known Limitations**:
-  - Multi-shot scene composition and camera cutting transitions are scheduled for Phase 14.
+  - Enclosed indoor environments and room grammar are addressed in Phase 14.
+
+---
+
+### Phase 14 — Environment Kits and World-Building Grammar
+- **Status**: COMPLETED
+- **Date**: 2026-10-17
+- **Key Artifacts Created & Upgrades**:
+  - `src/core/environments/types.ts`:
+    - Added `EnvironmentDomain = 'outdoor' | 'indoor' | 'hybrid'`.
+    - Added `EnvironmentLayerPlane = 'background' | 'mid_back' | 'character_occluder' | 'foreground'`.
+    - Defined `RoomGrammar` interface (`wallDepth`, `floorBaselineY`, `ceilingTrimY`, `perspectiveVanishingPoint`).
+    - Extended `EnvironmentDefinition` with optional `domain` and `grammar`.
+    - Extended `EnvironmentLayer` with optional `plane`.
+  - `src/core/environments/schema.ts`:
+    - Added runtime Zod validation for `EnvironmentDomain`, `RoomGrammarSchema`, and `plane`.
+  - `src/core/environments/Environment.tsx`:
+    - Updated z-index resolution to boost `character_occluder` plane layers (`zIndex >= 55`), guaranteeing natural occlusion of characters behind foreground furniture (e.g. desks, podiums).
+  - High-Appeal Indoor Classroom Vector Asset Kit (8 new original vector assets, expanding starter kit from 36 to 44 assets):
+    - `public/peerpro-assets/starter/env-classroom-wall.svg`: $1920 \times 1080$ classroom wall with wood wainscoting paneling, upper cream plaster, and ceiling molding.
+    - `public/peerpro-assets/starter/env-classroom-floor.svg`: $1920 \times 380$ perspective wood plank flooring ($Y = 700 \to 1080$).
+    - `public/peerpro-assets/starter/env-classroom-blackboard.svg`: $720 \times 320$ green chalkboard with wood frame, chalk tray, erased marks, and geometry diagrams.
+    - `public/peerpro-assets/starter/env-classroom-window.svg`: $480 \times 500$ multi-pane window with sunny sky, fluffy clouds, and blooming cherry tree branch.
+    - `public/peerpro-assets/starter/env-classroom-desk.svg`: $240 \times 300$ Japanese student desk with oak laminate surface, tubular metal legs, and book basket.
+    - `public/peerpro-assets/starter/env-classroom-chair.svg`: $160 \times 260$ matching student chair with contoured plywood seat and backrest.
+    - `public/peerpro-assets/starter/env-classroom-lectern.svg`: $200 \times 360$ wooden teacher presentation podium with document rest.
+    - `public/peerpro-assets/starter/env-classroom-clock.svg`: $120 \times 120$ school wall clock showing 3:15 PM with metallic bezel.
+  - `asset-packs/starter-kit/manifest.json`:
+    - Registered all 8 indoor assets with categories, anchors, tags (`indoor`, `classroom`), and anime style metadata (Pack v1.5.0, 44 assets).
+    - Regenerated `schemas/asset-index.json`, `docs/asset-index.md`, and `out/contact-sheet.svg`.
+  - `src/core/environments/presets.ts`:
+    - Added `japaneseClassroomPreset` with room grammar (`floorBaselineY: 890`, `wallDepth: 0.35`, `ceilingTrimY: 42`), perspective floor, wall fixtures, teacher podium, student chair, and occluding foreground desk.
+  - `src/compositions/ClassroomShowcase.tsx`:
+    - Remotion benchmark composition registered in `src/Root.tsx`.
+    - Demonstrates indoor scene staging: Teacher Ren lecturing at podium (left) and Student Ren answering question behind student desk (right) with natural waist occlusion.
+  - `tests/unit/environment-kits.test.ts`:
+    - 5 comprehensive unit tests verifying schema validation, room grammar boundaries, layer plane segregation, occlusion ordering, asset existence, and multi-domain compatibility.
+  - `out/classroom-showcase.png` & `out/classroom-showcase.mp4`:
+    - Verified still frame and video renders with authentic Japanese classroom atmosphere and flawless layer occlusion.
+- **Commands Run & Verified**:
+  - `npm test`: 58/58 tests passed (100%).
+  - `npm run verify:all`: All 9/9 verification stages passed in 49.74s.
+  - `npm run render:classroom:still`: Rendered `out/classroom-showcase.png` in 453ms.
+  - `npm run render:classroom:video`: Rendered `out/classroom-showcase.mp4` in 9.38s.
+  - `npm run assets:validate`: 44/44 assets verified across starter kit.
+- **Known Limitations**:
+  - Reusable character animation actions, timeline action sequencing, and transitions are scheduled for Phase 15.
 
 
 

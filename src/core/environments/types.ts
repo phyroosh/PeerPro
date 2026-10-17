@@ -21,6 +21,28 @@ export interface LayerTransform {
   };
 }
 
+export type EnvironmentDomain = 'outdoor' | 'indoor' | 'hybrid';
+
+export type EnvironmentLayerPlane =
+  | 'background'
+  | 'mid_back'
+  | 'character_occluder'
+  | 'foreground';
+
+export interface RoomGrammar {
+  /** Depth factor for the back wall plane (typically 0.2 - 0.5) */
+  wallDepth?: number;
+  /** Y pixel coordinate where character feet anchor onto the floor (e.g. 890) */
+  floorBaselineY?: number;
+  /** Y pixel coordinate for ceiling molding / top trim boundary */
+  ceilingTrimY?: number;
+  /** Perspective vanishing point in canvas coordinates (e.g. { x: 960, y: 540 }) */
+  perspectiveVanishingPoint?: {
+    x: number;
+    y: number;
+  };
+}
+
 export interface EnvironmentLayer {
   id: string;
   name?: string;
@@ -35,6 +57,8 @@ export interface EnvironmentLayer {
   depth: number;
   /** Render sort order (lower rendered behind, higher in front) */
   order: number;
+  /** Layer plane category for occlusion and character staging */
+  plane?: EnvironmentLayerPlane;
   /** Position, scaling, and rotation */
   transform: LayerTransform;
   /** Optional motion preset */
@@ -48,8 +72,10 @@ export interface EnvironmentLayer {
 export interface EnvironmentDefinition {
   id: string;
   name: string;
+  domain?: EnvironmentDomain;
   description?: string;
   backgroundColor?: string;
+  grammar?: RoomGrammar;
   layers: EnvironmentLayer[];
 }
 

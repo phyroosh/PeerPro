@@ -109,7 +109,10 @@ export const Environment: React.FC<EnvironmentProps> = ({
     const rotation = layer.transform.rotation ?? 0;
     const opacity = layer.transform.opacity ?? 1.0;
 
-    const zIndex = parentZ * 100 + layer.order;
+    let zIndex = parentZ * 100 + layer.order;
+    if (layer.plane === 'character_occluder' && zIndex < 55) {
+      zIndex += 50;
+    }
 
     return (
       <div

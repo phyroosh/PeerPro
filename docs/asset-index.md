@@ -1,7 +1,7 @@
 # PeerPro Asset Index
 
 > Automatically generated index of all available modular assets in PeerPro.
-> Total Assets: **36** | Generated: 2026-10-17
+> Total Assets: **44** | Generated: 2026-10-17
 
 ## Quick Category Navigation
 
@@ -11,11 +11,11 @@
 - [eyes (6)](#category-eyes)
 - [mouth (4)](#category-mouth)
 - [sky (1)](#category-sky)
-- [facade (2)](#category-facade)
+- [facade (4)](#category-facade)
 - [sign (1)](#category-sign)
 - [foliage (1)](#category-foliage)
-- [prop (3)](#category-prop)
-- [road (1)](#category-road)
+- [prop (8)](#category-prop)
+- [road (2)](#category-road)
 - [arms (5)](#category-arms)
 
 ---
@@ -79,6 +79,8 @@
 |---|---|---|---|---|---|---|---|
 | `starter-env-building-facade-01` | Tokyo Storefront Facade | `svg` | 600x800 | (0.5, 1) | none | environment, building, shop, city, midground | MIT |
 | `starter-env-building-facade-02` | Tokyo Apartment Facade | `svg` | 500x750 | (0.5, 1) | none | environment, building, apartment, city, midground | MIT |
+| `starter-env-classroom-wall` | High School Classroom Wall | `svg` | 1920x1080 | (0.5, 0) | none | environment, indoor, classroom, wall, background | MIT |
+| `starter-env-classroom-window` | Classroom Window with Sakura View | `svg` | 480x500 | (0.5, 0.5) | none | environment, indoor, classroom, window, sakura, daylight | MIT |
 
 ### Category: `sign`
 
@@ -99,12 +101,18 @@
 | `starter-env-vending-machine` | Tokyo Drink Vending Machine | `svg` | 160x300 | (0.5, 1) | none | environment, prop, vending-machine, drinks, street | MIT |
 | `starter-env-streetlight` | Tokyo Streetlight | `svg` | 120x500 | (0.5, 1) | none | environment, prop, lamp, foreground | MIT |
 | `starter-prop-contact-shadow` | Ground Contact Shadow Oval | `svg` | 240x50 | (0.5, 0.5) | none | prop, shadow, contact, ground | MIT |
+| `starter-env-classroom-blackboard` | School Classroom Blackboard | `svg` | 720x320 | (0.5, 0.5) | none | environment, indoor, classroom, blackboard, chalkboard, prop | MIT |
+| `starter-env-classroom-desk` | Japanese Student Desk | `svg` | 240x300 | (0.5, 1) | none | environment, indoor, classroom, desk, furniture, prop | MIT |
+| `starter-env-classroom-chair` | Japanese Student Chair | `svg` | 160x260 | (0.5, 1) | none | environment, indoor, classroom, chair, furniture, prop | MIT |
+| `starter-env-classroom-lectern` | Teacher Presentation Lectern | `svg` | 200x360 | (0.5, 1) | none | environment, indoor, classroom, lectern, podium, furniture, prop | MIT |
+| `starter-env-classroom-clock` | School Classroom Wall Clock | `svg` | 120x120 | (0.5, 0.5) | none | environment, indoor, classroom, clock, prop | MIT |
 
 ### Category: `road`
 
 | ID | Name | Format | Dimensions | Anchor | Sockets | Tags | License |
 |---|---|---|---|---|---|---|---|
 | `starter-env-road-segment` | Urban Road & Sidewalk Segment | `svg` | 1920x300 | (0.5, 1) | none | environment, road, sidewalk, ground | MIT |
+| `starter-env-classroom-floor` | Polished Classroom Wood Floor | `svg` | 1920x380 | (0.5, 1) | none | environment, indoor, classroom, floor, wood, ground | MIT |
 
 ### Category: `arms`
 
