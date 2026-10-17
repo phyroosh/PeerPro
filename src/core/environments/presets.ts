@@ -96,7 +96,7 @@ export const japaneseStreetCornerPreset: EnvironmentDefinition = {
       transform: {
         x: 960,
         y: 1080,
-        scale: 1.0,
+        scale: [1.15, 1.0],
         anchor: { x: 0.5, y: 1.0 },
       },
     },
@@ -229,7 +229,7 @@ export const japaneseQuietStreetPreset: EnvironmentDefinition = {
       transform: {
         x: 960,
         y: 1080,
-        scale: 1.0,
+        scale: [1.15, 1.0],
         anchor: { x: 0.5, y: 1.0 },
       },
     },

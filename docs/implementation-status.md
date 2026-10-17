@@ -1,8 +1,8 @@
 # PeerPro Implementation Status
 
 ## Current Status Overview
-- **Active Phase**: Phase 5 — Modular environment builder (Completed)
-- **Next Phase**: Phase 6 — Animation, camera, and parallax toolkit
+- **Active Phase**: Phase 6 — Animation, camera, and parallax toolkit (Completed)
+- **Next Phase**: Phase 7 — Agent-facing scene APIs and discoverability
 - **Last Updated**: 2026-10-17
 
 ---
@@ -67,3 +67,35 @@
   - SHA256 checksum comparison: Confirmed identical hash `9f087405465befdedd4cb959b61bc64453e460c70986f8205490a41f6497b20a` across separate renders of frame 40.
 - **Known Limitations**:
   - Reusable camera motion presets and 2.5D parallax displacement are scheduled for implementation in Phase 6.
+
+---
+
+### Phase 6 — Animation, Camera, and Parallax Toolkit
+- **Status**: COMPLETED
+- **Date**: 2026-10-17
+- **Key Artifacts Created**:
+  - `src/core/animation/types.ts`: TypeScript contracts for `BreathingOptions`, `HeadAngleOptions`, `ExpressionKeyframe`, `EasingType`, and `KeyframePoint`.
+  - `src/core/animation/primitives.ts`: Pure, deterministic mathematical functions (`computeOscillation`, `computeBreathing`, `computeHeadTilt`, `resolveExpressionSchedule`, `lerp`, `clamp`).
+  - `src/core/animation/index.ts`: Barrel export for animation primitives and types.
+  - `src/core/camera/types.ts`: TypeScript contracts for `CameraConfig`, `CameraState`, `CameraBounds`, and `CameraPresetName` (`static`, `slow-push-in`, `slow-pull-out`, `pan-left-to-right`, `pan-right-to-left`, `tilt-up`, `tilt-down`, `tracking`, `custom`).
+  - `src/core/camera/presets.ts`: Frame-deterministic camera solver with smoothstep easing, intensity scaling, and strict displacement/zoom bounding safety.
+  - `src/core/camera/parallax.ts`: Pure mathematical multi-plane 2.5D parallax calculator (`computeParallax`) scaling displacement and zoom relative to focal depth ($z = 1.0$).
+  - `src/core/camera/Camera25D.tsx`: React Context provider supplying frame-deterministic virtual camera state to descendant layers and effects.
+  - `src/core/camera/index.ts`: Barrel export for camera modules.
+  - `src/core/effects/DriftingPetals.tsx`: Deterministic sakura particle system powered by Mulberry32 PRNG and dynamic 2.5D camera parallax tracking with safe toroidal wrapping.
+  - `src/core/effects/RainEffect.tsx`: Deterministic directional rain streak system with 2.5D camera parallax responsiveness.
+  - `src/core/effects/index.ts`: Barrel export for atmospheric visual effects.
+  - `src/core/environments/Environment.tsx`: Enhanced layer rendering to calculate depth-scaled parallax against active `Camera25D` context.
+  - `src/compositions/ParallaxTest.tsx`: Full-featured benchmark composition (1920x1080 @ 30fps, 120 frames) integrating virtual camera motion, 6-plane depth environment, hero character breathing/sway/expression scheduling, drifting petals, and real-time telemetry HUD.
+  - `tests/unit/animation-and-camera.test.ts`: 9 unit tests verifying camera presets, intensity suppression, monotonic progression, safety bounding, parallax depth scaling, breathing oscillation, head tilt limits, and expression scheduling.
+- **Commands Run & Verified**:
+  - `npm test`: 29/29 unit tests passed in 812ms.
+  - `npm run build`: 0 TypeScript compiler errors (`tsc --noEmit`).
+  - `npm run render:parallax:start`: Rendered `out/parallax-start.png` (frame 0) in 357ms.
+  - `npm run render:parallax:mid`: Rendered `out/parallax-mid.png` (frame 60) in 345ms.
+  - `npm run render:parallax:end`: Rendered `out/parallax-end.png` (frame 119) in 336ms.
+  - `npm run render:parallax:video`: Rendered `out/parallax-test.mp4` (120 frames, 4.0s, 1.2 MB) in 6.67s.
+  - SHA-256 Bit-for-bit Determinism: Confirmed identical hash `e3175b11886e15e6d09f1ae452ed065547d3e4dec83c3d6cb517a8babc140ee5` across independent renders of frame 60.
+- **Known Limitations**:
+  - High-level declarative JSON Scene Manifest format and agent discovery/introspection CLI tools will be established in Phase 7.
+

@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { Img, staticFile } from 'remotion';
 import { defaultAssetRegistry, AssetRegistry } from '../assets/registry';
 import { AssetManifestEntry } from '../assets/types';
+import { useCamera25D } from '../camera/Camera25D';
 import {
   EnvironmentDefinition,
   EnvironmentLayer,
@@ -54,18 +55,26 @@ export function validateEnvironmentAssets(
 
 /**
  * Environment Component renders a modular 2.5D scene from layered assets.
- * Supports depth planes, hierarchical grouping, and anchor-based placement.
+ * Supports depth planes, hierarchical grouping, anchor-based placement,
+ * and 2.5D parallax response to Camera25D context or explicit props.
  */
 export const Environment: React.FC<EnvironmentProps> = ({
   definition,
   registry = defaultAssetRegistry,
-  cameraOffset = { x: 0, y: 0, zoom: 1.0 },
+  cameraOffset,
   style,
 }) => {
   // Validate assets prior to rendering
   useMemo(() => {
     validateEnvironmentAssets(definition, registry);
   }, [definition, registry]);
+
+  const cameraContext = useCamera25D();
+
+  const camX = cameraOffset?.x ?? cameraContext.camera.x ?? 0;
+  const camY = cameraOffset?.y ?? cameraContext.camera.y ?? 0;
+  const camZoom = cameraOffset?.zoom ?? cameraContext.camera.zoom ?? 1.0;
+  const focalDepth = cameraContext.camera.focalDepth ?? 1.0;
 
   const renderLayer = (layer: EnvironmentLayer, parentZ = 0): React.ReactNode => {
     const asset: AssetManifestEntry | undefined = layer.assetId
@@ -81,19 +90,22 @@ export const Environment: React.FC<EnvironmentProps> = ({
     const pivotOffsetX = anchor.x * width;
     const pivotOffsetY = anchor.y * height;
 
-    // Parallax displacement: Layer shift = -cameraOffset * depth
-    const camX = cameraOffset.x ?? 0;
-    const camY = cameraOffset.y ?? 0;
-    const parallaxX = -camX * layer.depth;
-    const parallaxY = -camY * layer.depth;
+    // Parallax displacement based on depth relative to focal plane
+    const depthRatio = layer.depth / Math.max(focalDepth, 0.01);
+    const parallaxX = -camX * depthRatio;
+    const parallaxY = -camY * depthRatio;
+    const parallaxScale = 1.0 + (camZoom - 1.0) * depthRatio;
 
     const posX = layer.transform.x - pivotOffsetX + parallaxX;
     const posY = layer.transform.y - pivotOffsetY + parallaxY;
 
     // Scaling
     const rawScale = layer.transform.scale ?? 1.0;
-    const scaleX = (Array.isArray(rawScale) ? rawScale[0] : rawScale) * (layer.transform.flipX ? -1 : 1);
-    const scaleY = Array.isArray(rawScale) ? rawScale[1] : rawScale;
+    const baseScaleX = Array.isArray(rawScale) ? rawScale[0] : rawScale;
+    const baseScaleY = Array.isArray(rawScale) ? rawScale[1] : rawScale;
+
+    const scaleX = baseScaleX * parallaxScale * (layer.transform.flipX ? -1 : 1);
+    const scaleY = baseScaleY * parallaxScale;
     const rotation = layer.transform.rotation ?? 0;
     const opacity = layer.transform.opacity ?? 1.0;
 

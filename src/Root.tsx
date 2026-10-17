@@ -3,6 +3,7 @@ import { Composition } from 'remotion';
 import { PeerProSandbox } from './compositions/PeerProSandbox';
 import { CharacterShowcase } from './compositions/CharacterShowcase';
 import { EnvironmentShowcase } from './compositions/EnvironmentShowcase';
+import { ParallaxTest } from './compositions/ParallaxTest';
 import { defaultAssetRegistry } from './core/assets/registry';
 import starterManifest from '../asset-packs/starter-kit/manifest.json';
 
@@ -46,6 +47,19 @@ export const RemotionRoot: React.FC = () => {
         height={1080}
         defaultProps={{
           layoutMode: 'sequence',
+        }}
+      />
+      <Composition
+        id="ParallaxTest"
+        component={ParallaxTest}
+        durationInFrames={120}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          cameraPreset: 'pan-left-to-right',
+          cameraIntensity: 1.0,
+          showHud: true,
         }}
       />
     </>
