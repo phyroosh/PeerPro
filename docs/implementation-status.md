@@ -538,7 +538,55 @@
   - `npm run render:audio:still`: Rendered `out/audio-narrative-showcase.png` in 592ms.
   - `npm run render:audio:video`: Rendered `out/audio-narrative-showcase.mp4` (180 frames, 6.0s, 1.5 MB) in 15.91s.
 - **Known Limitations**:
-  - Automated benchmark regression test suite and release gates are scheduled for Phase 19.
+  - Automated benchmark regression test suite and release gates completed in Phase 19.
+
+---
+
+### Phase 19 — Benchmark Suite, Visual Regression, and Release Gates
+- **Status**: COMPLETED
+- **Date**: 2026-10-17
+- **Key Artifacts Created**:
+  - `src/core/benchmark/types.ts`:
+    - Core contracts for `BenchmarkCategory`, `BenchmarkStatus`, `LatencyStatus`, `BenchmarkEntry`, `BenchmarkResult`, `BenchmarkReport`, `ReleaseGateCheck`, and `ReleaseGateReport`.
+  - `src/core/benchmark/baselines.json`:
+    - Golden cryptographic SHA-256 hashes for all 10 canonical showcase compositions.
+  - `src/core/benchmark/baselines.ts`:
+    - Standard benchmark catalog `STANDARD_BENCHMARKS` covering B1 (`CharacterShowcase`) through B10 (`AudioNarrativeShowcase`).
+    - Helper methods: `getBenchmarkCatalog()`, `findBenchmarkById()`, `loadBaselines()`, `saveBaselines()`.
+  - `src/core/benchmark/runner.ts`:
+    - `runSingleBenchmark()`: Executes still frame render, computes exact latency and SHA-256 checksum, and evaluates against golden baselines.
+    - `runBenchmarkSuite()`: Executes full or filtered suite, manages `--update-baselines`, and produces structured `BenchmarkReport`.
+    - `formatBenchmarkMarkdown()`: Generates detailed Markdown scorecard report table with latency badges and capability scopes.
+  - `src/core/benchmark/index.ts`:
+    - Barrel export for benchmark types, catalog, and runner.
+  - `scripts/run-benchmarks.ts`:
+    - CLI runner `npm run benchmark [--update-baselines] [--json] [--benchmarks=...]` generating `docs/benchmarks/benchmark-report.md`.
+  - `scripts/release-gate.ts`:
+    - Pre-release gatekeeper `npm run release:gate` enforcing all 7 mandatory gates:
+      1. Gate 1: TypeScript Zero-Error Compilation (`npm run build`)
+      2. Gate 2: Full Unit Test Suite (`npm test`)
+      3. Gate 3: Asset Catalog & Geometry Contracts (`npm run assets:validate`)
+      4. Gate 4: Visual Asset Contact Sheet Generation (`npm run assets:contact-sheet`)
+      5. Gate 5: AI Agent Introspection & Capabilities (`npm run agent:discover`)
+      6. Gate 6: AI Composition Analysis & Quality Metrics (`npm run scene:analyze`)
+      7. Gate 7: 10-Benchmark Suite & Visual Regression (`npm run benchmark`)
+  - `package.json`:
+    - Added `"benchmark"` and `"release:gate"` scripts.
+  - `tests/unit/benchmark-gates.test.ts`:
+    - 5 unit tests covering catalog registration, parameter completeness, 64-char hex baselines, lookup queries, and markdown formatting.
+  - `docs/benchmarks/release-gates.md`:
+    - Architecture guide documenting the 10 benchmarks, SHA-256 regression protocol, and 7 release gates.
+  - `docs/benchmarks/benchmark-report.md`:
+    - Auto-generated scorecard showing 10/10 PASSED with 0 visual regressions and 0 latency warnings.
+  - `scripts/verify-all.ts`:
+    - Integrated benchmark regression suite as Step 10 in full system verification.
+- **Commands Run & Verified**:
+  - `npm test`: 112/112 tests passed (100% pass rate across 19 suites).
+  - `npm run benchmark`: 10/10 benchmarks passed visual regression & performance gates in 41.45s.
+  - `npm run release:gate`: All 7/7 pre-release gates passed in 51.75s.
+  - `npm run build`: 0 TypeScript compiler errors (`tsc --noEmit`).
+- **Known Limitations**:
+  - Packaging and final distribution checklist scheduled for Phase 20.
 
 
 

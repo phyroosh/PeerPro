@@ -51,6 +51,8 @@
     "scene:analyze": "tsx scripts/analyze-scene.ts",
     "scene:correct": "tsx scripts/correct-scene.ts",
     "scene:render": "tsx scripts/render-scene.ts",
+    "benchmark": "tsx scripts/run-benchmarks.ts",
+    "release:gate": "tsx scripts/release-gate.ts",
     "test": "tsx --test tests/**/*.test.ts",
     "verify:all": "tsx scripts/verify-all.ts",
     "assets:validate": "tsx scripts/validate-assets.ts",
