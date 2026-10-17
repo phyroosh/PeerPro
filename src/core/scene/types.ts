@@ -1,4 +1,10 @@
-import { CameraBounds, CameraPresetName } from '../camera/types';
+import {
+  CameraBounds,
+  CameraPresetName,
+  CameraDepthOfFieldConfig,
+  CameraShakeConfig,
+  CameraAtmosphericHazeConfig,
+} from '../camera/types';
 import {
   BreathingOptions,
   ExpressionKeyframe,
@@ -21,6 +27,9 @@ export interface SceneCameraConfig {
   intensity?: number;
   focalDepth?: number;
   bounds?: Partial<CameraBounds>;
+  depthOfField?: CameraDepthOfFieldConfig;
+  shake?: CameraShakeConfig;
+  atmosphericHaze?: CameraAtmosphericHazeConfig;
 }
 
 export interface SceneEnvironmentConfig {

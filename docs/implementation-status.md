@@ -1,8 +1,8 @@
 # PeerPro Implementation Status
 
 ## Current Status Overview
-- **Active Phase**: Phase 15 — Animation Actions, Timeline Composition, and Motion Quality (Completed)
-- **Overall Status**: **PHASE 15 DELIVERED & FULLY VERIFIED (73/73 TESTS PASSING)**
+- **Active Phase**: Phase 16 — Cinematography, Depth, Occlusion, and Compositing (Completed)
+- **Overall Status**: **PHASE 16 DELIVERED & FULLY VERIFIED (88/88 TESTS PASSING)**
 - **Last Updated**: 2026-10-17
 
 ---
@@ -391,8 +391,62 @@
   - `npm run verify:all`: All 9/9 verification stages passed in 50.85s.
   - `npm run render:action:still`: Rendered `out/action-showcase.png` in 473ms.
   - `npm run render:action:video`: Rendered `out/action-showcase.mp4` in 10.99s.
+### Phase 16 — Cinematography, Depth, Occlusion, and Compositing
+- **Status**: COMPLETED
+- **Date**: 2026-10-17
+- **Key Artifacts Created & Modified**:
+  - `src/core/camera/types.ts`:
+    - Extended `CameraConfig` with `depthOfField?: { aperture: number; maxBlur: number }`, `shake?: { enabled: boolean; frequency?: number; amplitude?: number; rollAmplitude?: number; seed?: number }`, and `atmosphericHaze?: { enabled: boolean; color?: string; density?: number; minDepth?: number }`.
+    - Extended `CameraState` with optional `roll?: number`, `dofBlur?: (depth: number) => number`, `hazeOpacity?: (depth: number) => number`, and `hazeColor?: string`.
+  - `src/core/camera/dof.ts`:
+    - Pure optical calculation functions:
+      - `computeDepthOfField`: Calculates Gaussian blur radius proportional to $|depth - focalDepth| \cdot \text{aperture} \cdot 10$, strictly clamped to `maxBlur`.
+      - `computeAtmosphericHaze`: Non-linear quadratic atmospheric haze opacity for distant layers ($depth < minDepth$).
+      - `computeCameraDrift`: Multi-octave sinusoidal handheld drift and roll simulator with bounded output.
+  - `src/core/camera/presets.ts`:
+    - Integrated handheld drift, camera roll, and optical DoF/haze closures into `computeCameraState`.
+    - Preserved exact 4-key `{ x, y, zoom, focalDepth }` contract for static camera presets to prevent regression.
+  - `src/core/camera/Camera25D.tsx`:
+    - Context defaults provide safe no-op `roll: 0`, `dofBlur: () => 0`, and `hazeOpacity: () => 0`.
+  - `src/core/camera/index.ts`:
+    - Barrel export for `dof.ts` functions.
+  - `src/core/environments/Environment.tsx`:
+    - Consumes `dofBlur` and `hazeOpacity` from `useCamera25D()`.
+    - Applies `filter: blur(...)` to layers based on depth divergence from camera focal plane.
+    - Renders atmospheric aerial haze tint overlay for distant background layers.
+  - `src/core/scene/SceneRenderer.tsx`:
+    - Applies optical depth-of-field blur to character instances when character depth diverges from camera focal depth.
+  - `src/core/scene/types.ts` & `src/core/scene/schema.ts`:
+    - Added `depthOfField`, `shake`, and `atmosphericHaze` to `SceneCameraConfig` and `SceneCameraSchema`.
+  - `src/core/sequence/types.ts`:
+    - TypeScript contracts for `SequenceManifest`, `SequenceShot`, `ShotTransition` (`cut`, `dissolve`, `fade_to_black`, `dip_to_white`), `SequenceCompositing` (`vignette`, `letterbox: 'none' | 'cinemascope' | 'anamorphic' | 'custom'`, `colorGrade: 'neutral' | 'warm-sunset' | 'cool-dusk' | 'golden-hour' | 'noir' | 'cyberpunk'`), and `ActiveShotState`.
+  - `src/core/sequence/schema.ts`:
+    - Zod schemas validating sequence manifests, shot durations, transition overlaps, and compositing parameters.
+  - `src/core/sequence/resolver.ts`:
+    - `resolveActiveShot(frame, shots)` mapping global frame to active shot index, local shot frame, and transition progress.
+  - `src/core/sequence/SequenceRenderer.tsx`:
+    - Remotion component rendering multi-shot sequences using Remotion `<Sequence>` clips, transition cross-fades / dips, cinemascope letterbox bars, vignette, CSS color grading, and telemetry HUD.
+  - `src/core/sequence/index.ts`:
+    - Barrel export for sequence orchestration.
+  - `src/compositions/CinematicSequenceShowcase.tsx`:
+    - 210-frame (7.0s @ 30fps) choreographed 3-shot sequence registered in `src/Root.tsx`:
+      - Shot 1 (Frames 0–70): Establishing wide shot of classroom with soft atmospheric haze.
+      - Shot 2 (Frames 70–140): Medium close-up on Ren ($depth = 1.0$) with shallow DoF blackboard blur ($5.5\text{px}$) and organic handheld camera drift.
+      - Shot 3 (Frames 140–210): Reverse reaction shot with polite bow, golden hour color grading, and cinemascope bars.
+  - `tests/unit/cinematography-sequence.test.ts`:
+    - 15 comprehensive unit tests covering DoF focus planes, monotonic blur growth, atmospheric haze, drift determinism, sequence frame mapping, transition progression, and Zod schemas.
+  - `tests/e2e/render-smoke.test.ts`:
+    - Added `CinematicSequenceShowcase` to full E2E smoke test suite.
+  - `package.json`:
+    - Added `render:cinematic:still` and `render:cinematic:video`.
+- **Commands Run & Verified**:
+  - `npm test`: 88/88 tests passed (100%).
+  - `npm run verify:all`: All 9/9 verification stages passed in 58.93s.
+  - `npm run render:cinematic:still`: Rendered `out/cinematic-sequence.png` in 636ms.
+  - `npm run render:cinematic:video`: Rendered `out/cinematic-sequence.mp4` (210 frames, 7.0s, 1.8 MB) in 27.08s.
 - **Known Limitations**:
-  - Multi-shot camera cinematography, depth planes, and sequence manifests are scheduled for Phase 16.
+  - Agent discovery, automated visual feedback, and self-correction workflows will be established in Phase 17.
+
 
 
 

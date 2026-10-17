@@ -114,6 +114,10 @@ export const Environment: React.FC<EnvironmentProps> = ({
       zIndex += 50;
     }
 
+    const dofBlur = cameraContext.camera.dofBlur ? cameraContext.camera.dofBlur(layer.depth) : 0;
+    const hazeOpacity = cameraContext.camera.hazeOpacity ? cameraContext.camera.hazeOpacity(layer.depth) : 0;
+    const hazeColor = cameraContext.camera.hazeColor ?? '#bae6fd';
+
     return (
       <div
         key={layer.id}
@@ -128,6 +132,7 @@ export const Environment: React.FC<EnvironmentProps> = ({
           transformOrigin: `${anchor.x * 100}% ${anchor.y * 100}%`,
           opacity,
           zIndex,
+          filter: dofBlur > 0 ? `blur(${dofBlur.toFixed(2)}px)` : undefined,
           pointerEvents: 'none',
         }}
       >
@@ -140,6 +145,22 @@ export const Environment: React.FC<EnvironmentProps> = ({
               display: 'block',
             }}
             alt={layer.name || asset.name}
+          />
+        )}
+
+        {hazeOpacity > 0 && (
+          <div
+            data-testid={`haze-${layer.id}`}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              backgroundColor: hazeColor,
+              opacity: hazeOpacity,
+              pointerEvents: 'none',
+            }}
           />
         )}
 

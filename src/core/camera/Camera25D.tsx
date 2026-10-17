@@ -9,7 +9,7 @@ interface CameraContextValue {
 }
 
 const CameraContext = createContext<CameraContextValue>({
-  camera: { x: 0, y: 0, zoom: 1.0, focalDepth: 1.0 },
+  camera: { x: 0, y: 0, zoom: 1.0, roll: 0, focalDepth: 1.0 },
   frame: 0,
 });
 

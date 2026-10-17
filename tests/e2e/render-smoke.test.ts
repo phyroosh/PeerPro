@@ -76,6 +76,7 @@ test('E2E Smoke: renders still frames across all registered compositions', () =>
     { id: 'CutoutRigShowcase', out: 'e2e-smoke-cutoutshowcase.png', frame: 60 },
     { id: 'ClassroomShowcase', out: 'e2e-smoke-classroomshowcase.png', frame: 60 },
     { id: 'ActionShowcase', out: 'e2e-smoke-actionshowcase.png', frame: 52 },
+    { id: 'CinematicSequenceShowcase', out: 'e2e-smoke-cinematicsequence.png', frame: 105 },
   ];
 
   for (const { id, out, frame } of testOutputs) {

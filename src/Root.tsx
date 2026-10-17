@@ -8,6 +8,7 @@ import { StyleShowcase } from './compositions/StyleShowcase';
 import { CutoutRigShowcase } from './compositions/CutoutRigShowcase';
 import { ClassroomShowcase } from './compositions/ClassroomShowcase';
 import { ActionShowcase } from './compositions/ActionShowcase';
+import { CinematicSequenceShowcase } from './compositions/CinematicSequenceShowcase';
 import { SceneRenderer, SceneRendererProps } from './core/scene/SceneRenderer';
 import { defaultAssetRegistry } from './core/assets/registry';
 import starterManifest from '../asset-packs/starter-kit/manifest.json';
@@ -116,6 +117,14 @@ export const RemotionRoot: React.FC = () => {
         id="ActionShowcase"
         component={ActionShowcase}
         durationInFrames={180}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="CinematicSequenceShowcase"
+        component={CinematicSequenceShowcase}
+        durationInFrames={210}
         fps={30}
         width={1920}
         height={1080}

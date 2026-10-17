@@ -88,6 +88,7 @@ const RenderedSceneCharacter: React.FC<{
 
   const jointRotations = actionState?.jointRotations;
   const effectivePose = actionState?.pose;
+  const charDofBlur = camera.dofBlur ? camera.dofBlur(depth) : 0;
 
   return (
     <div
@@ -97,6 +98,7 @@ const RenderedSceneCharacter: React.FC<{
         left: posX,
         top: posY,
         zIndex,
+        filter: charDofBlur > 0 ? `blur(${charDofBlur.toFixed(2)}px)` : undefined,
         transform: `scale(${actionScaleX}, ${breathing.scaleY * actionScaleY})`,
         transformOrigin: '0 0',
         pointerEvents: 'none',

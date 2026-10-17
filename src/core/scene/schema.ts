@@ -33,6 +33,31 @@ export const SceneCameraSchema = z.object({
       maxZoom: z.number().positive().optional(),
     })
     .optional(),
+  depthOfField: z
+    .object({
+      enabled: z.boolean(),
+      aperture: z.number().positive().optional(),
+      focalDepth: z.number().positive().optional(),
+      maxBlur: z.number().positive().optional(),
+    })
+    .optional(),
+  shake: z
+    .object({
+      enabled: z.boolean(),
+      frequency: z.number().positive().optional(),
+      amplitudeX: z.number().optional(),
+      amplitudeY: z.number().optional(),
+      rotational: z.number().optional(),
+    })
+    .optional(),
+  atmosphericHaze: z
+    .object({
+      enabled: z.boolean(),
+      color: z.string().optional(),
+      density: z.number().min(0).max(1).optional(),
+      minDepth: z.number().positive().optional(),
+    })
+    .optional(),
 });
 
 export const SceneEnvironmentSchema = z
