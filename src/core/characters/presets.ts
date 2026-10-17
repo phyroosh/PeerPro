@@ -46,6 +46,55 @@ export const studentCharacterDefinition: CharacterDefinition = {
   },
 };
 
+export const studentCharacterDefinitionV2: CharacterDefinition = {
+  id: 'student-ren-v2',
+  name: 'Ren - Student (V2 Refined)',
+  styleFamily: 'anime-clean-v1',
+  defaultScale: 1.0,
+  rootPart: {
+    assetId: 'starter-char-body-01-v2',
+  },
+  slots: {
+    head: { assetId: 'starter-char-head-01-v2' },
+    hairFront: { assetId: 'starter-char-hair-short-v2' },
+    eyes: { assetId: 'starter-char-eyes-neutral-v2' },
+    mouth: { assetId: 'starter-char-mouth-smile-v2' },
+  },
+  layerOrder: ['rootPart', 'head', 'eyes', 'mouth', 'hairFront'],
+  variants: {
+    happy: {
+      name: 'Happy / Playful',
+      overrides: {
+        eyes: 'starter-char-eyes-wink-v2',
+        mouth: 'starter-char-mouth-smile-v2',
+      },
+    },
+  },
+};
+
+/**
+ * 3/4 Perspective character definition for cinematic multi-character staging.
+ */
+export const studentThreeQuarterDefinition: CharacterDefinition = {
+  id: 'student-three-quarter',
+  name: 'Ren - Student (3/4 Perspective)',
+  styleFamily: 'anime-clean-v1',
+  defaultScale: 1.0,
+  rootPart: {
+    assetId: 'starter-char-body-01-three-quarter',
+  },
+  slots: {
+    head: { assetId: 'starter-char-head-01-three-quarter' },
+    hairFront: { assetId: 'starter-char-hair-three-quarter' },
+    eyes: { assetId: 'starter-char-eyes-three-quarter' },
+    mouth: { assetId: 'starter-char-mouth-three-quarter' },
+  },
+  layerOrder: ['rootPart', 'head', 'eyes', 'mouth', 'hairFront'],
+};
+
 export const defaultCharacterPresets: Record<string, CharacterDefinition> = {
   'student-ren': studentCharacterDefinition,
+  'student-ren-v2': studentCharacterDefinitionV2,
+  'student-three-quarter': studentThreeQuarterDefinition,
 };
+

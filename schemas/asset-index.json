@@ -1,26 +1,37 @@
 {
-  "generatedAt": "2026-10-17T09:38:31.671Z",
-  "totalAssets": 18,
+  "generatedAt": "2026-10-17T09:56:05.604Z",
+  "totalAssets": 30,
   "categories": {
     "base_body": [
       "starter-char-body-01",
-      "starter-char-body-02-hoodie"
+      "starter-char-body-02-hoodie",
+      "starter-char-body-01-v2",
+      "starter-char-body-01-three-quarter"
     ],
     "head": [
-      "starter-char-head-01"
+      "starter-char-head-01",
+      "starter-char-head-01-v2",
+      "starter-char-head-01-three-quarter"
     ],
     "hair": [
       "starter-char-hair-short",
-      "starter-char-hair-spiky"
+      "starter-char-hair-spiky",
+      "starter-char-hair-short-v2",
+      "starter-char-hair-three-quarter"
     ],
     "eyes": [
       "starter-char-eyes-neutral",
       "starter-char-eyes-wide",
-      "starter-char-eyes-wink"
+      "starter-char-eyes-wink",
+      "starter-char-eyes-neutral-v2",
+      "starter-char-eyes-wink-v2",
+      "starter-char-eyes-three-quarter"
     ],
     "mouth": [
       "starter-char-mouth-closed",
-      "starter-char-mouth-smile"
+      "starter-char-mouth-smile",
+      "starter-char-mouth-smile-v2",
+      "starter-char-mouth-three-quarter"
     ],
     "sky": [
       "starter-env-sky-dusk"
@@ -37,7 +48,8 @@
     ],
     "prop": [
       "starter-env-vending-machine",
-      "starter-env-streetlight"
+      "starter-env-streetlight",
+      "starter-prop-contact-shadow"
     ],
     "road": [
       "starter-env-road-segment"
@@ -54,17 +66,33 @@
       "starter-char-eyes-wide",
       "starter-char-eyes-wink",
       "starter-char-mouth-closed",
-      "starter-char-mouth-smile"
+      "starter-char-mouth-smile",
+      "starter-char-head-01-v2",
+      "starter-char-body-01-v2",
+      "starter-char-eyes-neutral-v2",
+      "starter-char-eyes-wink-v2",
+      "starter-char-mouth-smile-v2",
+      "starter-char-hair-short-v2",
+      "starter-char-body-01-three-quarter",
+      "starter-char-head-01-three-quarter",
+      "starter-char-eyes-three-quarter",
+      "starter-char-hair-three-quarter",
+      "starter-char-mouth-three-quarter"
     ],
     "body": [
       "starter-char-body-01",
-      "starter-char-body-02-hoodie"
+      "starter-char-body-02-hoodie",
+      "starter-char-body-01-v2",
+      "starter-char-body-01-three-quarter"
     ],
     "uniform": [
-      "starter-char-body-01"
+      "starter-char-body-01",
+      "starter-char-body-01-v2",
+      "starter-char-body-01-three-quarter"
     ],
     "male": [
-      "starter-char-body-01"
+      "starter-char-body-01",
+      "starter-char-body-01-v2"
     ],
     "standing": [
       "starter-char-body-01"
@@ -79,21 +107,31 @@
       "starter-char-body-02-hoodie"
     ],
     "head": [
-      "starter-char-head-01"
+      "starter-char-head-01",
+      "starter-char-head-01-v2",
+      "starter-char-head-01-three-quarter"
     ],
     "face": [
-      "starter-char-head-01"
+      "starter-char-head-01",
+      "starter-char-head-01-v2",
+      "starter-char-eyes-neutral-v2",
+      "starter-char-eyes-wink-v2",
+      "starter-char-head-01-three-quarter"
     ],
     "hair": [
       "starter-char-hair-short",
-      "starter-char-hair-spiky"
+      "starter-char-hair-spiky",
+      "starter-char-hair-short-v2",
+      "starter-char-hair-three-quarter"
     ],
     "short": [
-      "starter-char-hair-short"
+      "starter-char-hair-short",
+      "starter-char-hair-short-v2"
     ],
     "blue": [
       "starter-char-hair-short",
-      "starter-char-eyes-neutral"
+      "starter-char-eyes-neutral",
+      "starter-char-hair-short-v2"
     ],
     "spiky": [
       "starter-char-hair-spiky"
@@ -104,7 +142,10 @@
     "eyes": [
       "starter-char-eyes-neutral",
       "starter-char-eyes-wide",
-      "starter-char-eyes-wink"
+      "starter-char-eyes-wink",
+      "starter-char-eyes-neutral-v2",
+      "starter-char-eyes-wink-v2",
+      "starter-char-eyes-three-quarter"
     ],
     "neutral": [
       "starter-char-eyes-neutral",
@@ -117,17 +158,21 @@
       "starter-char-eyes-wide"
     ],
     "wink": [
-      "starter-char-eyes-wink"
+      "starter-char-eyes-wink",
+      "starter-char-eyes-wink-v2"
     ],
     "playful": [
       "starter-char-eyes-wink"
     ],
     "mouth": [
       "starter-char-mouth-closed",
-      "starter-char-mouth-smile"
+      "starter-char-mouth-smile",
+      "starter-char-mouth-smile-v2",
+      "starter-char-mouth-three-quarter"
     ],
     "smile": [
-      "starter-char-mouth-smile"
+      "starter-char-mouth-smile",
+      "starter-char-mouth-smile-v2"
     ],
     "happy": [
       "starter-char-mouth-smile"
@@ -188,7 +233,8 @@
     "prop": [
       "starter-env-conbini-sign",
       "starter-env-vending-machine",
-      "starter-env-streetlight"
+      "starter-env-streetlight",
+      "starter-prop-contact-shadow"
     ],
     "tree": [
       "starter-env-tree-cherry"
@@ -219,10 +265,47 @@
       "starter-env-road-segment"
     ],
     "ground": [
-      "starter-env-road-segment"
+      "starter-env-road-segment",
+      "starter-prop-contact-shadow"
     ],
     "lamp": [
       "starter-env-streetlight"
+    ],
+    "shadow": [
+      "starter-prop-contact-shadow"
+    ],
+    "contact": [
+      "starter-prop-contact-shadow"
+    ],
+    "v2": [
+      "starter-char-head-01-v2",
+      "starter-char-body-01-v2",
+      "starter-char-eyes-neutral-v2",
+      "starter-char-eyes-wink-v2",
+      "starter-char-mouth-smile-v2",
+      "starter-char-hair-short-v2"
+    ],
+    "refined": [
+      "starter-char-head-01-v2",
+      "starter-char-body-01-v2",
+      "starter-char-eyes-neutral-v2",
+      "starter-char-eyes-wink-v2",
+      "starter-char-mouth-smile-v2",
+      "starter-char-hair-short-v2"
+    ],
+    "three_quarter": [
+      "starter-char-body-01-three-quarter",
+      "starter-char-head-01-three-quarter",
+      "starter-char-eyes-three-quarter",
+      "starter-char-hair-three-quarter",
+      "starter-char-mouth-three-quarter"
+    ],
+    "perspective": [
+      "starter-char-body-01-three-quarter",
+      "starter-char-head-01-three-quarter",
+      "starter-char-eyes-three-quarter",
+      "starter-char-hair-three-quarter",
+      "starter-char-mouth-three-quarter"
     ]
   },
   "assets": [
@@ -239,7 +322,8 @@
       },
       "hasAlpha": true,
       "style": {
-        "family": "anime-clean-v1"
+        "family": "anime-clean-v1",
+        "angle": "front"
       },
       "anchor": {
         "x": 0.5,
@@ -290,7 +374,8 @@
       },
       "hasAlpha": true,
       "style": {
-        "family": "anime-clean-v1"
+        "family": "anime-clean-v1",
+        "angle": "front"
       },
       "anchor": {
         "x": 0.5,
@@ -341,7 +426,8 @@
       },
       "hasAlpha": true,
       "style": {
-        "family": "anime-clean-v1"
+        "family": "anime-clean-v1",
+        "angle": "front"
       },
       "anchor": {
         "x": 0.5,
@@ -396,7 +482,8 @@
       },
       "hasAlpha": true,
       "style": {
-        "family": "anime-clean-v1"
+        "family": "anime-clean-v1",
+        "angle": "front"
       },
       "anchor": {
         "x": 0.5,
@@ -441,7 +528,8 @@
       },
       "hasAlpha": true,
       "style": {
-        "family": "anime-clean-v1"
+        "family": "anime-clean-v1",
+        "angle": "front"
       },
       "anchor": {
         "x": 0.5,
@@ -486,7 +574,8 @@
       },
       "hasAlpha": true,
       "style": {
-        "family": "anime-clean-v1"
+        "family": "anime-clean-v1",
+        "angle": "front"
       },
       "anchor": {
         "x": 0.5,
@@ -530,7 +619,8 @@
       },
       "hasAlpha": true,
       "style": {
-        "family": "anime-clean-v1"
+        "family": "anime-clean-v1",
+        "angle": "front"
       },
       "anchor": {
         "x": 0.5,
@@ -574,7 +664,8 @@
       },
       "hasAlpha": true,
       "style": {
-        "family": "anime-clean-v1"
+        "family": "anime-clean-v1",
+        "angle": "front"
       },
       "anchor": {
         "x": 0.5,
@@ -618,7 +709,8 @@
       },
       "hasAlpha": true,
       "style": {
-        "family": "anime-clean-v1"
+        "family": "anime-clean-v1",
+        "angle": "front"
       },
       "anchor": {
         "x": 0.5,
@@ -661,7 +753,8 @@
       },
       "hasAlpha": true,
       "style": {
-        "family": "anime-clean-v1"
+        "family": "anime-clean-v1",
+        "angle": "front"
       },
       "anchor": {
         "x": 0.5,
@@ -975,6 +1068,591 @@
         "prop",
         "lamp",
         "foreground"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-prop-contact-shadow",
+      "name": "Ground Contact Shadow Oval",
+      "kind": "prop",
+      "category": "prop",
+      "path": "peerpro-assets/starter/shadow-contact-oval.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 240,
+        "height": 50
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "prop",
+        "shadow",
+        "contact",
+        "ground"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-char-head-01-v2",
+      "name": "Anime Head Base V2 (Refined)",
+      "kind": "character_part",
+      "category": "head",
+      "path": "peerpro-assets/starter/head-01-v2.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 240,
+        "height": 260
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "neck_socket": {
+          "x": 120,
+          "y": 240
+        },
+        "eyes": {
+          "x": 120,
+          "y": 135
+        },
+        "mouth": {
+          "x": 120,
+          "y": 195
+        },
+        "hair": {
+          "x": 120,
+          "y": 70
+        }
+      },
+      "requiredSockets": [
+        "neck"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "head",
+        "face",
+        "v2",
+        "refined"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-char-body-01-v2",
+      "name": "Student Blazer Body V2 (Refined Cel-Shaded)",
+      "kind": "character_part",
+      "category": "base_body",
+      "path": "peerpro-assets/starter/body-01-v2.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 300,
+        "height": 600
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "attachmentSockets": {
+        "neck": {
+          "x": 150,
+          "y": 95
+        },
+        "shoulder_left": {
+          "x": 72,
+          "y": 128
+        },
+        "shoulder_right": {
+          "x": 228,
+          "y": 128
+        }
+      },
+      "capabilities": [
+        "scalable",
+        "flip_x"
+      ],
+      "tags": [
+        "character",
+        "body",
+        "uniform",
+        "male",
+        "v2",
+        "refined"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-char-eyes-neutral-v2",
+      "name": "Expressive Anime Eyes V2",
+      "kind": "character_part",
+      "category": "eyes",
+      "path": "peerpro-assets/starter/eyes-neutral-v2.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 160,
+        "height": 60
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "eyes_socket": {
+          "x": 80,
+          "y": 30
+        }
+      },
+      "requiredSockets": [
+        "eyes"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "eyes",
+        "face",
+        "v2",
+        "refined"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-char-eyes-wink-v2",
+      "name": "Playful Anime Wink Eyes V2",
+      "kind": "character_part",
+      "category": "eyes",
+      "path": "peerpro-assets/starter/eyes-wink-v2.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 160,
+        "height": 60
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "eyes_socket": {
+          "x": 80,
+          "y": 30
+        }
+      },
+      "requiredSockets": [
+        "eyes"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "eyes",
+        "wink",
+        "face",
+        "v2",
+        "refined"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-char-mouth-smile-v2",
+      "name": "Refined Anime Smile V2",
+      "kind": "character_part",
+      "category": "mouth",
+      "path": "peerpro-assets/starter/mouth-smile-v2.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 80,
+        "height": 40
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "mouth_socket": {
+          "x": 40,
+          "y": 20
+        }
+      },
+      "requiredSockets": [
+        "mouth"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "mouth",
+        "smile",
+        "v2",
+        "refined"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-char-hair-short-v2",
+      "name": "Layered Short Anime Bangs V2",
+      "kind": "character_part",
+      "category": "hair",
+      "path": "peerpro-assets/starter/hair-short-v2.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 260,
+        "height": 180
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "hair_socket": {
+          "x": 130,
+          "y": 75
+        }
+      },
+      "requiredSockets": [
+        "hair"
+      ],
+      "capabilities": [
+        "scalable",
+        "tintable"
+      ],
+      "tags": [
+        "character",
+        "hair",
+        "short",
+        "blue",
+        "v2",
+        "refined"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-char-body-01-three-quarter",
+      "name": "Student Blazer Body 3/4 Perspective",
+      "kind": "character_part",
+      "category": "base_body",
+      "path": "peerpro-assets/starter/body-01-three-quarter.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 300,
+        "height": 600
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "angle": "three_quarter"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "attachmentSockets": {
+        "neck": {
+          "x": 140,
+          "y": 95
+        },
+        "shoulder_left": {
+          "x": 82,
+          "y": 130
+        },
+        "shoulder_right": {
+          "x": 235,
+          "y": 126
+        }
+      },
+      "capabilities": [
+        "scalable",
+        "flip_x"
+      ],
+      "tags": [
+        "character",
+        "body",
+        "uniform",
+        "three_quarter",
+        "perspective"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-char-head-01-three-quarter",
+      "name": "Anime Head Base 3/4 Perspective",
+      "kind": "character_part",
+      "category": "head",
+      "path": "peerpro-assets/starter/head-01-three-quarter.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 240,
+        "height": 260
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "angle": "three_quarter"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "neck_socket": {
+          "x": 110,
+          "y": 240
+        },
+        "eyes": {
+          "x": 115,
+          "y": 135
+        },
+        "mouth": {
+          "x": 110,
+          "y": 195
+        },
+        "hair": {
+          "x": 110,
+          "y": 70
+        }
+      },
+      "requiredSockets": [
+        "neck"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "head",
+        "face",
+        "three_quarter",
+        "perspective"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-char-eyes-three-quarter",
+      "name": "Stereoscopic Anime Eyes 3/4 Perspective",
+      "kind": "character_part",
+      "category": "eyes",
+      "path": "peerpro-assets/starter/eyes-three-quarter.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 160,
+        "height": 60
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "angle": "three_quarter"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "eyes_socket": {
+          "x": 80,
+          "y": 30
+        }
+      },
+      "requiredSockets": [
+        "eyes"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "eyes",
+        "three_quarter",
+        "perspective"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-char-hair-three-quarter",
+      "name": "Swept Anime Hair 3/4 Perspective",
+      "kind": "character_part",
+      "category": "hair",
+      "path": "peerpro-assets/starter/hair-three-quarter.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 260,
+        "height": 180
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "angle": "three_quarter"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "hair_socket": {
+          "x": 120,
+          "y": 75
+        }
+      },
+      "requiredSockets": [
+        "hair"
+      ],
+      "capabilities": [
+        "scalable",
+        "tintable"
+      ],
+      "tags": [
+        "character",
+        "hair",
+        "three_quarter",
+        "perspective"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-char-mouth-three-quarter",
+      "name": "Anime Mouth 3/4 Perspective",
+      "kind": "character_part",
+      "category": "mouth",
+      "path": "peerpro-assets/starter/mouth-three-quarter.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 80,
+        "height": 40
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "angle": "three_quarter"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "mouth_socket": {
+          "x": 40,
+          "y": 20
+        }
+      },
+      "requiredSockets": [
+        "mouth"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "mouth",
+        "three_quarter",
+        "perspective"
       ],
       "provenance": {
         "source": "original",

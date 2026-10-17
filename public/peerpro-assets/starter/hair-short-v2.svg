@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 180" width="260" height="180">
+  <defs>
+    <!-- Base Hair Cobalt Gradient -->
+    <linearGradient id="hairCobalt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <!-- Deep Hair Shadow -->
+    <linearGradient id="hairShadow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+
+  <!-- Underlayer Hair Tufts (Darker Shadow Strands) -->
+  <path d="M22,95 C20,50 50,15 130,10 C210,15 240,50 238,95 C228,105 215,80 198,118 C185,135 170,95 150,135 C135,150 125,120 110,135 C90,95 75,135 62,118 C45,80 32,105 22,95 Z"
+        fill="url(#hairShadow)" />
+
+  <!-- Main Hair Volume & Layered Bangs -->
+  <path d="M24,85 C24,20 60,12 130,12 C200,12 236,20 236,85 C230,135 220,165 212,175 C206,170 208,125 196,105 C186,132 174,128 162,95 C152,126 140,125 130,88 C120,125 108,126 98,95 C86,128 74,132 64,105 C52,125 54,170 48,175 C40,165 30,135 24,85 Z"
+        fill="url(#hairCobalt)" stroke="#1e3a8a" stroke-width="1.8" />
+
+  <!-- Sideburn Strands Framing Cheeks -->
+  <path d="M26,85 C24,120 30,155 42,175 C45,178 47,165 44,145 C41,125 40,95 44,80" fill="url(#hairCobalt)" stroke="#1e3a8a" stroke-width="1.2" />
+  <path d="M234,85 C236,120 230,155 218,175 C215,178 213,165 216,145 C219,125 220,95 216,80" fill="url(#hairCobalt)" stroke="#1e3a8a" stroke-width="1.2" />
+
+  <!-- Anime Specular Sheen / Angel Ring Halo -->
+  <g opacity="0.85">
+    <path d="M55,42 C75,34 100,32 120,32" stroke="#93c5fd" stroke-width="5" stroke-linecap="round" fill="none" />
+    <path d="M140,32 C160,32 185,34 205,42" stroke="#93c5fd" stroke-width="5" stroke-linecap="round" fill="none" />
+    <!-- Secondary delicate sparkle sheen -->
+    <path d="M70,48 C90,42 110,40 120,40" stroke="#dbeafe" stroke-width="2" stroke-linecap="round" fill="none" />
+    <path d="M140,40 C150,40 170,42 190,48" stroke="#dbeafe" stroke-width="2" stroke-linecap="round" fill="none" />
+  </g>
+</svg>

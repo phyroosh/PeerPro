@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 60" width="160" height="60">
+  <defs>
+    <!-- Rich Anime Iris Gradient -->
+    <linearGradient id="irisGradV2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="35%" stop-color="#1e3a8a" />
+      <stop offset="70%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <radialGradient id="irisReflect" cx="50%" cy="85%" r="40%">
+      <stop offset="0%" stop-color="#7dd3fc" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#2563eb" stop-opacity="0.0" />
+    </radialGradient>
+  </defs>
+
+  <!-- LEFT EYE -->
+  <g transform="translate(16, 8)">
+    <!-- Eye White / Sclera -->
+    <path d="M4,24 C10,14 36,12 44,24 C36,34 10,34 4,24 Z" fill="#f8fafc" stroke="#cbd5e1" stroke-width="0.8" />
+    <!-- Upper Sclera Shadow -->
+    <path d="M4,24 C10,14 36,12 44,24 C36,20 12,20 4,24 Z" fill="#94a3b8" opacity="0.3" />
+    <!-- Iris -->
+    <ellipse cx="24" cy="24" rx="14" ry="14" fill="url(#irisGradV2)" />
+    <!-- Lower Iris Luminescence -->
+    <ellipse cx="24" cy="27" rx="10" ry="8" fill="url(#irisReflect)" />
+    <!-- Pupil -->
+    <circle cx="24" cy="23" r="5" fill="#090d16" />
+    <!-- Main Specular Highlight -->
+    <circle cx="20" cy="18" r="4" fill="#ffffff" />
+    <!-- Secondary Star Sparkle -->
+    <circle cx="28" cy="27" r="2" fill="#ffffff" opacity="0.9" />
+    <!-- Thick Upper Eyelash Line with Wing -->
+    <path d="M0,24 C6,10 38,8 48,18 L46,21 C36,13 10,14 2,26 Z" fill="#0f172a" />
+    <!-- Delicate Double Eyelid Fold -->
+    <path d="M8,8 C18,4 32,5 40,11" stroke="#334155" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.7" />
+    <!-- Lower Eyelash Accent -->
+    <path d="M12,34 C20,36 30,35 36,32" stroke="#0f172a" stroke-width="1" stroke-linecap="round" fill="none" />
+  </g>
+
+  <!-- RIGHT EYE -->
+  <g transform="translate(96, 8)">
+    <!-- Eye White / Sclera -->
+    <path d="M4,24 C12,12 38,14 44,24 C38,34 12,34 4,24 Z" fill="#f8fafc" stroke="#cbd5e1" stroke-width="0.8" />
+    <!-- Upper Sclera Shadow -->
+    <path d="M4,24 C12,12 38,14 44,24 C36,20 12,20 4,24 Z" fill="#94a3b8" opacity="0.3" />
+    <!-- Iris -->
+    <ellipse cx="24" cy="24" rx="14" ry="14" fill="url(#irisGradV2)" />
+    <!-- Lower Iris Luminescence -->
+    <ellipse cx="24" cy="27" rx="10" ry="8" fill="url(#irisReflect)" />
+    <!-- Pupil -->
+    <circle cx="24" cy="23" r="5" fill="#090d16" />
+    <!-- Main Specular Highlight -->
+    <circle cx="20" cy="18" r="4" fill="#ffffff" />
+    <!-- Secondary Star Sparkle -->
+    <circle cx="28" cy="27" r="2" fill="#ffffff" opacity="0.9" />
+    <!-- Thick Upper Eyelash Line with Wing -->
+    <path d="M0,18 C10,8 42,10 48,24 L46,26 C38,14 12,13 2,21 Z" fill="#0f172a" />
+    <!-- Delicate Double Eyelid Fold -->
+    <path d="M8,11 C16,5 30,4 40,8" stroke="#334155" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.7" />
+    <!-- Lower Eyelash Accent -->
+    <path d="M12,32 C18,35 28,36 36,34" stroke="#0f172a" stroke-width="1" stroke-linecap="round" fill="none" />
+  </g>
+</svg>

@@ -28,6 +28,8 @@ const discoveryData = {
       name: a.name,
       kind: a.kind,
       category: a.category,
+      angle: a.style.angle || 'front',
+      styleFamily: a.style.family,
       dimensions: a.dimensions,
       attachmentSockets: a.attachmentSockets ? Object.keys(a.attachmentSockets) : [],
       requiredSockets: a.requiredSockets || [],
@@ -35,13 +37,19 @@ const discoveryData = {
     })),
   },
   characters: {
-    presets: Object.entries(defaultCharacterPresets).map(([key, def]) => ({
-      id: key,
-      name: def.name,
-      styleFamily: def.styleFamily,
-      slots: Object.keys(def.slots),
-      variants: def.variants ? ['default', ...Object.keys(def.variants)] : ['default'],
-    })),
+    presets: Object.entries(defaultCharacterPresets).map(([key, def]) => {
+      const rootAsset = defaultAssetRegistry.has(def.rootPart.assetId)
+        ? defaultAssetRegistry.get(def.rootPart.assetId)
+        : null;
+      return {
+        id: key,
+        name: def.name,
+        styleFamily: def.styleFamily,
+        angle: rootAsset?.style.angle || 'front',
+        slots: Object.keys(def.slots),
+        variants: def.variants ? ['default', ...Object.keys(def.variants)] : ['default'],
+      };
+    }),
   },
   environments: {
     presets: Object.entries(defaultEnvironmentPresets).map(([key, def]) => ({

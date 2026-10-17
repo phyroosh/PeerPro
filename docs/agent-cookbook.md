@@ -59,22 +59,39 @@ Render directly via CLI:
 ## Agent Registry Quick Reference
 
 ### Character Presets
-- Preset ID: `student-ren`
+- Preset ID: `student-ren` (Frontal - Prototype)
   - Base Body: Blazer Uniform (`starter-char-body-01`)
   - Available Variants:
     - `"default"`: Standard high school blazer, blue bangs, neutral eyes, closed mouth.
     - `"happy"`: Winking eyes, smiling mouth.
     - `"surprised"`: Wide shocked eyes, closed mouth.
     - `"casual"`: Teal hoodie streetwear (`starter-char-body-02-hoodie`), spiky orange hair (`starter-char-hair-spiky`), winking eyes, smiling mouth.
+- Preset ID: `student-ren-v2` (Frontal - Production Cel-Shaded)
+  - Base Body: Blazer Uniform V2 with 2-tier cel-shading (`starter-char-body-01-v2`)
+  - Head: Refined head with tapered jaw, blush, ear helix details (`starter-char-head-01-v2`)
+  - Eyes: High-appeal multi-layer anime eyes (`starter-char-eyes-neutral-v2`)
+  - Available Variants:
+    - `"default"`: Neutral expressive eyes, smile mouth V2.
+    - `"happy"`: Winking eyes V2, smile mouth V2.
+- Preset ID: `student-three-quarter` (3/4 Perspective - Cinematic Dialogue)
+  - Base Body: Turned 3/4 blazer body (`starter-char-body-01-three-quarter`)
+  - Head: 3/4 head contour with turned jawline (`starter-char-head-01-three-quarter`)
+  - Eyes: Stereoscopic foreshortened anime eyes (`starter-char-eyes-three-quarter`)
+  - Hair: Swept 3/4 bangs with halo sheen (`starter-char-hair-three-quarter`)
 
 ### Facial Feature Asset IDs for Dynamic Schedules
-- **Eyes**:
-  - `starter-char-eyes-neutral`
+- **Eyes (Front)**:
+  - `starter-char-eyes-neutral` / `starter-char-eyes-neutral-v2`
   - `starter-char-eyes-wide`
-  - `starter-char-eyes-wink`
-- **Mouth**:
+  - `starter-char-eyes-wink` / `starter-char-eyes-wink-v2`
+- **Eyes (3/4 Perspective)**:
+  - `starter-char-eyes-three-quarter`
+- **Mouth (Front)**:
   - `starter-char-mouth-closed`
-  - `starter-char-mouth-smile`
+  - `starter-char-mouth-smile` / `starter-char-mouth-smile-v2`
+- **Mouth (3/4 Perspective)**:
+  - `starter-char-mouth-three-quarter`
+
 
 ### Environment Presets
 - `japanese-street-corner`: Commercial Tokyo street corner with 24H convenience store, neon awning sign, vending machine, apartment backdrop, streetlight, and cherry tree.

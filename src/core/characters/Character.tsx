@@ -7,6 +7,7 @@ import { solveCharacterParts } from './solver';
 export interface ExtendedCharacterProps extends CharacterProps {
   registry?: AssetRegistry;
   partOverrides?: Record<string, string>;
+  showShadow?: boolean;
 }
 
 /**
@@ -24,6 +25,7 @@ export const Character: React.FC<ExtendedCharacterProps> = ({
   flipX = false,
   registry = defaultAssetRegistry,
   partOverrides,
+  showShadow = true,
   style,
 }) => {
   const parts = useMemo(() => {
@@ -50,6 +52,23 @@ export const Character: React.FC<ExtendedCharacterProps> = ({
         ...style,
       }}
     >
+      {showShadow && (
+        <div
+          data-testid="character-ground-shadow"
+          style={{
+            position: 'absolute',
+            left: -110,
+            top: -18,
+            width: 220,
+            height: 36,
+            borderRadius: '50%',
+            background:
+              'radial-gradient(ellipse at center, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.15) 55%, rgba(15, 23, 42, 0) 75%)',
+            zIndex: 0,
+            transformOrigin: 'center center',
+          }}
+        />
+      )}
       {parts.map((part) => (
         <div
           key={`${part.slot}-${part.asset.id}`}

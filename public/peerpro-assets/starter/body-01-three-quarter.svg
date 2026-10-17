@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 600" width="300" height="600">
+  <defs>
+    <!-- Skin 3/4 -->
+    <linearGradient id="bodySkin3Q" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff7ed" />
+      <stop offset="100%" stop-color="#fed7aa" />
+    </linearGradient>
+    <!-- Blazer Navy 3/4 with lighting gradient -->
+    <linearGradient id="blazerNavy3Q" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="60%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+    <!-- Tie Red Gradient -->
+    <linearGradient id="tieRed3Q" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#991b1b" />
+    </linearGradient>
+    <!-- Pants Slate -->
+    <linearGradient id="pantsSlate3Q" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+  </defs>
+
+  <!-- Neck (Positioned slightly offset for 3/4 angle) -->
+  <path d="M128,78 C128,78 126,108 126,110 L154,110 C154,108 153,78 153,78 Z" fill="url(#bodySkin3Q)" stroke="#d97706" stroke-width="1.2" />
+  <path d="M128,80 C136,92 145,92 153,80 L154,92 C146,100 137,100 127,92 Z" fill="#f59e0b" opacity="0.3" />
+
+  <!-- Inner Shirt & Collar (Shifted left for 3/4 perspective) -->
+  <polygon points="126,102 156,102 140,170" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2" />
+  <polygon points="122,102 138,102 130,124" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2" />
+  <polygon points="160,102 146,102 152,124" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2" />
+
+  <!-- Red School Tie (Offset along perspective line) -->
+  <polygon points="137,118 145,118 145,178 140,188 135,178" fill="url(#tieRed3Q)" stroke="#7f1d1d" stroke-width="1" />
+  <rect x="137" y="142" width="8" height="3" rx="1" fill="#facc15" stroke="#ca8a04" stroke-width="0.8" />
+
+  <!-- 3/4 Tailored Blazer (Turned torso: left flank compressed, right flank broad) -->
+  <path d="M82,130 C100,105 115,102 145,102 C192,102 210,106 235,126 L220,342 C185,348 118,348 94,342 Z"
+        fill="url(#blazerNavy3Q)" stroke="#334155" stroke-width="1.8" />
+
+  <!-- 3/4 Lapels -->
+  <path d="M106,104 L126,180 L112,182 L98,130 Z" fill="#0f172a" stroke="#475569" stroke-width="1.2" />
+  <path d="M178,104 L154,180 L170,182 L198,126 Z" fill="#0f172a" stroke="#475569" stroke-width="1.2" />
+
+  <!-- Center Placket & Buttons (Follows 3/4 perspective axis) -->
+  <line x1="140" y1="184" x2="140" y2="344" stroke="#090d16" stroke-width="1.5" />
+  <circle cx="140" cy="215" r="3" fill="#f8fafc" stroke="#475569" stroke-width="1" />
+  <circle cx="140" cy="255" r="3" fill="#f8fafc" stroke="#475569" stroke-width="1" />
+  <circle cx="140" cy="295" r="3" fill="#f8fafc" stroke="#475569" stroke-width="1" />
+
+  <!-- Pocket Flaps -->
+  <rect x="98" y="278" width="28" height="6" rx="2" fill="#090d16" stroke="#475569" stroke-width="1" />
+  <rect x="166" y="278" width="34" height="6" rx="2" fill="#090d16" stroke="#475569" stroke-width="1" />
+
+  <!-- Left Arm (Near profile: narrower sleeve with fold lines) -->
+  <path d="M82,130 L64,278 C68,285 86,288 90,282 L104,155 Z" fill="url(#blazerNavy3Q)" stroke="#334155" stroke-width="1.8" />
+  <path d="M74,198 C78,206 82,204 88,200" stroke="#090d16" stroke-width="1.5" fill="none" stroke-linecap="round" />
+  <path d="M66,274 L88,278 L87,284 L65,280 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+
+  <!-- Right Arm (Far profile: broader shoulder, recessed sleeve) -->
+  <path d="M235,126 L252,278 C248,285 228,288 224,282 L212,155 Z" fill="url(#blazerNavy3Q)" stroke="#334155" stroke-width="1.8" />
+  <path d="M238,198 C234,206 230,204 224,200" stroke="#090d16" stroke-width="1.5" fill="none" stroke-linecap="round" />
+  <path d="M250,274 L226,278 L227,284 L251,280 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+
+  <!-- Left Anime Hand (3/4 articulated hand) -->
+  <g transform="translate(62, 282)">
+    <path d="M10,0 C6,8 5,18 8,26 C11,30 18,30 21,24 C23,20 23,12 22,0 Z" fill="url(#bodySkin3Q)" stroke="#d97706" stroke-width="1.2" />
+    <path d="M7,8 C4,12 5,18 8,20" stroke="#d97706" stroke-width="1.2" fill="none" stroke-linecap="round" />
+  </g>
+
+  <!-- Right Anime Hand (3/4 articulated hand) -->
+  <g transform="translate(226, 282)">
+    <path d="M16,0 C20,8 21,18 18,26 C15,30 9,30 6,24 C4,20 4,12 5,0 Z" fill="url(#bodySkin3Q)" stroke="#d97706" stroke-width="1.2" />
+    <path d="M19,8 C23,12 22,18 18,20" stroke="#d97706" stroke-width="1.2" fill="none" stroke-linecap="round" />
+  </g>
+
+  <!-- 3/4 Tailored School Slacks with Crease Lines -->
+  <path d="M96,342 L108,552 L143,552 L146,365 L154,365 L161,552 L198,552 L216,342 Z"
+        fill="url(#pantsSlate3Q)" stroke="#0f172a" stroke-width="1.8" />
+  <line x1="125" y1="355" x2="125" y2="550" stroke="#475569" stroke-width="1.2" />
+  <line x1="180" y1="355" x2="180" y2="550" stroke="#475569" stroke-width="1.2" />
+
+  <!-- 3/4 Shoes with Perspective Stance -->
+  <g transform="translate(104, 550)">
+    <path d="M0,8 C0,3 10,0 24,0 C38,0 44,6 44,14 C44,21 36,24 22,24 C8,24 0,21 0,14 Z" fill="#090d16" stroke="#1e293b" stroke-width="1.2" />
+    <path d="M0,18 L44,18 L44,24 L0,24 Z" fill="#1e293b" />
+    <ellipse cx="22" cy="7" rx="12" ry="3" fill="#334155" opacity="0.6" />
+  </g>
+  <g transform="translate(158, 550)">
+    <path d="M0,14 C0,6 6,0 20,0 C34,0 44,3 44,8 C44,14 34,21 20,24 C6,24 0,21 0,14 Z" fill="#090d16" stroke="#1e293b" stroke-width="1.2" />
+    <path d="M0,18 L44,18 L44,24 L0,24 Z" fill="#1e293b" />
+    <ellipse cx="20" cy="7" rx="12" ry="3" fill="#334155" opacity="0.6" />
+  </g>
+</svg>

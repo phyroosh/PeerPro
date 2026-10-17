@@ -88,6 +88,17 @@ variants: {
 }
 ```
 
+### View Angles & Angle Compatibility
+To prevent visual dissonance (such as attaching a front-facing head to a turned 3/4 body), PeerPro enforces formal view angle contracts via `AssetViewAngle = 'front' | 'three_quarter' | 'profile' | 'back'`:
+- `verifyAngleCompatibility`: The character solver checks that attached child parts match the view angle of the parent body. Angle mismatches throw actionable errors in strict mode (`strictAngle: true`).
+- 3/4 perspective assets (`starter-char-body-01-three-quarter`, `starter-char-head-01-three-quarter`, `starter-char-eyes-three-quarter`, etc.) provide authentic anime staging for multi-character conversational scenes.
+
+### Ground Contact Shadows
+Characters are anchored at $(0.5, 1.0)$ in local space. The `Character` component automatically renders a ground contact shadow (`showShadow = true`, default) directly beneath the character's feet using a smooth radial gradient:
+$$\text{Shadow}(x, y) = \text{radial-gradient}(\text{ellipse}, \text{rgba}(15, 23, 42, 0.45) \to 0\%)$$
+This grounds characters naturally to whatever ground baseline $Y$ they are placed on ($Y \approx 920$), eliminating the "floating cardboard" defect.
+
+
 ---
 
 ## 4. Virtual Camera & Parallax Physics

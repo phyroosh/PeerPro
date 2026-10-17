@@ -11,6 +11,7 @@ export interface SolverOptions {
   variant?: string;
   partOverrides?: Record<string, string>;
   strictStyle?: boolean;
+  strictAngle?: boolean;
 }
 
 /**
@@ -106,6 +107,7 @@ export function solveCharacterParts(
     headAsset = registry.get(effectiveSlots.head.assetId);
     validatePartStyle(headAsset, definition.styleFamily, options.strictStyle);
     verifyRequiredSockets(headAsset, rootAsset, 'rootPart');
+    verifyAngleCompatibility(headAsset, rootAsset, 'rootPart', options.strictAngle ?? true);
 
     const neckSocketOnHead = headAsset.attachmentSockets?.neck_socket;
     if (neckSocket && neckSocketOnHead) {
@@ -151,6 +153,7 @@ export function solveCharacterParts(
 
     if (headAsset) {
       verifyRequiredSockets(childAsset, headAsset, 'head');
+      verifyAngleCompatibility(childAsset, headAsset, 'head', options.strictAngle ?? true);
       const parentSocket = headAsset.attachmentSockets?.[socketKey];
       const childPlug = childAsset.attachmentSockets?.[plugKey];
 
@@ -183,6 +186,7 @@ export function solveCharacterParts(
     if (resolvedMap.has(slotName) || !partRef) continue;
     const asset = registry.get(partRef.assetId);
     validatePartStyle(asset, definition.styleFamily, options.strictStyle);
+    verifyAngleCompatibility(asset, rootAsset, 'rootPart', options.strictAngle ?? true);
 
     resolvedMap.set(slotName, {
       slot: slotName,
@@ -222,6 +226,25 @@ export function solveCharacterParts(
 function validatePartStyle(asset: AssetManifestEntry, expectedFamily: string, strict = false): void {
   if (asset.style.family !== expectedFamily) {
     const message = `Style mismatch: Part "${asset.id}" has style family "${asset.style.family}", expected "${expectedFamily}".`;
+    if (strict) {
+      throw new Error(message);
+    } else {
+      console.warn(`[WARN] ${message}`);
+    }
+  }
+}
+
+function verifyAngleCompatibility(
+  child: AssetManifestEntry,
+  parent: AssetManifestEntry,
+  parentSlotName: string,
+  strict = true
+): void {
+  const childAngle = child.style.angle || 'front';
+  const parentAngle = parent.style.angle || 'front';
+
+  if (childAngle !== parentAngle) {
+    const message = `Angle mismatch: Part "${child.id}" has view angle "${childAngle}", but connected parent "${parent.id}" (${parentSlotName}) has view angle "${parentAngle}". View angles must match for anatomical consistency.`;
     if (strict) {
       throw new Error(message);
     } else {

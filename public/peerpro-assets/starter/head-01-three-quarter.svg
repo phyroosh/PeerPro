@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 260" width="240" height="260">
+  <defs>
+    <!-- Skin 3/4 gradient -->
+    <linearGradient id="headSkin3Q" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff7ed" />
+      <stop offset="65%" stop-color="#ffedd5" />
+      <stop offset="100%" stop-color="#fed7aa" />
+    </linearGradient>
+    <radialGradient id="blush3Q" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.32" />
+      <stop offset="60%" stop-color="#fb7185" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.0" />
+    </radialGradient>
+    <linearGradient id="jawShadow3Q" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fed7aa" stop-opacity="0.0" />
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.3" />
+    </linearGradient>
+  </defs>
+
+  <!-- Visible Right Ear (in 3/4 view, right ear is prominently visible) -->
+  <path d="M192,106 C210,110 214,136 196,146 C190,149 186,134 186,124 Z" fill="url(#headSkin3Q)" stroke="#d97706" stroke-width="1.2" />
+  <path d="M198,116 C204,122 203,132 196,136" stroke="#f59e0b" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.6" />
+
+  <!-- 3/4 Anime Head Silhouette (Turned to viewer's left) -->
+  <!-- Left profile: brow -> eye notch -> cheek curve -> tapered chin -> jaw to ear -->
+  <path d="M52,65 C65,22 175,24 190,75 C195,115 190,155 170,185 L145,220 C132,238 116,242 110,242 C104,242 96,236 88,222 C80,208 72,185 64,165 C58,150 56,142 58,135 C61,128 58,122 55,115 C50,105 48,90 52,65 Z"
+        fill="url(#headSkin3Q)" stroke="#d97706" stroke-width="1.5" />
+
+  <!-- Jawline & Neck Shading Overlay -->
+  <path d="M88,222 C110,238 135,230 155,200 C140,218 122,228 110,230 C98,228 92,224 88,222 Z"
+        fill="url(#jawShadow3Q)" />
+
+  <!-- 3/4 Cheeks Blush (Near turned cheek & far cheek) -->
+  <ellipse cx="82" cy="158" rx="14" ry="8" fill="url(#blush3Q)" />
+  <ellipse cx="152" cy="158" rx="18" ry="9" fill="url(#blush3Q)" />
+
+  <!-- 3/4 Anime Nose Silhouette -->
+  <path d="M68,142 L72,154 L66,156" stroke="#d97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  <circle cx="70" cy="148" r="1" fill="#ffffff" opacity="0.8" />
+</svg>

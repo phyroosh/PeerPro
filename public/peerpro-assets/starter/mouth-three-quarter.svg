@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 40" width="80" height="40">
+  <!-- 3/4 Perspective Smile curve (offset toward left profile) -->
+  <path d="M14,15 Q36,27 60,14" stroke="#991b1b" stroke-width="2.5" stroke-linecap="round" fill="none" />
+  <!-- Corner smile dimples -->
+  <path d="M13,13 L16,17" stroke="#991b1b" stroke-width="1.8" stroke-linecap="round" />
+  <path d="M61,12 L58,16" stroke="#991b1b" stroke-width="1.8" stroke-linecap="round" />
+  <!-- Lower lip accent shadow -->
+  <path d="M26,25 Q35,29 44,25" stroke="#e11d48" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6" />
+</svg>

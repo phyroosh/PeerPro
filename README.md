@@ -51,7 +51,8 @@ PeerPro/
 │   │   ├── PeerProSandbox.tsx        # Phase 2 runtime scaffold
 │   │   ├── CharacterShowcase.tsx     # Phase 4 character assembly benchmark
 │   │   ├── EnvironmentShowcase.tsx   # Phase 5 environment layout benchmark
-│   │   └── ParallaxTest.tsx          # Phase 6 camera & multi-plane parallax benchmark
+│   │   ├── ParallaxTest.tsx          # Phase 6 camera & multi-plane parallax benchmark
+│   │   └── StyleShowcase.tsx         # Phase 12 style & asset quality benchmark
 │   ├── core/                         # Core modular animation engine
 │   │   ├── animation/                # Pure mathematical motion primitives & timers
 │   │   ├── assets/                   # In-memory registry, resolver & validator
@@ -104,12 +105,14 @@ Opens Remotion Studio at `http://localhost:3000` to preview and scrub compositio
 | :--- | :--- |
 | `npm run dev` | Launch interactive Remotion Studio web UI (`http://localhost:3000`). |
 | `npm run build` | Perform TypeScript type-checking without emitting files (`tsc --noEmit`). |
-| `npm test` | Execute complete test suite (40 unit and E2E integration tests). |
+| `npm test` | Execute complete test suite (45 unit and E2E integration tests). |
 | `npm run verify:all` | Run the master 9-stage full system verification and regression runner. |
 | `npm run agent:discover` | Introspect loaded assets, character presets, environments, and camera presets. |
 | `npm run agent:discover -- --json` | Output machine-readable JSON capabilities payload for AI agents. |
 | `npm run scene:inspect <path>` | Validate a declarative scene JSON file and print timeline statistics. |
 | `npm run scene:render <file> <out>` | Programmatically render any scene manifest JSON directly to PNG or MP4. |
+| `npm run render:style:still` | Render style comparison still frame (`out/style-showcase.png`). |
+| `npm run render:style:video` | Render style comparison MP4 video (`out/style-showcase.mp4`). |
 | `npm run render:scene:still` | Render golden master still frame (`out/scene-agent-test.png`). |
 | `npm run render:scene:video` | Render golden master MP4 video (`out/scene-agent-test.mp4`). |
 | `npm run assets:validate` | Validate asset manifests, paths, anchors, and directory safety. |

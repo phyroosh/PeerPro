@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 260" width="240" height="260">
+  <defs>
+    <!-- Skin gradient -->
+    <linearGradient id="headSkinV2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff7ed" />
+      <stop offset="70%" stop-color="#ffedd5" />
+      <stop offset="100%" stop-color="#fed7aa" />
+    </linearGradient>
+    <!-- Soft blush gradient -->
+    <radialGradient id="blushGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.32" />
+      <stop offset="60%" stop-color="#fb7185" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.0" />
+    </radialGradient>
+    <!-- Jaw cel shadow -->
+    <linearGradient id="jawShadow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fed7aa" stop-opacity="0.0" />
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.28" />
+    </linearGradient>
+  </defs>
+
+  <!-- Left Ear -->
+  <path d="M38,100 C24,104 22,130 38,140 C42,143 45,130 45,120 Z" fill="url(#headSkinV2)" stroke="#d97706" stroke-width="1.2" />
+  <path d="M34,110 C29,116 30,126 36,130" stroke="#f59e0b" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.6" />
+
+  <!-- Right Ear -->
+  <path d="M202,100 C216,104 218,130 202,140 C198,143 195,130 195,120 Z" fill="url(#headSkinV2)" stroke="#d97706" stroke-width="1.2" />
+  <path d="M206,110 C211,116 210,126 204,130" stroke="#f59e0b" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.6" />
+
+  <!-- Refined Anime Face Contour (Tapered Chin) -->
+  <path d="M42,85 C42,32 198,32 198,85 C198,135 185,178 145,225 C132,240 120,244 120,244 C120,244 108,240 95,225 C55,178 42,135 42,85 Z"
+        fill="url(#headSkinV2)" stroke="#d97706" stroke-width="1.5" />
+
+  <!-- Jawline Cel-Shading Overlay -->
+  <path d="M75,200 C95,232 120,244 120,244 C120,244 145,232 165,200 C150,218 135,228 120,230 C105,228 90,218 75,200 Z"
+        fill="url(#jawShadow)" />
+
+  <!-- Soft Cheek Blushes -->
+  <ellipse cx="68" cy="158" rx="18" ry="9" fill="url(#blushGrad)" />
+  <ellipse cx="172" cy="158" rx="18" ry="9" fill="url(#blushGrad)" />
+
+  <!-- Anime Nose (Sculpted shadow + highlight) -->
+  <path d="M119,162 L121,172 L116,174" stroke="#d97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  <circle cx="119" cy="165" r="1" fill="#ffffff" opacity="0.8" />
+</svg>

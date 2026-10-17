@@ -4,6 +4,7 @@ import { PeerProSandbox } from './compositions/PeerProSandbox';
 import { CharacterShowcase } from './compositions/CharacterShowcase';
 import { EnvironmentShowcase } from './compositions/EnvironmentShowcase';
 import { ParallaxTest } from './compositions/ParallaxTest';
+import { StyleShowcase } from './compositions/StyleShowcase';
 import { SceneRenderer, SceneRendererProps } from './core/scene/SceneRenderer';
 import { defaultAssetRegistry } from './core/assets/registry';
 import starterManifest from '../asset-packs/starter-kit/manifest.json';
@@ -73,6 +74,17 @@ export const RemotionRoot: React.FC = () => {
         height={agentSceneFixture.canvas?.height || 1080}
         defaultProps={{
           manifest: agentSceneFixture as any,
+        }}
+      />
+      <Composition
+        id="StyleShowcase"
+        component={StyleShowcase}
+        durationInFrames={120}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: 'PeerPro Style & Asset Quality System',
         }}
       />
     </>

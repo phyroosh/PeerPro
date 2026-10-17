@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 180" width="260" height="180">
+  <defs>
+    <linearGradient id="hairCobalt3Q" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <linearGradient id="hairShadow3Q" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+
+  <!-- Underlayer Hair Shadow Tufts -->
+  <path d="M28,80 C32,25 90,14 150,14 C210,14 240,40 242,90 C234,105 220,85 205,125 C190,145 175,100 155,140 C140,152 130,122 115,138 C95,95 78,135 62,118 C48,90 35,102 28,80 Z"
+        fill="url(#hairShadow3Q)" />
+
+  <!-- 3/4 Perspective Swept Bangs & Volume -->
+  <path d="M30,75 C34,18 90,12 152,12 C215,12 242,32 240,90 C232,130 226,160 216,172 C210,165 212,125 198,105 C186,132 176,128 162,95 C152,126 140,125 128,88 C116,125 102,126 92,95 C78,128 66,132 54,105 C42,125 46,165 40,172 C32,160 26,120 30,75 Z"
+        fill="url(#hairCobalt3Q)" stroke="#1e3a8a" stroke-width="1.8" />
+
+  <!-- Asymmetric Sideburn framing turned cheek -->
+  <path d="M32,75 C28,110 34,148 42,172 C44,175 46,162 44,142 C42,122 38,92 42,75" fill="url(#hairCobalt3Q)" stroke="#1e3a8a" stroke-width="1.2" />
+
+  <!-- 3/4 Angel Ring Halo Sheen -->
+  <g opacity="0.85">
+    <path d="M60,40 C85,32 120,30 145,30" stroke="#93c5fd" stroke-width="5" stroke-linecap="round" fill="none" />
+    <path d="M165,30 C185,32 205,36 220,44" stroke="#93c5fd" stroke-width="5" stroke-linecap="round" fill="none" />
+    <path d="M75,46 C100,38 125,38 145,38" stroke="#dbeafe" stroke-width="2" stroke-linecap="round" fill="none" />
+  </g>
+</svg>

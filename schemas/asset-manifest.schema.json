@@ -72,7 +72,16 @@
             "required": ["family"],
             "properties": {
               "family": { "type": "string" },
-              "variant": { "type": "string" }
+              "variant": { "type": "string" },
+              "angle": {
+                "type": "string",
+                "enum": ["front", "three_quarter", "profile", "back"]
+              },
+              "lighting": {
+                "type": "string",
+                "enum": ["neutral", "daylight", "sunset", "night"]
+              },
+              "paletteId": { "type": "string" }
             }
           },
           "anchor": {

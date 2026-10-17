@@ -59,13 +59,15 @@ test('AssetRegistry: filter queries assets by category and tags', () => {
   registry.registerPack(manifest, { validate: false });
 
   const eyes = registry.filter({ category: 'eyes' });
-  assert.strictEqual(eyes.length, 3);
+  assert.strictEqual(eyes.length, 6);
   assert.ok(eyes.some((e) => e.id === 'starter-char-eyes-neutral'));
   assert.ok(eyes.some((e) => e.id === 'starter-char-eyes-wide'));
   assert.ok(eyes.some((e) => e.id === 'starter-char-eyes-wink'));
+  assert.ok(eyes.some((e) => e.id === 'starter-char-eyes-neutral-v2'));
+  assert.ok(eyes.some((e) => e.id === 'starter-char-eyes-three-quarter'));
 
   const charParts = registry.filter({ kind: 'character_part' });
-  assert.strictEqual(charParts.length, 10);
+  assert.strictEqual(charParts.length, 21);
 
   const happyParts = registry.filter({ tag: 'happy' });
   assert.strictEqual(happyParts.length, 1);

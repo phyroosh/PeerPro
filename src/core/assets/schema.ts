@@ -57,6 +57,9 @@ export const AssetManifestEntrySchema = z.object({
   style: z.object({
     family: z.string().min(1),
     variant: z.string().optional(),
+    angle: z.enum(['front', 'three_quarter', 'profile', 'back']).optional(),
+    lighting: z.enum(['neutral', 'daylight', 'sunset', 'night']).optional(),
+    paletteId: z.string().optional(),
   }),
   anchor: z.object({
     x: z.number().min(0, 'Anchor X must be >= 0').max(1, 'Anchor X must be <= 1'),

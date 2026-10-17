@@ -28,6 +28,18 @@ export type AssetFormat = 'svg' | 'png' | 'webp' | 'component';
 
 export type AssetCapability = 'scalable' | 'tintable' | 'flip_x' | 'flip_y';
 
+export type AssetViewAngle = 'front' | 'three_quarter' | 'profile' | 'back';
+
+export type AssetLighting = 'neutral' | 'daylight' | 'sunset' | 'night';
+
+export interface AssetStyle {
+  family: string;
+  variant?: string;
+  angle?: AssetViewAngle;
+  lighting?: AssetLighting;
+  paletteId?: string;
+}
+
 export interface AttachmentSocket {
   x: number;
   y: number;
@@ -53,10 +65,7 @@ export interface AssetManifestEntry {
     height: number;
   };
   hasAlpha: boolean;
-  style: {
-    family: string;
-    variant?: string;
-  };
+  style: AssetStyle;
   anchor: {
     x: number;
     y: number;
@@ -82,6 +91,7 @@ export interface AssetFilter {
   category?: AssetCategory;
   tag?: string;
   styleFamily?: string;
+  angle?: AssetViewAngle;
 }
 
 export type ValidationErrorCode =
@@ -91,7 +101,8 @@ export type ValidationErrorCode =
   | 'UNSAFE_PATH'
   | 'INVALID_COORDINATES'
   | 'UNKNOWN_PROVENANCE'
-  | 'STYLE_MISMATCH';
+  | 'STYLE_MISMATCH'
+  | 'ANGLE_MISMATCH';
 
 export interface ValidationError {
   path: string;

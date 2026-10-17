@@ -2,7 +2,7 @@
   "$schema": "../../schemas/asset-manifest.schema.json",
   "packId": "starter-kit",
   "name": "PeerPro Starter Anime & City Kit",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "styleFamily": "anime-clean-v1",
   "description": "Foundational vector parts for character assembly and 2.5D Japanese street composition.",
   "assets": [
@@ -13,17 +13,44 @@
       "category": "base_body",
       "path": "peerpro-assets/starter/body-01.svg",
       "format": "svg",
-      "dimensions": { "width": 300, "height": 600 },
-      "hasAlpha": true,
-      "style": { "family": "anime-clean-v1" },
-      "anchor": { "x": 0.5, "y": 1.0 },
-      "attachmentSockets": {
-        "neck": { "x": 150, "y": 95 },
-        "shoulder_left": { "x": 75, "y": 130 },
-        "shoulder_right": { "x": 225, "y": 130 }
+      "dimensions": {
+        "width": 300,
+        "height": 600
       },
-      "capabilities": ["scalable", "flip_x"],
-      "tags": ["character", "body", "uniform", "male", "standing"],
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "attachmentSockets": {
+        "neck": {
+          "x": 150,
+          "y": 95
+        },
+        "shoulder_left": {
+          "x": 75,
+          "y": 130
+        },
+        "shoulder_right": {
+          "x": 225,
+          "y": 130
+        }
+      },
+      "capabilities": [
+        "scalable",
+        "flip_x"
+      ],
+      "tags": [
+        "character",
+        "body",
+        "uniform",
+        "male",
+        "standing"
+      ],
       "provenance": {
         "source": "original",
         "license": "MIT",
@@ -37,17 +64,44 @@
       "category": "base_body",
       "path": "peerpro-assets/starter/body-02-hoodie.svg",
       "format": "svg",
-      "dimensions": { "width": 300, "height": 600 },
-      "hasAlpha": true,
-      "style": { "family": "anime-clean-v1" },
-      "anchor": { "x": 0.5, "y": 1.0 },
-      "attachmentSockets": {
-        "neck": { "x": 150, "y": 95 },
-        "shoulder_left": { "x": 75, "y": 130 },
-        "shoulder_right": { "x": 225, "y": 130 }
+      "dimensions": {
+        "width": 300,
+        "height": 600
       },
-      "capabilities": ["scalable", "flip_x"],
-      "tags": ["character", "body", "casual", "hoodie", "streetwear"],
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "attachmentSockets": {
+        "neck": {
+          "x": 150,
+          "y": 95
+        },
+        "shoulder_left": {
+          "x": 75,
+          "y": 130
+        },
+        "shoulder_right": {
+          "x": 225,
+          "y": 130
+        }
+      },
+      "capabilities": [
+        "scalable",
+        "flip_x"
+      ],
+      "tags": [
+        "character",
+        "body",
+        "casual",
+        "hoodie",
+        "streetwear"
+      ],
       "provenance": {
         "source": "original",
         "license": "MIT",
@@ -61,19 +115,48 @@
       "category": "head",
       "path": "peerpro-assets/starter/head-01.svg",
       "format": "svg",
-      "dimensions": { "width": 240, "height": 260 },
-      "hasAlpha": true,
-      "style": { "family": "anime-clean-v1" },
-      "anchor": { "x": 0.5, "y": 0.5 },
-      "attachmentSockets": {
-        "neck_socket": { "x": 120, "y": 240 },
-        "eyes": { "x": 120, "y": 135 },
-        "mouth": { "x": 120, "y": 195 },
-        "hair": { "x": 120, "y": 70 }
+      "dimensions": {
+        "width": 240,
+        "height": 260
       },
-      "requiredSockets": ["neck"],
-      "capabilities": ["scalable"],
-      "tags": ["character", "head", "face"],
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "neck_socket": {
+          "x": 120,
+          "y": 240
+        },
+        "eyes": {
+          "x": 120,
+          "y": 135
+        },
+        "mouth": {
+          "x": 120,
+          "y": 195
+        },
+        "hair": {
+          "x": 120,
+          "y": 70
+        }
+      },
+      "requiredSockets": [
+        "neck"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "head",
+        "face"
+      ],
       "provenance": {
         "source": "original",
         "license": "MIT",
@@ -87,16 +170,38 @@
       "category": "hair",
       "path": "peerpro-assets/starter/hair-short-front.svg",
       "format": "svg",
-      "dimensions": { "width": 260, "height": 180 },
-      "hasAlpha": true,
-      "style": { "family": "anime-clean-v1" },
-      "anchor": { "x": 0.5, "y": 0.5 },
-      "attachmentSockets": {
-        "hair_socket": { "x": 130, "y": 75 }
+      "dimensions": {
+        "width": 260,
+        "height": 180
       },
-      "requiredSockets": ["hair"],
-      "capabilities": ["scalable", "tintable"],
-      "tags": ["character", "hair", "short", "blue"],
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "hair_socket": {
+          "x": 130,
+          "y": 75
+        }
+      },
+      "requiredSockets": [
+        "hair"
+      ],
+      "capabilities": [
+        "scalable",
+        "tintable"
+      ],
+      "tags": [
+        "character",
+        "hair",
+        "short",
+        "blue"
+      ],
       "provenance": {
         "source": "original",
         "license": "MIT",
@@ -110,16 +215,38 @@
       "category": "hair",
       "path": "peerpro-assets/starter/hair-spiky-front.svg",
       "format": "svg",
-      "dimensions": { "width": 260, "height": 190 },
-      "hasAlpha": true,
-      "style": { "family": "anime-clean-v1" },
-      "anchor": { "x": 0.5, "y": 0.5 },
-      "attachmentSockets": {
-        "hair_socket": { "x": 130, "y": 75 }
+      "dimensions": {
+        "width": 260,
+        "height": 190
       },
-      "requiredSockets": ["hair"],
-      "capabilities": ["scalable", "tintable"],
-      "tags": ["character", "hair", "spiky", "orange"],
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "hair_socket": {
+          "x": 130,
+          "y": 75
+        }
+      },
+      "requiredSockets": [
+        "hair"
+      ],
+      "capabilities": [
+        "scalable",
+        "tintable"
+      ],
+      "tags": [
+        "character",
+        "hair",
+        "spiky",
+        "orange"
+      ],
       "provenance": {
         "source": "original",
         "license": "MIT",
@@ -133,16 +260,37 @@
       "category": "eyes",
       "path": "peerpro-assets/starter/eyes-neutral.svg",
       "format": "svg",
-      "dimensions": { "width": 160, "height": 60 },
-      "hasAlpha": true,
-      "style": { "family": "anime-clean-v1" },
-      "anchor": { "x": 0.5, "y": 0.5 },
-      "attachmentSockets": {
-        "eyes_socket": { "x": 80, "y": 30 }
+      "dimensions": {
+        "width": 160,
+        "height": 60
       },
-      "requiredSockets": ["eyes"],
-      "capabilities": ["scalable"],
-      "tags": ["character", "eyes", "neutral", "blue"],
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "eyes_socket": {
+          "x": 80,
+          "y": 30
+        }
+      },
+      "requiredSockets": [
+        "eyes"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "eyes",
+        "neutral",
+        "blue"
+      ],
       "provenance": {
         "source": "original",
         "license": "MIT",
@@ -156,16 +304,37 @@
       "category": "eyes",
       "path": "peerpro-assets/starter/eyes-wide.svg",
       "format": "svg",
-      "dimensions": { "width": 160, "height": 65 },
-      "hasAlpha": true,
-      "style": { "family": "anime-clean-v1" },
-      "anchor": { "x": 0.5, "y": 0.5 },
-      "attachmentSockets": {
-        "eyes_socket": { "x": 80, "y": 32 }
+      "dimensions": {
+        "width": 160,
+        "height": 65
       },
-      "requiredSockets": ["eyes"],
-      "capabilities": ["scalable"],
-      "tags": ["character", "eyes", "surprised", "wide"],
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "eyes_socket": {
+          "x": 80,
+          "y": 32
+        }
+      },
+      "requiredSockets": [
+        "eyes"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "eyes",
+        "surprised",
+        "wide"
+      ],
       "provenance": {
         "source": "original",
         "license": "MIT",
@@ -179,16 +348,37 @@
       "category": "eyes",
       "path": "peerpro-assets/starter/eyes-wink.svg",
       "format": "svg",
-      "dimensions": { "width": 160, "height": 60 },
-      "hasAlpha": true,
-      "style": { "family": "anime-clean-v1" },
-      "anchor": { "x": 0.5, "y": 0.5 },
-      "attachmentSockets": {
-        "eyes_socket": { "x": 80, "y": 30 }
+      "dimensions": {
+        "width": 160,
+        "height": 60
       },
-      "requiredSockets": ["eyes"],
-      "capabilities": ["scalable"],
-      "tags": ["character", "eyes", "wink", "playful"],
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "eyes_socket": {
+          "x": 80,
+          "y": 30
+        }
+      },
+      "requiredSockets": [
+        "eyes"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "eyes",
+        "wink",
+        "playful"
+      ],
       "provenance": {
         "source": "original",
         "license": "MIT",
@@ -202,16 +392,36 @@
       "category": "mouth",
       "path": "peerpro-assets/starter/mouth-closed.svg",
       "format": "svg",
-      "dimensions": { "width": 60, "height": 30 },
-      "hasAlpha": true,
-      "style": { "family": "anime-clean-v1" },
-      "anchor": { "x": 0.5, "y": 0.5 },
-      "attachmentSockets": {
-        "mouth_socket": { "x": 30, "y": 15 }
+      "dimensions": {
+        "width": 60,
+        "height": 30
       },
-      "requiredSockets": ["mouth"],
-      "capabilities": ["scalable"],
-      "tags": ["character", "mouth", "neutral"],
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "mouth_socket": {
+          "x": 30,
+          "y": 15
+        }
+      },
+      "requiredSockets": [
+        "mouth"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "mouth",
+        "neutral"
+      ],
       "provenance": {
         "source": "original",
         "license": "MIT",
@@ -225,16 +435,37 @@
       "category": "mouth",
       "path": "peerpro-assets/starter/mouth-smile.svg",
       "format": "svg",
-      "dimensions": { "width": 70, "height": 40 },
-      "hasAlpha": true,
-      "style": { "family": "anime-clean-v1" },
-      "anchor": { "x": 0.5, "y": 0.5 },
-      "attachmentSockets": {
-        "mouth_socket": { "x": 35, "y": 20 }
+      "dimensions": {
+        "width": 70,
+        "height": 40
       },
-      "requiredSockets": ["mouth"],
-      "capabilities": ["scalable"],
-      "tags": ["character", "mouth", "smile", "happy"],
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "mouth_socket": {
+          "x": 35,
+          "y": 20
+        }
+      },
+      "requiredSockets": [
+        "mouth"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "mouth",
+        "smile",
+        "happy"
+      ],
       "provenance": {
         "source": "original",
         "license": "MIT",
@@ -248,12 +479,29 @@
       "category": "sky",
       "path": "peerpro-assets/starter/sky-dusk.svg",
       "format": "svg",
-      "dimensions": { "width": 2200, "height": 900 },
+      "dimensions": {
+        "width": 2200,
+        "height": 900
+      },
       "hasAlpha": false,
-      "style": { "family": "anime-clean-v1" },
-      "anchor": { "x": 0.5, "y": 0.0 },
-      "capabilities": ["scalable"],
-      "tags": ["environment", "sky", "dusk", "sunset", "background", "overscan"],
+      "style": {
+        "family": "anime-clean-v1"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0
+      },
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "environment",
+        "sky",
+        "dusk",
+        "sunset",
+        "background",
+        "overscan"
+      ],
       "provenance": {
         "source": "original",
         "license": "MIT",
@@ -267,12 +515,28 @@
       "category": "facade",
       "path": "peerpro-assets/starter/building-facade-01.svg",
       "format": "svg",
-      "dimensions": { "width": 600, "height": 800 },
+      "dimensions": {
+        "width": 600,
+        "height": 800
+      },
       "hasAlpha": true,
-      "style": { "family": "anime-clean-v1" },
-      "anchor": { "x": 0.5, "y": 1.0 },
-      "capabilities": ["scalable"],
-      "tags": ["environment", "building", "shop", "city", "midground"],
+      "style": {
+        "family": "anime-clean-v1"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "environment",
+        "building",
+        "shop",
+        "city",
+        "midground"
+      ],
       "provenance": {
         "source": "original",
         "license": "MIT",
@@ -286,12 +550,28 @@
       "category": "facade",
       "path": "peerpro-assets/starter/building-facade-02.svg",
       "format": "svg",
-      "dimensions": { "width": 500, "height": 750 },
+      "dimensions": {
+        "width": 500,
+        "height": 750
+      },
       "hasAlpha": true,
-      "style": { "family": "anime-clean-v1" },
-      "anchor": { "x": 0.5, "y": 1.0 },
-      "capabilities": ["scalable"],
-      "tags": ["environment", "building", "apartment", "city", "midground"],
+      "style": {
+        "family": "anime-clean-v1"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "environment",
+        "building",
+        "apartment",
+        "city",
+        "midground"
+      ],
       "provenance": {
         "source": "original",
         "license": "MIT",
@@ -305,12 +585,28 @@
       "category": "sign",
       "path": "peerpro-assets/starter/conbini-sign.svg",
       "format": "svg",
-      "dimensions": { "width": 320, "height": 180 },
+      "dimensions": {
+        "width": 320,
+        "height": 180
+      },
       "hasAlpha": true,
-      "style": { "family": "anime-clean-v1" },
-      "anchor": { "x": 0.5, "y": 0.5 },
-      "capabilities": ["scalable"],
-      "tags": ["environment", "sign", "conbini", "neon", "prop"],
+      "style": {
+        "family": "anime-clean-v1"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "environment",
+        "sign",
+        "conbini",
+        "neon",
+        "prop"
+      ],
       "provenance": {
         "source": "original",
         "license": "MIT",
@@ -324,12 +620,30 @@
       "category": "foliage",
       "path": "peerpro-assets/starter/tree-cherry.svg",
       "format": "svg",
-      "dimensions": { "width": 400, "height": 600 },
+      "dimensions": {
+        "width": 400,
+        "height": 600
+      },
       "hasAlpha": true,
-      "style": { "family": "anime-clean-v1" },
-      "anchor": { "x": 0.5, "y": 1.0 },
-      "capabilities": ["scalable", "flip_x"],
-      "tags": ["environment", "tree", "foliage", "sakura", "foreground", "midground"],
+      "style": {
+        "family": "anime-clean-v1"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "capabilities": [
+        "scalable",
+        "flip_x"
+      ],
+      "tags": [
+        "environment",
+        "tree",
+        "foliage",
+        "sakura",
+        "foreground",
+        "midground"
+      ],
       "provenance": {
         "source": "original",
         "license": "MIT",
@@ -343,12 +657,29 @@
       "category": "prop",
       "path": "peerpro-assets/starter/vending-machine.svg",
       "format": "svg",
-      "dimensions": { "width": 160, "height": 300 },
+      "dimensions": {
+        "width": 160,
+        "height": 300
+      },
       "hasAlpha": true,
-      "style": { "family": "anime-clean-v1" },
-      "anchor": { "x": 0.5, "y": 1.0 },
-      "capabilities": ["scalable", "flip_x"],
-      "tags": ["environment", "prop", "vending-machine", "drinks", "street"],
+      "style": {
+        "family": "anime-clean-v1"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "capabilities": [
+        "scalable",
+        "flip_x"
+      ],
+      "tags": [
+        "environment",
+        "prop",
+        "vending-machine",
+        "drinks",
+        "street"
+      ],
       "provenance": {
         "source": "original",
         "license": "MIT",
@@ -362,12 +693,27 @@
       "category": "road",
       "path": "peerpro-assets/starter/road-segment.svg",
       "format": "svg",
-      "dimensions": { "width": 1920, "height": 300 },
+      "dimensions": {
+        "width": 1920,
+        "height": 300
+      },
       "hasAlpha": true,
-      "style": { "family": "anime-clean-v1" },
-      "anchor": { "x": 0.5, "y": 1.0 },
-      "capabilities": ["scalable"],
-      "tags": ["environment", "road", "sidewalk", "ground"],
+      "style": {
+        "family": "anime-clean-v1"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "environment",
+        "road",
+        "sidewalk",
+        "ground"
+      ],
       "provenance": {
         "source": "original",
         "license": "MIT",
@@ -381,12 +727,601 @@
       "category": "prop",
       "path": "peerpro-assets/starter/streetlight.svg",
       "format": "svg",
-      "dimensions": { "width": 120, "height": 500 },
+      "dimensions": {
+        "width": 120,
+        "height": 500
+      },
       "hasAlpha": true,
-      "style": { "family": "anime-clean-v1" },
-      "anchor": { "x": 0.5, "y": 1.0 },
-      "capabilities": ["scalable", "flip_x"],
-      "tags": ["environment", "prop", "lamp", "foreground"],
+      "style": {
+        "family": "anime-clean-v1"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "capabilities": [
+        "scalable",
+        "flip_x"
+      ],
+      "tags": [
+        "environment",
+        "prop",
+        "lamp",
+        "foreground"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-prop-contact-shadow",
+      "name": "Ground Contact Shadow Oval",
+      "kind": "prop",
+      "category": "prop",
+      "path": "peerpro-assets/starter/shadow-contact-oval.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 240,
+        "height": 50
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "prop",
+        "shadow",
+        "contact",
+        "ground"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-char-head-01-v2",
+      "name": "Anime Head Base V2 (Refined)",
+      "kind": "character_part",
+      "category": "head",
+      "path": "peerpro-assets/starter/head-01-v2.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 240,
+        "height": 260
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "neck_socket": {
+          "x": 120,
+          "y": 240
+        },
+        "eyes": {
+          "x": 120,
+          "y": 135
+        },
+        "mouth": {
+          "x": 120,
+          "y": 195
+        },
+        "hair": {
+          "x": 120,
+          "y": 70
+        }
+      },
+      "requiredSockets": [
+        "neck"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "head",
+        "face",
+        "v2",
+        "refined"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-char-body-01-v2",
+      "name": "Student Blazer Body V2 (Refined Cel-Shaded)",
+      "kind": "character_part",
+      "category": "base_body",
+      "path": "peerpro-assets/starter/body-01-v2.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 300,
+        "height": 600
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "attachmentSockets": {
+        "neck": {
+          "x": 150,
+          "y": 95
+        },
+        "shoulder_left": {
+          "x": 72,
+          "y": 128
+        },
+        "shoulder_right": {
+          "x": 228,
+          "y": 128
+        }
+      },
+      "capabilities": [
+        "scalable",
+        "flip_x"
+      ],
+      "tags": [
+        "character",
+        "body",
+        "uniform",
+        "male",
+        "v2",
+        "refined"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-char-eyes-neutral-v2",
+      "name": "Expressive Anime Eyes V2",
+      "kind": "character_part",
+      "category": "eyes",
+      "path": "peerpro-assets/starter/eyes-neutral-v2.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 160,
+        "height": 60
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "eyes_socket": {
+          "x": 80,
+          "y": 30
+        }
+      },
+      "requiredSockets": [
+        "eyes"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "eyes",
+        "face",
+        "v2",
+        "refined"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-char-eyes-wink-v2",
+      "name": "Playful Anime Wink Eyes V2",
+      "kind": "character_part",
+      "category": "eyes",
+      "path": "peerpro-assets/starter/eyes-wink-v2.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 160,
+        "height": 60
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "eyes_socket": {
+          "x": 80,
+          "y": 30
+        }
+      },
+      "requiredSockets": [
+        "eyes"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "eyes",
+        "wink",
+        "face",
+        "v2",
+        "refined"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-char-mouth-smile-v2",
+      "name": "Refined Anime Smile V2",
+      "kind": "character_part",
+      "category": "mouth",
+      "path": "peerpro-assets/starter/mouth-smile-v2.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 80,
+        "height": 40
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "mouth_socket": {
+          "x": 40,
+          "y": 20
+        }
+      },
+      "requiredSockets": [
+        "mouth"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "mouth",
+        "smile",
+        "v2",
+        "refined"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-char-hair-short-v2",
+      "name": "Layered Short Anime Bangs V2",
+      "kind": "character_part",
+      "category": "hair",
+      "path": "peerpro-assets/starter/hair-short-v2.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 260,
+        "height": 180
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "hair_socket": {
+          "x": 130,
+          "y": 75
+        }
+      },
+      "requiredSockets": [
+        "hair"
+      ],
+      "capabilities": [
+        "scalable",
+        "tintable"
+      ],
+      "tags": [
+        "character",
+        "hair",
+        "short",
+        "blue",
+        "v2",
+        "refined"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-char-body-01-three-quarter",
+      "name": "Student Blazer Body 3/4 Perspective",
+      "kind": "character_part",
+      "category": "base_body",
+      "path": "peerpro-assets/starter/body-01-three-quarter.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 300,
+        "height": 600
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "angle": "three_quarter"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "attachmentSockets": {
+        "neck": {
+          "x": 140,
+          "y": 95
+        },
+        "shoulder_left": {
+          "x": 82,
+          "y": 130
+        },
+        "shoulder_right": {
+          "x": 235,
+          "y": 126
+        }
+      },
+      "capabilities": [
+        "scalable",
+        "flip_x"
+      ],
+      "tags": [
+        "character",
+        "body",
+        "uniform",
+        "three_quarter",
+        "perspective"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-char-head-01-three-quarter",
+      "name": "Anime Head Base 3/4 Perspective",
+      "kind": "character_part",
+      "category": "head",
+      "path": "peerpro-assets/starter/head-01-three-quarter.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 240,
+        "height": 260
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "angle": "three_quarter"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "neck_socket": {
+          "x": 110,
+          "y": 240
+        },
+        "eyes": {
+          "x": 115,
+          "y": 135
+        },
+        "mouth": {
+          "x": 110,
+          "y": 195
+        },
+        "hair": {
+          "x": 110,
+          "y": 70
+        }
+      },
+      "requiredSockets": [
+        "neck"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "head",
+        "face",
+        "three_quarter",
+        "perspective"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-char-eyes-three-quarter",
+      "name": "Stereoscopic Anime Eyes 3/4 Perspective",
+      "kind": "character_part",
+      "category": "eyes",
+      "path": "peerpro-assets/starter/eyes-three-quarter.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 160,
+        "height": 60
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "angle": "three_quarter"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "eyes_socket": {
+          "x": 80,
+          "y": 30
+        }
+      },
+      "requiredSockets": [
+        "eyes"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "eyes",
+        "three_quarter",
+        "perspective"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-char-hair-three-quarter",
+      "name": "Swept Anime Hair 3/4 Perspective",
+      "kind": "character_part",
+      "category": "hair",
+      "path": "peerpro-assets/starter/hair-three-quarter.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 260,
+        "height": 180
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "angle": "three_quarter"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "hair_socket": {
+          "x": 120,
+          "y": 75
+        }
+      },
+      "requiredSockets": [
+        "hair"
+      ],
+      "capabilities": [
+        "scalable",
+        "tintable"
+      ],
+      "tags": [
+        "character",
+        "hair",
+        "three_quarter",
+        "perspective"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      }
+    },
+    {
+      "id": "starter-char-mouth-three-quarter",
+      "name": "Anime Mouth 3/4 Perspective",
+      "kind": "character_part",
+      "category": "mouth",
+      "path": "peerpro-assets/starter/mouth-three-quarter.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 80,
+        "height": 40
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "angle": "three_quarter"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "mouth_socket": {
+          "x": 40,
+          "y": 20
+        }
+      },
+      "requiredSockets": [
+        "mouth"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "mouth",
+        "three_quarter",
+        "perspective"
+      ],
       "provenance": {
         "source": "original",
         "license": "MIT",

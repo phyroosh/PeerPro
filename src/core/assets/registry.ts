@@ -127,6 +127,9 @@ export class AssetRegistry {
     if (filter.styleFamily) {
       results = results.filter((a) => a.style.family === filter.styleFamily);
     }
+    if (filter.angle) {
+      results = results.filter((a) => a.style.angle === filter.angle);
+    }
     if (filter.tag) {
       const tagLower = filter.tag.toLowerCase();
       results = results.filter((a) =>
