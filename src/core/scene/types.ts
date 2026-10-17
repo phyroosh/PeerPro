@@ -13,6 +13,7 @@ import {
 } from '../animation/types';
 import { CharacterDefinition } from '../characters/types';
 import { EnvironmentDefinition } from '../environments/types';
+import { SceneAudioTrack } from '../audio/types';
 
 export interface SceneCanvasConfig {
   width?: number; // default: 1920
@@ -93,4 +94,5 @@ export interface SceneManifest {
   characters?: SceneCharacterInstance[];
   effects?: SceneEffectConfig[];
   dialog?: SceneDialogLine[];
+  audio?: SceneAudioTrack[];
 }

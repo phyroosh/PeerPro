@@ -1,8 +1,8 @@
 # PeerPro Implementation Status
 
 ## Current Status Overview
-- **Active Phase**: Phase 17 — Agent Discovery, Visual Feedback, and Self-Correction (Completed)
-- **Overall Status**: **PHASE 17 DELIVERED & FULLY VERIFIED (96/96 TESTS PASSING)**
+- **Active Phase**: Phase 18 — Voiceover, Sound, and Shot Timing Integration (Completed)
+- **Overall Status**: **PHASE 18 DELIVERED & FULLY VERIFIED (107/107 TESTS PASSING)**
 - **Last Updated**: 2026-10-17
 
 ---
@@ -489,8 +489,57 @@
   - `npm run scene:correct scenes/agent-flawed-scene.json scenes/agent-corrected-scene.json`: Corrected all 3 issues (+10 points).
   - `npm run scene:analyze scenes/agent-corrected-scene.json`: Verified improved score of 97/100 (PASSED).
   - Still renders completed in 477ms and 480ms.
+### Phase 18 — Voiceover, Sound, and Shot Timing Integration
+- **Status**: COMPLETED
+- **Date**: 2026-10-17
+- **Key Artifacts Created & Modified**:
+  - `src/core/audio/types.ts`:
+    - TypeScript contracts for `AudioTrackType` (`'bgm' | 'ambient' | 'sfx' | 'voiceover'`), `SceneAudioTrack`, `LipSyncViseme` (`'closed' | 'open' | 'half' | 'wide' | 'smile'`), `LipSyncKeyframe`, `SpeechCadenceOptions`, and `TrackVolumeState`.
+  - `src/core/audio/schema.ts`:
+    - Zod schemas validating `SceneAudioTrackSchema` and audio configuration.
+  - `src/core/audio/lipsync.ts`:
+    - Pure mathematical speech-to-viseme scheduler `computeLipSyncSchedule(dialog, fps, options)`:
+      - Breaks dialog text into words and punctuation.
+      - Generates rhythmic anime flap cycles ($3.5\text{ Hz}$) transitioning across `open`, `smile`, and `closed` states.
+      - Implements natural pauses on punctuation and friendly smile settle on exclamations.
+      - `evaluateLipSyncAtFrame(frame, schedule)`: pure timeline evaluator.
+  - `src/core/audio/mixing.ts`:
+    - Pure volume calculator `computeTrackVolume(frame, track, dialogLines)`:
+      - Frame-by-frame volume evaluation with linear fade-in and fade-out ramps.
+      - Automated audio ducking: smoothly reduces BGM/ambient tracks under character dialogue.
+      - `evaluateAllTrackVolumes`: returns full mixer state for telemetry and diagnostics.
+  - `src/core/audio/AudioRenderer.tsx`:
+    - Remotion component mapping `SceneAudioTrack` definitions to Remotion `<Audio>` elements with dynamic volume automation.
+  - `src/core/audio/index.ts`:
+    - Barrel export for the audio subsystem.
+  - `src/core/scene/types.ts` & `src/core/scene/schema.ts`:
+    - Added optional `audio?: SceneAudioTrack[]` to `SceneManifest` and `SceneManifestSchema`.
+  - `src/core/scene/SceneRenderer.tsx`:
+    - Mounted `<AudioRenderer />` for multi-channel scene audio.
+    - Wired automatic speech lip-sync mouth switching into `RenderedSceneCharacter` whenever dialog is speaking.
+  - `src/core/agent/types.ts` & `src/core/agent/discovery.ts`:
+    - Extended agent discovery with audio capabilities (`trackTypes`, `supportsDucking`, `supportsLipSync`, `visemes`).
+  - `scripts/agent-discover.ts`:
+    - Added Audio Channels telemetry line.
+  - `src/compositions/AudioNarrativeShowcase.tsx`:
+    - 180-frame (6.0s @ 30fps) classroom benchmark registered in `src/Root.tsx`:
+      - Ambient classroom room tone + anime BGM melody.
+      - Ren speaking dialogue lines with synchronized anime mouth visemes.
+      - Real-time telemetry HUD displaying active line, current viseme, and multi-channel audio meters with `[DUCKED]` indicators.
+  - `package.json`:
+    - Added `"render:audio:still"` and `"render:audio:video"`.
+  - `tests/unit/audio-lipsync.test.ts`:
+    - 11 comprehensive unit tests covering lip-sync scheduling, viseme evaluation, volume curves, audio ducking, and Zod schemas.
+  - `tests/e2e/render-smoke.test.ts`:
+    - Added `AudioNarrativeShowcase` to full E2E smoke tests.
+- **Commands Run & Verified**:
+  - `npm test`: 107/107 tests passed (100% pass rate across 19 suites).
+  - `npm run verify:all`: All 9/9 verification stages passed in 69.45s.
+  - `npm run render:audio:still`: Rendered `out/audio-narrative-showcase.png` in 592ms.
+  - `npm run render:audio:video`: Rendered `out/audio-narrative-showcase.mp4` (180 frames, 6.0s, 1.5 MB) in 15.91s.
 - **Known Limitations**:
-  - Audio, voiceover, and sound timing integration are scheduled for Phase 18.
+  - Automated benchmark regression test suite and release gates are scheduled for Phase 19.
+
 
 
 

@@ -257,6 +257,12 @@ export function getAgentDiscoveryData(options: DiscoveryOptions = {}): AgentDisc
       letterbox: ['none', 'cinemascope', 'standard'],
       colorGrades: ['none', 'anime-warm', 'anime-cool', 'golden-hour'],
     },
+    audio: {
+      trackTypes: ['bgm', 'ambient', 'sfx', 'voiceover'],
+      supportsDucking: true,
+      supportsLipSync: true,
+      visemes: ['closed', 'open', 'half', 'wide', 'smile'],
+    },
     sceneManifestTemplate: {
       $schema: '../schemas/scene-definition.schema.json',
       id: 'agent-directed-scene',

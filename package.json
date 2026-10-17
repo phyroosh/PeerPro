@@ -44,6 +44,8 @@
     "render:action:video": "remotion render ActionShowcase out/action-showcase.mp4",
     "render:cinematic:still": "remotion still CinematicSequenceShowcase out/cinematic-sequence.png --frame=105",
     "render:cinematic:video": "remotion render CinematicSequenceShowcase out/cinematic-sequence.mp4",
+    "render:audio:still": "remotion still AudioNarrativeShowcase out/audio-narrative-showcase.png --frame=45",
+    "render:audio:video": "remotion render AudioNarrativeShowcase out/audio-narrative-showcase.mp4",
     "agent:discover": "tsx scripts/agent-discover.ts",
     "scene:inspect": "tsx scripts/inspect-scene.ts",
     "scene:analyze": "tsx scripts/analyze-scene.ts",

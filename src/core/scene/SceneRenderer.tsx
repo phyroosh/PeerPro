@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { useCurrentFrame, useVideoConfig } from 'remotion';
 import { SceneCanvas } from './SceneCanvas';
-import { SceneCharacterInstance, SceneManifest } from './types';
+import { SceneCharacterInstance, SceneManifest, SceneDialogLine } from './types';
 import { validateSceneManifest } from './validator';
 import { defaultAssetRegistry, AssetRegistry } from '../assets/registry';
 import { defaultCharacterPresets } from '../characters/presets';
@@ -20,6 +20,8 @@ import { Character } from '../characters/Character';
 import { Environment } from '../environments/Environment';
 import { DriftingPetals } from '../effects/DriftingPetals';
 import { RainEffect } from '../effects/RainEffect';
+import { AudioRenderer } from '../audio/AudioRenderer';
+import { computeLipSyncSchedule, evaluateLipSyncAtFrame } from '../audio/lipsync';
 
 export interface SceneRendererProps {
   manifest?: SceneManifest;
@@ -42,7 +44,8 @@ const RenderedSceneCharacter: React.FC<{
   instance: SceneCharacterInstance;
   charDef: CharacterDefinition;
   registry: AssetRegistry;
-}> = ({ instance, charDef, registry }) => {
+  dialog?: SceneDialogLine[];
+}> = ({ instance, charDef, registry, dialog }) => {
   const { camera, frame } = useCamera25D();
   const { fps } = useVideoConfig();
 
@@ -61,15 +64,33 @@ const RenderedSceneCharacter: React.FC<{
     ? resolveExpressionSchedule(frame, instance.animation.expressionSchedule)
     : {};
 
+  // Automated speech lip-sync mouth shape
+  const activeDialog = dialog?.find(
+    (d) =>
+      frame >= d.startFrame &&
+      frame <= d.endFrame &&
+      (d.characterId === instance.id || (!d.characterId && dialog.length === 1))
+  );
+
+  const lipSyncSchedule = useMemo(() => {
+    if (!activeDialog) return undefined;
+    return computeLipSyncSchedule(activeDialog, fps);
+  }, [activeDialog, fps]);
+
+  const lipSyncMouth = lipSyncSchedule
+    ? evaluateLipSyncAtFrame(frame, lipSyncSchedule)
+    : undefined;
+
   const effectivePartOverrides: Record<string, string> = {
     ...(actionState?.partOverrides || {}),
     ...(instance.partOverrides || {}),
+    ...(lipSyncMouth && !scheduledExpressions.mouth ? { mouth: lipSyncMouth.mouthAssetId } : {}),
     ...(scheduledExpressions.eyes ? { eyes: scheduledExpressions.eyes } : {}),
     ...(scheduledExpressions.mouth ? { mouth: scheduledExpressions.mouth } : {}),
     ...(actionState?.expressionCue?.eyes && !scheduledExpressions.eyes
       ? { eyes: actionState.expressionCue.eyes }
       : {}),
-    ...(actionState?.expressionCue?.mouth && !scheduledExpressions.mouth
+    ...(actionState?.expressionCue?.mouth && !scheduledExpressions.mouth && !lipSyncMouth
       ? { mouth: actionState.expressionCue.mouth }
       : {}),
   };
@@ -279,6 +300,7 @@ export const SceneRenderer: React.FC<SceneRendererProps> = ({
                 instance={inst}
                 charDef={charDef}
                 registry={registry}
+                dialog={activeManifest.dialog}
               />
             );
           })}
@@ -316,6 +338,9 @@ export const SceneRenderer: React.FC<SceneRendererProps> = ({
         {/* Dialog / Subtitles */}
         <SceneDialogOverlay manifest={activeManifest} />
       </Camera25D>
+
+      {/* Multi-Track Audio Renderer */}
+      <AudioRenderer tracks={activeManifest.audio} dialog={activeManifest.dialog} />
     </SceneCanvas>
   );
 };

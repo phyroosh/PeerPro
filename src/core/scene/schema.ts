@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { CharacterDefinitionSchema } from '../characters/schema';
 import { EnvironmentDefinitionSchema } from '../environments/schema';
 import { CharacterActionClipSchema } from '../animation/actions.schema';
+import { SceneAudioTrackSchema } from '../audio/schema';
 
 export const SceneCanvasSchema = z.object({
   width: z.number().positive().default(1920).optional(),
@@ -152,4 +153,5 @@ export const SceneManifestSchema = z.object({
   characters: z.array(SceneCharacterInstanceSchema).optional(),
   effects: z.array(SceneEffectSchema).optional(),
   dialog: z.array(SceneDialogLineSchema).optional(),
+  audio: z.array(SceneAudioTrackSchema).optional(),
 });

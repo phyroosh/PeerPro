@@ -3,6 +3,7 @@ import { CharacterActionName, EasingType } from '../animation/types';
 import { CharacterPoseName } from '../characters/types';
 import { ShotTransitionType, LetterboxStyle, ColorGradePreset } from '../sequence/types';
 import { SceneManifest } from '../scene/types';
+import { AudioTrackType, LipSyncViseme } from '../audio/types';
 
 export interface AgentAssetSummary {
   id: string;
@@ -105,6 +106,12 @@ export interface AgentDiscoveryData {
     transitions: ShotTransitionType[];
     letterbox: LetterboxStyle[];
     colorGrades: ColorGradePreset[];
+  };
+  audio?: {
+    trackTypes: AudioTrackType[];
+    supportsDucking: boolean;
+    supportsLipSync: boolean;
+    visemes: LipSyncViseme[];
   };
   sceneManifestTemplate: SceneManifest;
 }

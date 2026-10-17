@@ -34,6 +34,9 @@ if (isJsonMode) {
   console.log(`Transitions:         ${discoveryData.sequence.transitions.join(', ')}`);
   console.log(`Letterbox Formats:   ${discoveryData.sequence.letterbox.join(', ')}`);
   console.log(`Color Grades:        ${discoveryData.sequence.colorGrades.join(', ')}`);
+  if (discoveryData.audio) {
+    console.log(`Audio Channels:      ${discoveryData.audio.trackTypes.join(', ')} (Automated Ducking + Anime Viseme Lip-Sync)`);
+  }
   console.log('---------------------------------------------------------------');
   console.log('Run with --json to get full machine-readable schema & metadata.');
   console.log('===============================================================');
