@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2200 900" width="2200" height="900">
+  <defs>
+    <linearGradient id="duskAtmosphere" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="35%" stop-color="#1e1b4b" />
+      <stop offset="65%" stop-color="#4c1d95" />
+      <stop offset="85%" stop-color="#9d174d" />
+      <stop offset="100%" stop-color="#fb923c" />
+    </linearGradient>
+    <radialGradient id="duskGlow" cx="50%" cy="85%" r="50%">
+      <stop offset="0%" stop-color="#fed7aa" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#9d174d" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Sky Gradient -->
+  <rect width="2200" height="900" fill="url(#duskAtmosphere)" />
+  <rect width="2200" height="900" fill="url(#duskGlow)" />
+
+  <!-- Distant Mountain / City Silhouettes -->
+  <path d="M0,760 L140,730 L280,755 L420,720 L580,750 L750,715 L900,740 L1060,705 L1250,745 L1420,710 L1600,735 L1780,715 L1950,745 L2100,725 L2200,750 L2200,900 L0,900 Z" fill="#1e1b4b" opacity="0.7" />
+  
+  <!-- Secondary Closer Silhouette -->
+  <path d="M0,820 L180,800 L340,815 L520,790 L700,810 L880,785 L1080,810 L1300,780 L1520,805 L1740,785 L1960,810 L2200,795 L2200,900 L0,900 Z" fill="#0f172a" opacity="0.9" />
+
+  <!-- Distant Tokyo Tower Silhouette -->
+  <polygon points="1120,640 1135,770 1105,770" fill="#1e1b4b" opacity="0.6" />
+  <line x1="1120" y1="610" x2="1120" y2="640" stroke="#1e1b4b" stroke-width="2" opacity="0.6" />
+</svg>

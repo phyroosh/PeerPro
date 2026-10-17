@@ -1,8 +1,8 @@
 # PeerPro Implementation Status
 
 ## Current Status Overview
-- **Active Phase**: Phase 4 — Composable character builder (Completed)
-- **Next Phase**: Phase 5 — Modular environment builder
+- **Active Phase**: Phase 5 — Modular environment builder (Completed)
+- **Next Phase**: Phase 6 — Animation, camera, and parallax toolkit
 - **Last Updated**: 2026-10-17
 
 ---
@@ -33,28 +33,37 @@
 ### Phase 3 — Asset Registry, Manifest, and Validation Tools
 - **Status**: COMPLETED
 - **Date**: 2026-10-17
-- **Key Artifacts Created**: Asset manifest types, Zod schemas, pure read-only validator, `AssetRegistry`, 10 starter vector assets, CLI scripts (`validate-assets`, `build-asset-index`, `build-contact-sheet`), and 11 unit tests.
+- **Key Artifacts Created**: Asset manifest types, Zod schemas, pure read-only validator, `AssetRegistry`, 10 starter vector assets, CLI scripts, and 11 unit tests.
 
 ---
 
 ### Phase 4 — Composable Character Builder
 - **Status**: COMPLETED
 - **Date**: 2026-10-17
+- **Key Artifacts Created**: Character types, Zod schemas, attachment socket solver (`neck`, `eyes`, `mouth`, `hair`), `Character.tsx` component, student presets, starter kit expansion (13 assets), `CharacterShowcase.tsx` composition, and 4 unit tests.
+
+---
+
+### Phase 5 — Modular Environment Builder
+- **Status**: COMPLETED
+- **Date**: 2026-10-17
 - **Key Artifacts Created**:
-  - `src/core/characters/types.ts`: TypeScript interfaces for character definitions, slots, variant overrides, and resolved parts.
-  - `src/core/characters/schema.ts`: Runtime Zod schemas validating character definitions and variant maps.
-  - `src/core/characters/solver.ts`: Attachment socket solver implementing exact millimeter-level socket-to-plug mounting math (`neck`, `eyes`, `mouth`, `hair`) and compatibility checks.
-  - `src/core/characters/Character.tsx`: React/Remotion component rendering solved parts with deterministic transform positioning, z-ordering, scale, and flip support.
-  - `src/core/characters/presets.ts`: Pre-configured character definition `studentCharacterDefinition` with default, happy, surprised, and casual variants.
-  - Starter Kit Expansion: Added 3 new vector SVG assets (spiky orange hair, winking eyes, casual hoodie streetwear body) bringing the starter kit to 13 verified assets.
-  - `src/compositions/CharacterShowcase.tsx`: Remotion composition displaying default student and casual streetwear variants side by side with subtle breathing bobbing.
-  - `tests/unit/character-builder.test.ts`: 4 comprehensive unit tests verifying socket solving, variant switching, unknown variant error handling, and missing socket incompatibility detection.
+  - `src/core/environments/types.ts`: TypeScript interfaces for `EnvironmentDefinition`, `EnvironmentLayer`, `LayerTransform`, and depth plane metadata.
+  - `src/core/environments/schema.ts`: Runtime Zod schemas validating layer transforms, depth factors, and hierarchical grouping.
+  - `src/core/environments/Environment.tsx`: React/Remotion component with pre-render asset validation, hierarchical group rendering, anchor-to-pixel offset calculation, and depth-based ordering.
+  - `src/core/environments/presets.ts`: Two distinct environment layouts composed from the same asset kit:
+    - `japaneseStreetCornerPreset`: Busy commercial corner with 24H conbini, neon sign, vending machine, apartment, framing cherry tree, and streetlight.
+    - `japaneseQuietStreetPreset`: Peaceful residential street with central courtyard sakura tree, streetlight, apartment facade, and close-up foreground vending machine.
+  - Japanese Street Kit Expansion: 5 new original vector SVGs (`sky-dusk.svg`, `building-facade-02.svg`, `conbini-sign.svg`, `tree-cherry.svg`, `vending-machine.svg`), bringing the starter pack to 18 verified assets.
+  - `src/compositions/EnvironmentShowcase.tsx`: Remotion composition sequencing and transitioning between both environment layouts with character integration.
+  - `tests/unit/environment-builder.test.ts`: 5 unit tests verifying preset validation, missing asset detection (including in nested children), and structural differentiation.
 - **Commands Run & Verified**:
-  - `npm test`: 15/15 tests passed in 404ms.
+  - `npm test`: 20/20 unit tests passed in 619ms.
   - `npm run build`: 0 TypeScript compiler errors.
-  - `npm run assets:validate`: 13/13 assets verified across starter kit.
-  - `npm run render:showcase:still`: Rendered `out/character-showcase.png` (frame 30) in 321ms.
-  - `npm run render:showcase:video`: Rendered `out/character-showcase.mp4` (120 frames, 4.0s, 277 kB) in 3.75s.
-  - SHA256 checksum comparison: Confirmed identical hash `8545fadf86ebe71209cd92376022104b098d41b49dcd6c03abdcbf7da0ec2284` across separate renders of frame 30.
+  - `npm run assets:validate`: 18/18 assets verified across starter kit.
+  - `npm run render:env:corner`: Rendered `out/env-corner.png` (frame 40) in 362ms.
+  - `npm run render:env:quiet`: Rendered `out/env-quiet.png` (frame 120) in 340ms.
+  - `npm run render:env:video`: Rendered `out/environment-showcase.mp4` (160 frames, 5.33s, 357 kB) in 5.77s.
+  - SHA256 checksum comparison: Confirmed identical hash `9f087405465befdedd4cb959b61bc64453e460c70986f8205490a41f6497b20a` across separate renders of frame 40.
 - **Known Limitations**:
-  - Modular environment composition and 2.5D camera/parallax system not yet implemented (scheduled for Phases 5 and 6).
+  - Reusable camera motion presets and 2.5D parallax displacement are scheduled for implementation in Phase 6.

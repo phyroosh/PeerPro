@@ -2,6 +2,7 @@ import React from 'react';
 import { Composition } from 'remotion';
 import { PeerProSandbox } from './compositions/PeerProSandbox';
 import { CharacterShowcase } from './compositions/CharacterShowcase';
+import { EnvironmentShowcase } from './compositions/EnvironmentShowcase';
 import { defaultAssetRegistry } from './core/assets/registry';
 import starterManifest from '../asset-packs/starter-kit/manifest.json';
 
@@ -34,6 +35,17 @@ export const RemotionRoot: React.FC = () => {
         height={1080}
         defaultProps={{
           title: 'PeerPro Character Builder Showcase',
+        }}
+      />
+      <Composition
+        id="EnvironmentShowcase"
+        component={EnvironmentShowcase}
+        durationInFrames={160}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          layoutMode: 'sequence',
         }}
       />
     </>

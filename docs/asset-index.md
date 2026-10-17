@@ -1,7 +1,7 @@
 # PeerPro Asset Index
 
 > Automatically generated index of all available modular assets in PeerPro.
-> Total Assets: **13** | Generated: 2026-10-17
+> Total Assets: **18** | Generated: 2026-10-17
 
 ## Quick Category Navigation
 
@@ -10,9 +10,12 @@
 - [hair (2)](#category-hair)
 - [eyes (3)](#category-eyes)
 - [mouth (2)](#category-mouth)
-- [facade (1)](#category-facade)
+- [sky (1)](#category-sky)
+- [facade (2)](#category-facade)
+- [sign (1)](#category-sign)
+- [foliage (1)](#category-foliage)
+- [prop (2)](#category-prop)
 - [road (1)](#category-road)
-- [prop (1)](#category-prop)
 
 ---
 
@@ -51,21 +54,41 @@
 | `starter-char-mouth-closed` | Neutral Closed Mouth | `svg` | 60x30 | (0.5, 0.5) | mouth_socket | character, mouth, neutral | MIT |
 | `starter-char-mouth-smile` | Smiling Open Mouth | `svg` | 70x40 | (0.5, 0.5) | mouth_socket | character, mouth, smile, happy | MIT |
 
+### Category: `sky`
+
+| ID | Name | Format | Dimensions | Anchor | Sockets | Tags | License |
+|---|---|---|---|---|---|---|---|
+| `starter-env-sky-dusk` | Dusk Tokyo Sky Plate | `svg` | 2200x900 | (0.5, 0) | none | environment, sky, dusk, sunset, background, overscan | MIT |
+
 ### Category: `facade`
 
 | ID | Name | Format | Dimensions | Anchor | Sockets | Tags | License |
 |---|---|---|---|---|---|---|---|
 | `starter-env-building-facade-01` | Tokyo Storefront Facade | `svg` | 600x800 | (0.5, 1) | none | environment, building, shop, city, midground | MIT |
+| `starter-env-building-facade-02` | Tokyo Apartment Facade | `svg` | 500x750 | (0.5, 1) | none | environment, building, apartment, city, midground | MIT |
+
+### Category: `sign`
+
+| ID | Name | Format | Dimensions | Anchor | Sockets | Tags | License |
+|---|---|---|---|---|---|---|---|
+| `starter-env-conbini-sign` | Conbini Neon Canopy Sign | `svg` | 320x180 | (0.5, 0.5) | none | environment, sign, conbini, neon, prop | MIT |
+
+### Category: `foliage`
+
+| ID | Name | Format | Dimensions | Anchor | Sockets | Tags | License |
+|---|---|---|---|---|---|---|---|
+| `starter-env-tree-cherry` | Urban Cherry Blossom Tree | `svg` | 400x600 | (0.5, 1) | none | environment, tree, foliage, sakura, foreground, midground | MIT |
+
+### Category: `prop`
+
+| ID | Name | Format | Dimensions | Anchor | Sockets | Tags | License |
+|---|---|---|---|---|---|---|---|
+| `starter-env-vending-machine` | Tokyo Drink Vending Machine | `svg` | 160x300 | (0.5, 1) | none | environment, prop, vending-machine, drinks, street | MIT |
+| `starter-env-streetlight` | Tokyo Streetlight | `svg` | 120x500 | (0.5, 1) | none | environment, prop, lamp, foreground | MIT |
 
 ### Category: `road`
 
 | ID | Name | Format | Dimensions | Anchor | Sockets | Tags | License |
 |---|---|---|---|---|---|---|---|
 | `starter-env-road-segment` | Urban Road & Sidewalk Segment | `svg` | 1920x300 | (0.5, 1) | none | environment, road, sidewalk, ground | MIT |
-
-### Category: `prop`
-
-| ID | Name | Format | Dimensions | Anchor | Sockets | Tags | License |
-|---|---|---|---|---|---|---|---|
-| `starter-env-streetlight` | Tokyo Streetlight | `svg` | 120x500 | (0.5, 1) | none | environment, prop, lamp, foreground | MIT |
 

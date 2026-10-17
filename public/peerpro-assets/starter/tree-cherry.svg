@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+  <defs>
+    <linearGradient id="barkGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#451a03" />
+      <stop offset="50%" stop-color="#78350f" />
+      <stop offset="100%" stop-color="#271003" />
+    </linearGradient>
+    <radialGradient id="foliageGrad1" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#fbcfe8" />
+      <stop offset="70%" stop-color="#f472b6" />
+      <stop offset="100%" stop-color="#db2777" />
+    </radialGradient>
+    <radialGradient id="foliageGrad2" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#fce7f3" />
+      <stop offset="70%" stop-color="#f472b6" />
+      <stop offset="100%" stop-color="#be185d" />
+    </radialGradient>
+  </defs>
+
+  <!-- Gnarled Trunk & Branches -->
+  <path d="M180,600 Q190,440 160,340 Q140,270 110,210 L140,200 Q170,260 190,320 Q220,240 270,180 L295,195 Q235,270 210,360 Q230,460 220,600 Z" fill="url(#barkGrad)" stroke="#1c0a02" stroke-width="2" />
+  <!-- Additional Branch -->
+  <path d="M190,320 Q190,260 210,210 L225,215 Q205,265 200,320 Z" fill="url(#barkGrad)" />
+
+  <!-- Cloud-like Cherry Blossom Foliage Clusters -->
+  <!-- Cluster 1 (Left Back) -->
+  <circle cx="100" cy="180" r="75" fill="url(#foliageGrad2)" opacity="0.9" />
+  <!-- Cluster 2 (Right Back) -->
+  <circle cx="280" cy="160" r="85" fill="url(#foliageGrad2)" opacity="0.9" />
+  <!-- Cluster 3 (Top Center) -->
+  <circle cx="190" cy="110" r="90" fill="url(#foliageGrad1)" />
+  <!-- Cluster 4 (Center Front) -->
+  <circle cx="170" cy="190" r="80" fill="url(#foliageGrad1)" />
+  <!-- Cluster 5 (Left Front) -->
+  <circle cx="80" cy="240" r="60" fill="url(#foliageGrad1)" />
+  <!-- Cluster 6 (Right Front) -->
+  <circle cx="310" cy="220" r="70" fill="url(#foliageGrad1)" />
+
+  <!-- Falling Blossom Petals -->
+  <ellipse cx="60" cy="330" rx="8" ry="5" fill="#fbcfe8" transform="rotate(25, 60, 330)" />
+  <ellipse cx="140" cy="380" rx="7" ry="4" fill="#f472b6" transform="rotate(-30, 140, 380)" />
+  <ellipse cx="320" cy="350" rx="8" ry="5" fill="#fbcfe8" transform="rotate(15, 320, 350)" />
+  <ellipse cx="260" cy="420" rx="6" ry="4" fill="#f472b6" transform="rotate(45, 260, 420)" />
+</svg>

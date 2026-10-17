@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-17T08:03:27.070Z",
-  "totalAssets": 13,
+  "generatedAt": "2026-10-17T08:47:25.687Z",
+  "totalAssets": 18,
   "categories": {
     "base_body": [
       "starter-char-body-01",
@@ -22,14 +22,25 @@
       "starter-char-mouth-closed",
       "starter-char-mouth-smile"
     ],
+    "sky": [
+      "starter-env-sky-dusk"
+    ],
     "facade": [
-      "starter-env-building-facade-01"
+      "starter-env-building-facade-01",
+      "starter-env-building-facade-02"
+    ],
+    "sign": [
+      "starter-env-conbini-sign"
+    ],
+    "foliage": [
+      "starter-env-tree-cherry"
+    ],
+    "prop": [
+      "starter-env-vending-machine",
+      "starter-env-streetlight"
     ],
     "road": [
       "starter-env-road-segment"
-    ],
-    "prop": [
-      "starter-env-streetlight"
     ]
   },
   "tags": {
@@ -122,21 +133,84 @@
       "starter-char-mouth-smile"
     ],
     "environment": [
+      "starter-env-sky-dusk",
       "starter-env-building-facade-01",
+      "starter-env-building-facade-02",
+      "starter-env-conbini-sign",
+      "starter-env-tree-cherry",
+      "starter-env-vending-machine",
       "starter-env-road-segment",
       "starter-env-streetlight"
     ],
+    "sky": [
+      "starter-env-sky-dusk"
+    ],
+    "dusk": [
+      "starter-env-sky-dusk"
+    ],
+    "sunset": [
+      "starter-env-sky-dusk"
+    ],
+    "background": [
+      "starter-env-sky-dusk"
+    ],
+    "overscan": [
+      "starter-env-sky-dusk"
+    ],
     "building": [
-      "starter-env-building-facade-01"
+      "starter-env-building-facade-01",
+      "starter-env-building-facade-02"
     ],
     "shop": [
       "starter-env-building-facade-01"
     ],
     "city": [
-      "starter-env-building-facade-01"
+      "starter-env-building-facade-01",
+      "starter-env-building-facade-02"
     ],
     "midground": [
-      "starter-env-building-facade-01"
+      "starter-env-building-facade-01",
+      "starter-env-building-facade-02",
+      "starter-env-tree-cherry"
+    ],
+    "apartment": [
+      "starter-env-building-facade-02"
+    ],
+    "sign": [
+      "starter-env-conbini-sign"
+    ],
+    "conbini": [
+      "starter-env-conbini-sign"
+    ],
+    "neon": [
+      "starter-env-conbini-sign"
+    ],
+    "prop": [
+      "starter-env-conbini-sign",
+      "starter-env-vending-machine",
+      "starter-env-streetlight"
+    ],
+    "tree": [
+      "starter-env-tree-cherry"
+    ],
+    "foliage": [
+      "starter-env-tree-cherry"
+    ],
+    "sakura": [
+      "starter-env-tree-cherry"
+    ],
+    "foreground": [
+      "starter-env-tree-cherry",
+      "starter-env-streetlight"
+    ],
+    "vending-machine": [
+      "starter-env-vending-machine"
+    ],
+    "drinks": [
+      "starter-env-vending-machine"
+    ],
+    "street": [
+      "starter-env-vending-machine"
     ],
     "road": [
       "starter-env-road-segment"
@@ -147,13 +221,7 @@
     "ground": [
       "starter-env-road-segment"
     ],
-    "prop": [
-      "starter-env-streetlight"
-    ],
     "lamp": [
-      "starter-env-streetlight"
-    ],
-    "foreground": [
       "starter-env-streetlight"
     ]
   },
@@ -625,6 +693,43 @@
       "packId": "starter-kit"
     },
     {
+      "id": "starter-env-sky-dusk",
+      "name": "Dusk Tokyo Sky Plate",
+      "kind": "environment_layer",
+      "category": "sky",
+      "path": "peerpro-assets/starter/sky-dusk.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 2200,
+        "height": 900
+      },
+      "hasAlpha": false,
+      "style": {
+        "family": "anime-clean-v1"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0
+      },
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "environment",
+        "sky",
+        "dusk",
+        "sunset",
+        "background",
+        "overscan"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
       "id": "starter-env-building-facade-01",
       "name": "Tokyo Storefront Facade",
       "kind": "environment_layer",
@@ -652,6 +757,153 @@
         "shop",
         "city",
         "midground"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-env-building-facade-02",
+      "name": "Tokyo Apartment Facade",
+      "kind": "environment_layer",
+      "category": "facade",
+      "path": "peerpro-assets/starter/building-facade-02.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 500,
+        "height": 750
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "environment",
+        "building",
+        "apartment",
+        "city",
+        "midground"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-env-conbini-sign",
+      "name": "Conbini Neon Canopy Sign",
+      "kind": "prop",
+      "category": "sign",
+      "path": "peerpro-assets/starter/conbini-sign.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 320,
+        "height": 180
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "environment",
+        "sign",
+        "conbini",
+        "neon",
+        "prop"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-env-tree-cherry",
+      "name": "Urban Cherry Blossom Tree",
+      "kind": "environment_layer",
+      "category": "foliage",
+      "path": "peerpro-assets/starter/tree-cherry.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 400,
+        "height": 600
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "capabilities": [
+        "scalable",
+        "flip_x"
+      ],
+      "tags": [
+        "environment",
+        "tree",
+        "foliage",
+        "sakura",
+        "foreground",
+        "midground"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-env-vending-machine",
+      "name": "Tokyo Drink Vending Machine",
+      "kind": "prop",
+      "category": "prop",
+      "path": "peerpro-assets/starter/vending-machine.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 160,
+        "height": 300
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "capabilities": [
+        "scalable",
+        "flip_x"
+      ],
+      "tags": [
+        "environment",
+        "prop",
+        "vending-machine",
+        "drinks",
+        "street"
       ],
       "provenance": {
         "source": "original",
