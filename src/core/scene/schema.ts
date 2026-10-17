@@ -35,7 +35,7 @@ export const SceneCameraSchema = z.object({
     .optional(),
   depthOfField: z
     .object({
-      enabled: z.boolean(),
+      enabled: z.boolean().default(true).optional(),
       aperture: z.number().positive().optional(),
       focalDepth: z.number().positive().optional(),
       maxBlur: z.number().positive().optional(),

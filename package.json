@@ -46,6 +46,8 @@
     "render:cinematic:video": "remotion render CinematicSequenceShowcase out/cinematic-sequence.mp4",
     "agent:discover": "tsx scripts/agent-discover.ts",
     "scene:inspect": "tsx scripts/inspect-scene.ts",
+    "scene:analyze": "tsx scripts/analyze-scene.ts",
+    "scene:correct": "tsx scripts/correct-scene.ts",
     "scene:render": "tsx scripts/render-scene.ts",
     "test": "tsx --test tests/**/*.test.ts",
     "verify:all": "tsx scripts/verify-all.ts",

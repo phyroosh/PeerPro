@@ -6,7 +6,7 @@ This guide is designed for **Autonomous AI Agents**, **LLM Directors**, and **Co
 
 ---
 
-## The 4-Step Agent Workflow
+## The 6-Step Agent Workflow
 
 ```
 ┌───────────────────────────┐
@@ -18,11 +18,19 @@ This guide is designed for **Autonomous AI Agents**, **LLM Directors**, and **Co
 └─────────────┬─────────────┘
               ▼
 ┌───────────────────────────┐
-│ 3. Validate Manifest      │  npm run scene:inspect scenes/<scene-name>.json
+│ 3. Validate Schema        │  npm run scene:inspect scenes/<scene-name>.json
 └─────────────┬─────────────┘
               ▼
 ┌───────────────────────────┐
-│ 4. Render Video / Still   │  npm run scene:render scenes/<scene-name>.json out/<output>.mp4
+│ 4. Analyze Composition   │  npm run scene:analyze scenes/<scene-name>.json
+└─────────────┬─────────────┘
+              ▼
+┌───────────────────────────┐
+│ 5. Auto-Correct Defects   │  npm run scene:correct scenes/<in>.json scenes/<out>.json
+└─────────────┬─────────────┘
+              ▼
+┌───────────────────────────┐
+│ 6. Render Video / Still   │  npm run scene:render scenes/<scene-name>.json out/<output>.mp4
 └───────────────────────────┘
 ```
 
@@ -31,23 +39,36 @@ Always inspect what assets and presets are loaded before authoring a scene:
 ```bash
 npm run agent:discover -- --json
 ```
-The returned JSON payload specifies available character presets, variant names, socket names, and camera trajectories.
+The returned JSON payload specifies available character presets, variant names, socket names, cutout poses, 11-action vocabulary, depth-of-field limits, and camera presets.
 
 ### Step 2: Write Scene Manifest
 Create a file under `scenes/` (e.g. `scenes/my-scene.json`).
 
-### Step 3: Inspect & Validate
-Run diagnostics to verify schema conformance and timeline boundaries:
+### Step 3: Inspect & Validate Schema
+Run diagnostics to verify schema conformance and referenced assets:
 ```bash
 npm run scene:inspect scenes/my-scene.json
 ```
 If errors are detected, the validator returns precise machine-readable issue codes and suggestions.
 
-### Step 4: Render
+### Step 4: Analyze Visual Composition Feedback
+Evaluate staging, rule-of-thirds, headroom, floor grounding, and depth-of-field focus alignment:
+```bash
+npm run scene:analyze scenes/my-scene.json
+```
+If issues are detected, the analyzer returns an overall score (0–100), category breakdown, and specific remediation recipes.
+
+### Step 5: Self-Correct Defects Deterministically
+Automatically resolve detected composition defects (grounding floating characters, snapping DoF focus, trimming overlapping actions):
+```bash
+npm run scene:correct scenes/my-scene.json scenes/my-scene-fixed.json
+```
+
+### Step 6: Render
 Render directly via CLI:
 - **Render Preview Still Frame (frame 45):**
   ```bash
-  npm run scene:render scenes/my-scene.json out/preview.png -- --frame 45
+  npm run scene:render scenes/my-scene.json out/preview.png -- --still --frame 45
   ```
 - **Render MP4 Video:**
   ```bash

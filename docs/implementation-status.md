@@ -1,8 +1,8 @@
 # PeerPro Implementation Status
 
 ## Current Status Overview
-- **Active Phase**: Phase 16 — Cinematography, Depth, Occlusion, and Compositing (Completed)
-- **Overall Status**: **PHASE 16 DELIVERED & FULLY VERIFIED (88/88 TESTS PASSING)**
+- **Active Phase**: Phase 17 — Agent Discovery, Visual Feedback, and Self-Correction (Completed)
+- **Overall Status**: **PHASE 17 DELIVERED & FULLY VERIFIED (96/96 TESTS PASSING)**
 - **Last Updated**: 2026-10-17
 
 ---
@@ -444,8 +444,54 @@
   - `npm run verify:all`: All 9/9 verification stages passed in 58.93s.
   - `npm run render:cinematic:still`: Rendered `out/cinematic-sequence.png` in 636ms.
   - `npm run render:cinematic:video`: Rendered `out/cinematic-sequence.mp4` (210 frames, 7.0s, 1.8 MB) in 27.08s.
+### Phase 17 — Agent Discovery, Visual Feedback, and Self-Correction
+- **Status**: COMPLETED
+- **Date**: 2026-10-17
+- **Key Artifacts Created & Modified**:
+  - `src/core/agent/types.ts`:
+    - TypeScript contracts for `AgentDiscoveryData`, `CompositionIssue`, `CompositionScoreBreakdown`, `CompositionReport`, `CharacterBoundingBox`, `RemediationRecipe`, and `CorrectedSceneResult`.
+  - `src/core/agent/discovery.ts`:
+    - Unified introspection function `getAgentDiscoveryData()` aggregating assets (44), character presets, cutout poses (6), environment presets with room grammar (floor horizon $Y$, wall bounds), animation action vocabulary (11 actions with parameters and durations), easing curves (12), camera presets, optical DoF limits, sequence transitions, letterbox formats, and color grades.
+  - `src/core/agent/analyzer.ts`:
+    - Pure mathematical, frame-deterministic visual feedback analyzer `analyzeSceneComposition(manifest, options)`:
+      - Headroom ratio and letterbox clipping analysis.
+      - Floor horizon grounding analysis (detects floating/sunken characters).
+      - Horizontal viewport safety and rule-of-thirds balance.
+      - Optical depth-of-field focal alignment (detects blurred speaking subjects).
+      - Action timeline overflow detection.
+      - Category breakdown scoring and overall score (0–100).
+  - `src/core/agent/corrector.ts`:
+    - Deterministic self-correction engine `autoCorrectScene(manifest, report, options)`:
+      - Applies validated remediation recipes (`CORRECT_GROUNDING`, `CORRECT_DOF_FOCUS`, `CORRECT_ACTION_TIMING`, `CORRECT_HEADROOM`, `CORRECT_LETTERBOX_CLIPPING`).
+      - Deeply clones manifest to ensure purity and generates detailed change log.
+  - `src/core/agent/index.ts`:
+    - Barrel export for discovery, analyzer, and corrector.
+  - `scripts/agent-discover.ts`:
+    - Refactored to leverage `getAgentDiscoveryData()`.
+  - `scripts/analyze-scene.ts`:
+    - CLI tool `npm run scene:analyze <scene.json> [--json] [--letterbox <style>]`.
+  - `scripts/correct-scene.ts`:
+    - CLI tool `npm run scene:correct <in.json> <out.json> [--letterbox <style>] [--json]`.
+  - `package.json`:
+    - Added `"scene:analyze"` and `"scene:correct"` scripts.
+  - `scenes/agent-flawed-scene.json` & `scenes/agent-corrected-scene.json`:
+    - Benchmark flawed manifest demonstrating floating character, out-of-focus DoF, and action overflow, and the automatically remediated manifest.
+  - `out/agent-flawed-scene.png` & `out/agent-corrected-scene.png`:
+    - Rendered visual proof demonstrating before-and-after visual correction.
+  - `docs/agent-cookbook.md`:
+    - Updated documentation describing the complete 6-step agent workflow.
+  - `tests/unit/agent-discovery-feedback.test.ts`:
+    - 8 comprehensive unit tests covering discovery data completeness, analyzer heuristics, self-correction recipes, and frame determinism.
+- **Commands Run & Verified**:
+  - `npm test`: 96/96 tests passed (100% pass rate across 15 suites).
+  - `npm run verify:all`: All 9/9 verification stages passed in 52.88s.
+  - `npm run scene:analyze scenes/agent-flawed-scene.json`: Accurately caught all 3 issues and scored 87/100 (FAILED).
+  - `npm run scene:correct scenes/agent-flawed-scene.json scenes/agent-corrected-scene.json`: Corrected all 3 issues (+10 points).
+  - `npm run scene:analyze scenes/agent-corrected-scene.json`: Verified improved score of 97/100 (PASSED).
+  - Still renders completed in 477ms and 480ms.
 - **Known Limitations**:
-  - Agent discovery, automated visual feedback, and self-correction workflows will be established in Phase 17.
+  - Audio, voiceover, and sound timing integration are scheduled for Phase 18.
+
 
 
 

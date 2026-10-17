@@ -1,0 +1,69 @@
+{
+  "$schema": "../schemas/scene-definition.schema.json",
+  "id": "agent-flawed-scene",
+  "name": "Intentionally Flawed Benchmark Scene",
+  "description": "Benchmark scene with floating character, out-of-focus camera focalDepth, and action clip overflow.",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationInFrames": 150
+  },
+  "camera": {
+    "preset": "static",
+    "intensity": 1.0,
+    "focalDepth": 0.4,
+    "depthOfField": {
+      "aperture": 1.0,
+      "maxBlur": 10.0
+    }
+  },
+  "environment": {
+    "preset": "japanese-classroom"
+  },
+  "characters": [
+    {
+      "id": "hero-ren",
+      "characterId": "student-ren-v2",
+      "variant": "default",
+      "depth": 1.0,
+      "position": {
+        "x": 960,
+        "y": 780
+      },
+      "scale": 1.0,
+      "animation": {
+        "breathing": {
+          "frequency": 0.5,
+          "amplitude": 3.5
+        },
+        "actions": [
+          {
+            "action": "bow",
+            "startFrame": 30,
+            "durationInFrames": 50,
+            "blendInFrames": 8,
+            "blendOutFrames": 10
+          },
+          {
+            "action": "wave",
+            "startFrame": 120,
+            "durationInFrames": 50,
+            "blendInFrames": 6,
+            "blendOutFrames": 8
+          }
+        ]
+      }
+    }
+  ],
+  "dialog": [
+    {
+      "id": "d1",
+      "characterId": "hero-ren",
+      "speaker": "Ren",
+      "text": "Help, I am floating and out of focus!",
+      "startFrame": 30,
+      "endFrame": 90
+    }
+  ]
+}
