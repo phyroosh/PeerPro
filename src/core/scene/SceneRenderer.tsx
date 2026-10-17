@@ -21,12 +21,18 @@ import { DriftingPetals } from '../effects/DriftingPetals';
 import { RainEffect } from '../effects/RainEffect';
 
 export interface SceneRendererProps {
-  manifest: SceneManifest;
+  manifest?: SceneManifest;
   registry?: AssetRegistry;
   characterPresets?: Record<string, CharacterDefinition>;
   environmentPresets?: Record<string, EnvironmentDefinition>;
   showHud?: boolean;
 }
+
+const defaultFallbackManifest: SceneManifest = {
+  id: 'empty-scene',
+  name: 'Empty Scene',
+  canvas: { width: 1920, height: 1080, fps: 30, durationInFrames: 120 },
+};
 
 /**
  * Renders an animated character instance placed in the scene.
@@ -174,15 +180,16 @@ export const SceneRenderer: React.FC<SceneRendererProps> = ({
   environmentPresets = defaultEnvironmentPresets,
 }) => {
   const { width: contextWidth, height: contextHeight, durationInFrames: contextDuration } = useVideoConfig();
+  const activeManifest = manifest ?? defaultFallbackManifest;
 
   // Validate manifest before rendering
   const validation = useMemo(() => {
-    return validateSceneManifest(manifest, {
+    return validateSceneManifest(activeManifest, {
       registry,
       characterPresets,
       environmentPresets,
     });
-  }, [manifest, registry, characterPresets, environmentPresets]);
+  }, [activeManifest, registry, characterPresets, environmentPresets]);
 
   if (!validation.valid) {
     return (
@@ -213,18 +220,18 @@ export const SceneRenderer: React.FC<SceneRendererProps> = ({
     );
   }
 
-  const width = manifest.canvas?.width ?? contextWidth;
-  const height = manifest.canvas?.height ?? contextHeight;
-  const duration = manifest.canvas?.durationInFrames ?? contextDuration;
-  const backgroundColor = manifest.canvas?.backgroundColor ?? '#090d16';
+  const width = activeManifest.canvas?.width ?? contextWidth;
+  const height = activeManifest.canvas?.height ?? contextHeight;
+  const duration = activeManifest.canvas?.durationInFrames ?? contextDuration;
+  const backgroundColor = activeManifest.canvas?.backgroundColor ?? '#090d16';
 
   // Resolve environment definition
-  const envDef: EnvironmentDefinition | undefined = manifest.environment?.preset
-    ? environmentPresets[manifest.environment.preset]
-    : manifest.environment?.custom;
+  const envDef: EnvironmentDefinition | undefined = activeManifest.environment?.preset
+    ? environmentPresets[activeManifest.environment.preset]
+    : activeManifest.environment?.custom;
 
   // Resolve camera config
-  const cameraConfig = manifest.camera ?? { preset: 'static', focalDepth: 1.0 };
+  const cameraConfig = activeManifest.camera ?? { preset: 'static', focalDepth: 1.0 };
 
   return (
     <SceneCanvas width={width} height={height} backgroundColor={backgroundColor}>
@@ -233,8 +240,8 @@ export const SceneRenderer: React.FC<SceneRendererProps> = ({
         {envDef && <Environment definition={envDef} registry={registry} />}
 
         {/* Placed Characters */}
-        {manifest.characters &&
-          manifest.characters.map((inst) => {
+        {activeManifest.characters &&
+          activeManifest.characters.map((inst) => {
             const charDef = inst.characterId
               ? characterPresets[inst.characterId]
               : inst.customDefinition;
@@ -251,8 +258,8 @@ export const SceneRenderer: React.FC<SceneRendererProps> = ({
           })}
 
         {/* Atmospheric Effects */}
-        {manifest.effects &&
-          manifest.effects.map((effect, idx) => {
+        {activeManifest.effects &&
+          activeManifest.effects.map((effect, idx) => {
             if (effect.type === 'petals') {
               return (
                 <DriftingPetals
@@ -281,7 +288,7 @@ export const SceneRenderer: React.FC<SceneRendererProps> = ({
           })}
 
         {/* Dialog / Subtitles */}
-        <SceneDialogOverlay manifest={manifest} />
+        <SceneDialogOverlay manifest={activeManifest} />
       </Camera25D>
     </SceneCanvas>
   );

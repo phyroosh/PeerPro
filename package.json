@@ -23,6 +23,7 @@
     "scene:inspect": "tsx scripts/inspect-scene.ts",
     "scene:render": "tsx scripts/render-scene.ts",
     "test": "tsx --test tests/**/*.test.ts",
+    "verify:all": "tsx scripts/verify-all.ts",
     "assets:validate": "tsx scripts/validate-assets.ts",
     "assets:index": "tsx scripts/build-asset-index.ts",
     "assets:contact-sheet": "tsx scripts/build-contact-sheet.ts"

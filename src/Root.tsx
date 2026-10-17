@@ -4,7 +4,7 @@ import { PeerProSandbox } from './compositions/PeerProSandbox';
 import { CharacterShowcase } from './compositions/CharacterShowcase';
 import { EnvironmentShowcase } from './compositions/EnvironmentShowcase';
 import { ParallaxTest } from './compositions/ParallaxTest';
-import { SceneRenderer } from './core/scene/SceneRenderer';
+import { SceneRenderer, SceneRendererProps } from './core/scene/SceneRenderer';
 import { defaultAssetRegistry } from './core/assets/registry';
 import starterManifest from '../asset-packs/starter-kit/manifest.json';
 import agentSceneFixture from '../scenes/agent-dialog-scene.json';

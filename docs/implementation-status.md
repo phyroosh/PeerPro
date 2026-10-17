@@ -1,8 +1,8 @@
 # PeerPro Implementation Status
 
 ## Current Status Overview
-- **Active Phase**: Phase 7 — Agent-facing scene APIs and discoverability (Completed)
-- **Next Phase**: Phase 8 — End-to-end integration and smoke scenes
+- **Active Phase**: Phase 8 — End-to-end integration and smoke scenes (Completed)
+- **Next Phase**: Phase 9 — Developer documentation, cookbooks, and agent guides
 - **Last Updated**: 2026-10-17
 
 ---
@@ -127,5 +127,27 @@
   - SHA-256 Bit-for-bit Determinism: Confirmed identical hash `e0b0cf26354e2d78a2042614cfd32f996ffba02d97812a116f68b1081b26435f` across independent renders of frame 45.
 - **Known Limitations**:
   - End-to-end integration test suite and golden master benchmark videos covering all character variants and layouts are scheduled for Phase 8.
+
+---
+
+### Phase 8 — End-to-End Integration and Smoke Scenes
+- **Status**: COMPLETED
+- **Date**: 2026-10-17
+- **Key Artifacts Created**:
+  - `tests/e2e/render-smoke.test.ts`: Automated integration test runner querying all Remotion compositions (`PeerProSandbox`, `CharacterShowcase`, `EnvironmentShowcase`, `ParallaxTest`, `AgentScene`), validating non-empty file generation, verifying PNG magic bytes (`89 50 4E 47 0D 0A 1A 0A`), and asserting bit-for-bit SHA-256 frame determinism.
+  - `scripts/verify-all.ts`: Master 9-stage verification and regression CLI runner (`npm run verify:all`) checking TypeScript build, unit tests, E2E smoke tests, asset catalog validation, asset index documentation, contact sheet generation, and multi-scene inspection.
+  - `scenes/rainy-street-encounter.json`: Golden master scene fixture demonstrating `RainEffect` (75 streaks), `slow-push-in` camera, `japanese-quiet-street` preset, Kai in streetwear hoodie, and timed dialogue.
+  - `out/rainy-scene-test.png` & `out/rainy-scene-test.mp4`: Verified golden master outputs rendered via `scene:render`.
+  - `schemas/asset-index.json` & `docs/asset-index.md`: Refreshed catalog metadata covering all 18 vector assets across 11 categories.
+  - `out/contact-sheet.svg`: Visual contact sheet artifact illustrating all 18 starter kit assets.
+- **Commands Run & Verified**:
+  - `npm test`: 40/40 tests passed in 26.24s (36 unit tests + 4 end-to-end smoke & determinism tests).
+  - `npm run verify:all`: All 9/9 verification stages passed in 34.95s.
+  - `npm run scene:render scenes/rainy-street-encounter.json out/rainy-scene-test.png -- --frame 45`: Rendered still frame in 330ms.
+  - `npm run scene:render scenes/rainy-street-encounter.json out/rainy-scene-test.mp4`: Rendered 120-frame (4.0s) video in 5.22s (1.6 MB).
+  - Multi-Composition Determinism: Confirmed identical SHA-256 hashes on successive renders across `AgentScene` frame 50 and frame 45.
+- **Known Limitations**:
+  - Developer documentation, agent prompting cookbooks, and asset contribution guides are scheduled for Phase 9.
+
 
 

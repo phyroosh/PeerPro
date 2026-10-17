@@ -1,0 +1,76 @@
+{
+  "$schema": "../schemas/scene-definition.schema.json",
+  "id": "rainy-tokyo-evening",
+  "name": "Rainy Evening in Residential Tokyo",
+  "description": "Atmospheric evening scene featuring rain streaks, apartment backdrop, close-up vending machine, and dramatic slow push-in camera.",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationInFrames": 120,
+    "backgroundColor": "#050811"
+  },
+  "camera": {
+    "preset": "slow-push-in",
+    "intensity": 1.0,
+    "focalDepth": 1.0
+  },
+  "environment": {
+    "preset": "japanese-quiet-street"
+  },
+  "characters": [
+    {
+      "id": "hero-casual",
+      "characterId": "student-ren",
+      "variant": "casual",
+      "depth": 1.0,
+      "position": {
+        "x": 820,
+        "y": 920
+      },
+      "scale": 0.95,
+      "animation": {
+        "breathing": {
+          "frequency": 0.45,
+          "amplitude": 3.0
+        },
+        "headTilt": {
+          "frequency": 0.3,
+          "maxAngle": 1.5
+        },
+        "expressionSchedule": [
+          {
+            "startFrame": 0,
+            "eyes": "starter-char-eyes-neutral",
+            "mouth": "starter-char-mouth-closed"
+          },
+          {
+            "startFrame": 50,
+            "eyes": "starter-char-eyes-wide",
+            "mouth": "starter-char-mouth-smile"
+          }
+        ]
+      }
+    }
+  ],
+  "effects": [
+    {
+      "id": "evening-rain",
+      "type": "rain",
+      "count": 75,
+      "speed": 38,
+      "angle": -14,
+      "opacity": 0.5,
+      "depth": 1.4
+    }
+  ],
+  "dialog": [
+    {
+      "id": "d1",
+      "speaker": "Kai",
+      "text": "The rain is really coming down now... glad I brought my hoodie.",
+      "startFrame": 20,
+      "endFrame": 95
+    }
+  ]
+}
