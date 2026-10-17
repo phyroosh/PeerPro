@@ -4,8 +4,10 @@ import { PeerProSandbox } from './compositions/PeerProSandbox';
 import { CharacterShowcase } from './compositions/CharacterShowcase';
 import { EnvironmentShowcase } from './compositions/EnvironmentShowcase';
 import { ParallaxTest } from './compositions/ParallaxTest';
+import { SceneRenderer } from './core/scene/SceneRenderer';
 import { defaultAssetRegistry } from './core/assets/registry';
 import starterManifest from '../asset-packs/starter-kit/manifest.json';
+import agentSceneFixture from '../scenes/agent-dialog-scene.json';
 
 // Initialize default asset registry with starter pack
 if (!defaultAssetRegistry.has('starter-char-head-01')) {
@@ -60,6 +62,17 @@ export const RemotionRoot: React.FC = () => {
           cameraPreset: 'pan-left-to-right',
           cameraIntensity: 1.0,
           showHud: true,
+        }}
+      />
+      <Composition
+        id="AgentScene"
+        component={SceneRenderer}
+        durationInFrames={agentSceneFixture.canvas?.durationInFrames || 120}
+        fps={agentSceneFixture.canvas?.fps || 30}
+        width={agentSceneFixture.canvas?.width || 1920}
+        height={agentSceneFixture.canvas?.height || 1080}
+        defaultProps={{
+          manifest: agentSceneFixture as any,
         }}
       />
     </>

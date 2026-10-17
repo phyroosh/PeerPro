@@ -1,8 +1,8 @@
 # PeerPro Implementation Status
 
 ## Current Status Overview
-- **Active Phase**: Phase 6 — Animation, camera, and parallax toolkit (Completed)
-- **Next Phase**: Phase 7 — Agent-facing scene APIs and discoverability
+- **Active Phase**: Phase 7 — Agent-facing scene APIs and discoverability (Completed)
+- **Next Phase**: Phase 8 — End-to-end integration and smoke scenes
 - **Last Updated**: 2026-10-17
 
 ---
@@ -98,4 +98,34 @@
   - SHA-256 Bit-for-bit Determinism: Confirmed identical hash `e3175b11886e15e6d09f1ae452ed065547d3e4dec83c3d6cb517a8babc140ee5` across independent renders of frame 60.
 - **Known Limitations**:
   - High-level declarative JSON Scene Manifest format and agent discovery/introspection CLI tools will be established in Phase 7.
+
+---
+
+### Phase 7 — Agent-Facing Scene APIs and Discoverability
+- **Status**: COMPLETED
+- **Date**: 2026-10-17
+- **Key Artifacts Created**:
+  - `src/core/scene/types.ts`: TypeScript contracts for declarative `SceneManifest`, `SceneCanvasConfig`, `SceneCameraConfig`, `SceneEnvironmentConfig`, `SceneCharacterInstance`, `SceneEffectConfig`, and `SceneDialogLine`.
+  - `src/core/scene/schema.ts`: Robust runtime Zod validation schemas with cross-field refinements (`SceneManifestSchema`).
+  - `src/core/scene/validator.ts`: Comprehensive semantic validator verifying schema conformance, environment presets, character presets, variant availability, expression asset presence in registry, and timeline bounds.
+  - `src/core/scene/SceneRenderer.tsx`: Core agent scene interpreter rendering declarative JSON scenes into Remotion compositions, complete with camera parallax, multi-plane depth layering, character placement, breathing bobbing, stance sway, expression scheduling, atmospheric particle effects, and high-contrast subtitle/dialog overlays.
+  - `src/core/scene/index.ts`: Barrel export for scene engine.
+  - `scenes/agent-dialog-scene.json`: Agent-composed sample scene featuring two characters (Ren & Kai) exchanging dialogue, dynamic camera pan, breathing, expressions, and drifting cherry blossoms.
+  - `scripts/agent-discover.ts`: CLI introspection tool (`--json` and formatted mode) exposing all assets, categories, tags, character presets, environment presets, camera presets, and schema templates for AI agent consumption.
+  - `scripts/inspect-scene.ts`: CLI diagnostics tool validating scene manifests and printing structured timeline stats.
+  - `scripts/render-scene.ts`: Standalone CLI rendering tool enabling programmatic still and video generation directly from scene JSON files.
+  - `tests/unit/scene-manifest.test.ts`: 7 unit tests verifying valid scene manifest validation, detection of unknown environment presets, unknown character presets, invalid variants, duplicate character IDs, missing expression assets, and timeline timeline contradictions.
+- **Commands Run & Verified**:
+  - `npm test`: 36/36 unit tests passed in 718ms.
+  - `npm run build`: 0 TypeScript compiler errors (`tsc --noEmit`).
+  - `npm run agent:discover`: Verified human-readable registry capabilities summary.
+  - `npm run agent:discover -- --json`: Verified structured JSON output with 18 assets, 11 categories, 2 characters/variants, and 9 camera presets.
+  - `npm run scene:inspect scenes/agent-dialog-scene.json`: Successfully validated and inspected agent dialogue scene.
+  - `npm run render:scene:still`: Rendered `out/scene-agent-test.png` (frame 45) in 356ms.
+  - `npm run render:scene:video`: Rendered `out/scene-agent-test.mp4` (120 frames, 4.0s, 1.3 MB) in 6.50s.
+  - `npm run scene:render scenes/agent-dialog-scene.json out/scene-cli-test.png -- --frame 45`: Verified CLI programmatic renderer.
+  - SHA-256 Bit-for-bit Determinism: Confirmed identical hash `e0b0cf26354e2d78a2042614cfd32f996ffba02d97812a116f68b1081b26435f` across independent renders of frame 45.
+- **Known Limitations**:
+  - End-to-end integration test suite and golden master benchmark videos covering all character variants and layouts are scheduled for Phase 8.
+
 

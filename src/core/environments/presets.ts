@@ -250,3 +250,8 @@ export const japaneseQuietStreetPreset: EnvironmentDefinition = {
     },
   ],
 };
+
+export const defaultEnvironmentPresets: Record<string, EnvironmentDefinition> = {
+  'japanese-street-corner': japaneseStreetCornerPreset,
+  'japanese-quiet-street': japaneseQuietStreetPreset,
+};

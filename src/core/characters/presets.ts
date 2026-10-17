@@ -45,3 +45,7 @@ export const studentCharacterDefinition: CharacterDefinition = {
     },
   },
 };
+
+export const defaultCharacterPresets: Record<string, CharacterDefinition> = {
+  'student-ren': studentCharacterDefinition,
+};

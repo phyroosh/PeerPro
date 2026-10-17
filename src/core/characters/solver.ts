@@ -34,7 +34,7 @@ export function solveCharacterParts(
   };
   let effectiveRootPart: CharacterPartRef = { ...definition.rootPart };
 
-  if (options.variant) {
+  if (options.variant && options.variant !== 'default') {
     const variantDef = definition.variants?.[options.variant];
     if (!variantDef) {
       const available = definition.variants ? Object.keys(definition.variants).join(', ') : 'none';
