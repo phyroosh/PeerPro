@@ -67,7 +67,7 @@ test('AssetRegistry: filter queries assets by category and tags', () => {
   assert.ok(eyes.some((e) => e.id === 'starter-char-eyes-three-quarter'));
 
   const charParts = registry.filter({ kind: 'character_part' });
-  assert.strictEqual(charParts.length, 21);
+  assert.strictEqual(charParts.length, 27);
 
   const happyParts = registry.filter({ tag: 'happy' });
   assert.strictEqual(happyParts.length, 1);
@@ -81,6 +81,7 @@ test('AssetRegistry: getCategories and getTags return complete unique sets', () 
 
   const categories = registry.getCategories();
   assert.ok(categories.includes('base_body'));
+  assert.ok(categories.includes('arms'));
   assert.ok(categories.includes('head'));
   assert.ok(categories.includes('hair'));
   assert.ok(categories.includes('eyes'));

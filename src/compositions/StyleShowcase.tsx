@@ -42,7 +42,7 @@ export const StyleShowcase: React.FC<StyleShowcaseProps> = ({
         <DriftingPetals count={25} depth={0.9} color="#fda4af" />
 
         {/* CHARACTER 1: V1 Prototype (Left) */}
-        <div style={{ position: 'absolute', left: 0, top: 0 }}>
+        <div style={{ position: 'absolute', left: 0, top: 0, zIndex: 50 }}>
           <Character
             definition={studentCharacterDefinition}
             x={480}
@@ -75,7 +75,7 @@ export const StyleShowcase: React.FC<StyleShowcaseProps> = ({
         </div>
 
         {/* CHARACTER 2: V2 Refined Cel-Shaded (Center) */}
-        <div style={{ position: 'absolute', left: 0, top: 0 }}>
+        <div style={{ position: 'absolute', left: 0, top: 0, zIndex: 50 }}>
           <Character
             definition={studentCharacterDefinitionV2}
             x={960}
@@ -108,7 +108,7 @@ export const StyleShowcase: React.FC<StyleShowcaseProps> = ({
         </div>
 
         {/* CHARACTER 3: V2 3/4 Perspective (Right) */}
-        <div style={{ position: 'absolute', left: 0, top: 0 }}>
+        <div style={{ position: 'absolute', left: 0, top: 0, zIndex: 50 }}>
           <Character
             definition={studentThreeQuarterDefinition}
             x={1440}
@@ -147,6 +147,7 @@ export const StyleShowcase: React.FC<StyleShowcaseProps> = ({
           position: 'absolute',
           top: 36,
           left: 48,
+          zIndex: 100,
           backgroundColor: 'rgba(11, 15, 25, 0.88)',
           border: '1px solid rgba(56, 189, 248, 0.4)',
           borderRadius: 12,

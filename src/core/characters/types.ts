@@ -39,6 +39,34 @@ export interface CharacterDefinition {
   variants?: Record<string, CharacterVariant>;
 }
 
+export type CharacterPoseName =
+  | 'idle'
+  | 'talk_gesture'
+  | 'wave'
+  | 'point'
+  | 'thinking'
+  | 'crossed';
+
+export interface CharacterJointRotations {
+  armLeft?: number;
+  armRight?: number;
+  headTilt?: number;
+}
+
+export interface CharacterIdentity {
+  id: string;
+  name: string;
+  styleFamily: string;
+  baseDefinitionId: string;
+  defaultVariant?: string;
+  defaultPose?: CharacterPoseName;
+  traits?: {
+    hairColor?: string;
+    eyeColor?: string;
+    heightScale?: number;
+  };
+}
+
 export interface ResolvedCharacterPart {
   slot: CharacterSlotName | string;
   asset: AssetManifestEntry;
@@ -50,11 +78,17 @@ export interface ResolvedCharacterPart {
   rotation: number;
   opacity: number;
   zIndex: number;
+  pivot?: {
+    x: number;
+    y: number;
+  };
 }
 
 export interface CharacterProps {
   definition: CharacterDefinition;
   variant?: string;
+  pose?: CharacterPoseName;
+  jointRotations?: CharacterJointRotations;
   x?: number;
   y?: number;
   scale?: number;

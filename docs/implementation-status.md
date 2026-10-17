@@ -1,8 +1,8 @@
 # PeerPro Implementation Status
 
 ## Current Status Overview
-- **Active Phase**: Phase 12 — Asset Quality, Compatibility, and Style System (Completed)
-- **Overall Status**: **PHASE 12 DELIVERED & FULLY VERIFIED (45/45 TESTS PASSING)**
+- **Active Phase**: Phase 13 — Character Continuity and Cutout-Rig Foundation (Completed)
+- **Overall Status**: **PHASE 13 DELIVERED & FULLY VERIFIED (53/53 TESTS PASSING)**
 - **Last Updated**: 2026-10-17
 
 ---
@@ -255,6 +255,57 @@
   - `npm run assets:validate`: 30/30 assets verified across starter kit.
 - **Known Limitations**:
   - Full jointed limb cutout rigging (arm articulation, walking gestures) is scheduled for Phase 13.
+
+---
+
+### Phase 13 — Character Continuity and Cutout-Rig Foundation
+- **Status**: COMPLETED
+- **Date**: 2026-10-17
+- **Key Artifacts Created & Upgrades**:
+  - `src/core/characters/types.ts`:
+    - Added `pivot?: { x: number; y: number }` to `ResolvedCharacterPart` for forward-kinematic socket pivoting.
+    - Defined `CharacterPoseName = 'idle' | 'talk_gesture' | 'wave' | 'point' | 'thinking' | 'crossed'`.
+    - Defined `CharacterJointRotations` (`armLeft`, `armRight`, `headTilt`).
+    - Defined `CharacterIdentity` contract for multi-shot cross-scene persistence.
+    - Extended `CharacterProps` to accept declarative `pose` and `jointRotations`.
+  - Articulated Cutout Vector Assets (6 new original assets, expanding starter kit from 30 to 36 assets):
+    - `public/peerpro-assets/starter/body-01-torso-v2.svg`: Torso blazer with rounded shoulder joints (`shoulder_left: { x: 72, y: 128 }`, `shoulder_right: { x: 228, y: 128 }`).
+    - `public/peerpro-assets/starter/arm-01-left-idle.svg`: Left resting arm with white cuff & anime hand (`shoulder_socket: { x: 40, y: 20 }`).
+    - `public/peerpro-assets/starter/arm-01-right-idle.svg`: Right resting arm (`shoulder_socket: { x: 40, y: 20 }`).
+    - `public/peerpro-assets/starter/arm-01-right-wave.svg`: Raised forearm waving gesture (`shoulder_socket: { x: 30, y: 175 }`).
+    - `public/peerpro-assets/starter/arm-01-right-point.svg`: Extended pointing arm (`shoulder_socket: { x: 25, y: 60 }`).
+    - `public/peerpro-assets/starter/arm-01-left-bent-talk.svg`: Conversational gesturing arm (`shoulder_socket: { x: 75, y: 25 }`).
+  - `src/core/characters/poses.ts`:
+    - `resolveCharacterPose(pose, styleFamily)`: Maps poses to slot overrides and base joint angles.
+    - `computeArmWave(frame, fps, options)`: Frame-deterministic sinusoidal FK arm oscillation.
+  - `src/core/characters/solver.ts`:
+    - Solves `armsLeft` and `armsRight` using `rootAsset.attachmentSockets` and `armAsset.attachmentSockets.shoulder_socket`.
+    - Pinned pivot calculation: `pivot = { x: childPlug.x, y: childPlug.y }` guarantees zero socket detachment during rotation.
+    - Head tilt rotation with neck socket pivot linking facial features.
+    - Additive forward-kinematic rotation layering (`partRef.rotation + poseRotation + options.jointRotations`).
+  - `src/core/characters/Character.tsx`:
+    - Pinned transform origin: `transformOrigin: part.pivot ? \`${part.pivot.x}px ${part.pivot.y}px\` : 'center center'`.
+    - Accepts declarative `pose` and `jointRotations`.
+  - `src/core/characters/continuity.ts`:
+    - `CharacterContinuityRegistry`: Stores persistent character identities.
+    - `createShotCharacterConfig(identity, context)`: Resolves shot framing multipliers, facing directions, and expression/pose continuity across multi-shot sequences.
+  - `src/core/characters/presets.ts`:
+    - Added `studentArticulatedDefinition` (`student-articulated`) preset with modular cutout rig layers (`['armsLeft', 'rootPart', 'armsRight', 'head', 'eyes', 'mouth', 'hairFront']`).
+  - `src/compositions/CutoutRigShowcase.tsx`:
+    - Registered in Remotion root (`CutoutRigShowcase`).
+    - Visualizes 3 acting states: Conversational Acting (`talk_gesture`), Real-time Harmonic Waving (`wave` with sinusoidal `computeArmWave` FK oscillator), and Directive Pointing (`point`).
+  - `tests/unit/cutout-rig.test.ts`:
+    - 8 comprehensive unit tests covering shoulder socket math, layer ordering, pose resolvers, asset switching, FK rotations, wave oscillator determinism, continuity registry, and shot config generator.
+  - `out/cutout-showcase.png` & `out/cutout-showcase.mp4`:
+    - Verified still frame and video renders with pixel-perfect socket connections.
+- **Commands Run & Verified**:
+  - `npm test`: 53/53 tests passed (100%).
+  - `npm run verify:all`: All 9/9 verification stages passed in 36.59s.
+  - `npm run render:cutout:still`: Rendered `out/cutout-showcase.png` in 477ms.
+  - `npm run render:cutout:video`: Rendered `out/cutout-showcase.mp4` in 6.03s.
+  - `npm run assets:validate`: 36/36 assets verified across starter kit.
+- **Known Limitations**:
+  - Multi-shot scene composition and camera cutting transitions are scheduled for Phase 14.
 
 
 

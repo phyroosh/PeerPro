@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 200" width="100" height="200">
+  <defs>
+    <!-- Skin -->
+    <linearGradient id="waveSkin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff7ed" />
+      <stop offset="100%" stop-color="#fed7aa" />
+    </linearGradient>
+    <!-- Blazer Navy -->
+    <linearGradient id="waveNavy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+
+  <!-- Waving Raised Arm: Shoulder pivot at (30, 175) -->
+  <!-- Upper arm extends outward, elbow bends upward -->
+  <path d="M30,175 C45,175 60,170 75,145 C86,125 82,90 76,60 L54,64 C58,88 62,115 54,128 C46,140 38,150 20,165 Z"
+        fill="url(#waveNavy)" stroke="#334155" stroke-width="1.8" />
+
+  <!-- Elbow crease -->
+  <path d="M56,124 C62,120 70,122 74,130" stroke="#090d16" stroke-width="1.5" fill="none" stroke-linecap="round" />
+
+  <!-- White Cuff -->
+  <path d="M52,62 L78,58 L79,52 L53,56 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+
+  <!-- Open Waving Anime Hand (Palm facing viewer, articulated spread fingers) -->
+  <g transform="translate(48, 12)">
+    <!-- Palm -->
+    <path d="M12,40 C6,34 6,24 10,16 C16,12 28,12 34,16 C38,24 38,34 32,40 Z" fill="url(#waveSkin)" stroke="#d97706" stroke-width="1.2" />
+    <!-- Thumb -->
+    <path d="M8,30 C2,26 0,20 4,16 C8,14 12,18 12,24 Z" fill="url(#waveSkin)" stroke="#d97706" stroke-width="1.2" />
+    <!-- Fingers (Index, Middle, Ring, Pinky) -->
+    <path d="M12,16 C11,8 14,0 18,0 C22,0 23,8 20,16 Z" fill="url(#waveSkin)" stroke="#d97706" stroke-width="1.2" />
+    <path d="M19,15 C20,7 24,0 27,0 C30,0 30,7 27,15 Z" fill="url(#waveSkin)" stroke="#d97706" stroke-width="1.2" />
+    <path d="M26,16 C28,9 32,2 35,2 C38,2 37,9 33,16 Z" fill="url(#waveSkin)" stroke="#d97706" stroke-width="1.2" />
+    <path d="M32,18 C35,13 40,8 43,9 C45,10 43,16 38,22 Z" fill="url(#waveSkin)" stroke="#d97706" stroke-width="1.2" />
+  </g>
+</svg>

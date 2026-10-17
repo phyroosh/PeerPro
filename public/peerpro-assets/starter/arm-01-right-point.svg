@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 120" width="180" height="120">
+  <defs>
+    <!-- Skin -->
+    <linearGradient id="pointSkin" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fff7ed" />
+      <stop offset="100%" stop-color="#fed7aa" />
+    </linearGradient>
+    <!-- Blazer Navy -->
+    <linearGradient id="pointNavy" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+
+  <!-- Pointing Arm Sleeve (Shoulder pivot at 25, 60) -->
+  <path d="M25,40 C50,42 85,46 125,48 L125,74 C85,72 50,78 25,80 C15,75 15,45 25,40 Z"
+        fill="url(#pointNavy)" stroke="#334155" stroke-width="1.8" />
+
+  <!-- Sleeve Crease -->
+  <path d="M75,48 C78,56 78,64 74,72" stroke="#090d16" stroke-width="1.5" fill="none" stroke-linecap="round" />
+
+  <!-- White Cuff -->
+  <path d="M124,46 L130,46 L130,76 L124,76 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+
+  <!-- Pointing Anime Hand (Index finger extended forward) -->
+  <g transform="translate(130, 44)">
+    <!-- Curled Fist Body -->
+    <rect x="0" y="6" width="20" height="22" rx="6" fill="url(#pointSkin)" stroke="#d97706" stroke-width="1.2" />
+    <!-- Extended Index Finger -->
+    <path d="M14,8 L44,8 C47,8 47,14 44,14 L14,14 Z" fill="url(#pointSkin)" stroke="#d97706" stroke-width="1.2" />
+    <!-- Raised Thumb -->
+    <path d="M4,10 C4,2 10,0 12,4 L10,12 Z" fill="url(#pointSkin)" stroke="#d97706" stroke-width="1.2" />
+    <!-- Curled Finger Knuckle lines -->
+    <line x1="8" y1="18" x2="16" y2="18" stroke="#d97706" stroke-width="1" />
+    <line x1="8" y1="23" x2="16" y2="23" stroke="#d97706" stroke-width="1" />
+  </g>
+</svg>

@@ -1,11 +1,11 @@
 # PeerPro Asset Index
 
 > Automatically generated index of all available modular assets in PeerPro.
-> Total Assets: **30** | Generated: 2026-10-17
+> Total Assets: **36** | Generated: 2026-10-17
 
 ## Quick Category Navigation
 
-- [base_body (4)](#category-base-body)
+- [base_body (5)](#category-base-body)
 - [head (3)](#category-head)
 - [hair (4)](#category-hair)
 - [eyes (6)](#category-eyes)
@@ -16,6 +16,7 @@
 - [foliage (1)](#category-foliage)
 - [prop (3)](#category-prop)
 - [road (1)](#category-road)
+- [arms (5)](#category-arms)
 
 ---
 
@@ -27,6 +28,7 @@
 | `starter-char-body-02-hoodie` | Casual Hoodie Streetwear Body | `svg` | 300x600 | (0.5, 1) | neck, shoulder_left, shoulder_right | character, body, casual, hoodie, streetwear | MIT |
 | `starter-char-body-01-v2` | Student Blazer Body V2 (Refined Cel-Shaded) | `svg` | 300x600 | (0.5, 1) | neck, shoulder_left, shoulder_right | character, body, uniform, male, v2, refined | MIT |
 | `starter-char-body-01-three-quarter` | Student Blazer Body 3/4 Perspective | `svg` | 300x600 | (0.5, 1) | neck, shoulder_left, shoulder_right | character, body, uniform, three_quarter, perspective | MIT |
+| `starter-char-body-01-torso-v2` | Student Blazer Torso V2 (Modular Cutout Rig) | `svg` | 300x600 | (0.5, 1) | neck, shoulder_left, shoulder_right | character, body, torso, cutout, uniform | MIT |
 
 ### Category: `head`
 
@@ -103,4 +105,14 @@
 | ID | Name | Format | Dimensions | Anchor | Sockets | Tags | License |
 |---|---|---|---|---|---|---|---|
 | `starter-env-road-segment` | Urban Road & Sidewalk Segment | `svg` | 1920x300 | (0.5, 1) | none | environment, road, sidewalk, ground | MIT |
+
+### Category: `arms`
+
+| ID | Name | Format | Dimensions | Anchor | Sockets | Tags | License |
+|---|---|---|---|---|---|---|---|
+| `starter-char-arm-01-left-idle` | Modular Left Arm (Idle) | `svg` | 80x220 | (0.5, 0.1) | shoulder_socket | character, arms, left, idle, cutout | MIT |
+| `starter-char-arm-01-right-idle` | Modular Right Arm (Idle) | `svg` | 80x220 | (0.5, 0.1) | shoulder_socket | character, arms, right, idle, cutout | MIT |
+| `starter-char-arm-01-right-wave` | Modular Right Arm (Waving) | `svg` | 100x200 | (0.3, 0.88) | shoulder_socket | character, arms, right, wave, cutout | MIT |
+| `starter-char-arm-01-right-point` | Modular Right Arm (Pointing) | `svg` | 180x120 | (0.14, 0.5) | shoulder_socket | character, arms, right, point, cutout | MIT |
+| `starter-char-arm-01-left-bent-talk` | Modular Left Arm (Talking Gesture) | `svg` | 110x190 | (0.68, 0.13) | shoulder_socket | character, arms, left, talk, cutout | MIT |
 

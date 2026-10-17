@@ -36,6 +36,8 @@
     "render:scene:video": "remotion render AgentScene out/scene-agent-test.mp4",
     "render:style:still": "remotion still StyleShowcase out/style-showcase.png --frame=60",
     "render:style:video": "remotion render StyleShowcase out/style-showcase.mp4",
+    "render:cutout:still": "remotion still CutoutRigShowcase out/cutout-showcase.png --frame=60",
+    "render:cutout:video": "remotion render CutoutRigShowcase out/cutout-showcase.mp4",
     "agent:discover": "tsx scripts/agent-discover.ts",
     "scene:inspect": "tsx scripts/inspect-scene.ts",
     "scene:render": "tsx scripts/render-scene.ts",

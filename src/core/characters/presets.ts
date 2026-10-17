@@ -92,9 +92,41 @@ export const studentThreeQuarterDefinition: CharacterDefinition = {
   layerOrder: ['rootPart', 'head', 'eyes', 'mouth', 'hairFront'],
 };
 
+/**
+ * Articulated Cutout Rig character definition with modular rotating arms.
+ */
+export const studentArticulatedDefinition: CharacterDefinition = {
+  id: 'student-articulated',
+  name: 'Ren - Student (Modular Cutout Rig)',
+  styleFamily: 'anime-clean-v1',
+  defaultScale: 1.0,
+  rootPart: {
+    assetId: 'starter-char-body-01-torso-v2',
+  },
+  slots: {
+    armsLeft: { assetId: 'starter-char-arm-01-left-idle' },
+    armsRight: { assetId: 'starter-char-arm-01-right-idle' },
+    head: { assetId: 'starter-char-head-01-v2' },
+    hairFront: { assetId: 'starter-char-hair-short-v2' },
+    eyes: { assetId: 'starter-char-eyes-neutral-v2' },
+    mouth: { assetId: 'starter-char-mouth-smile-v2' },
+  },
+  layerOrder: ['armsLeft', 'rootPart', 'armsRight', 'head', 'eyes', 'mouth', 'hairFront'],
+  variants: {
+    happy: {
+      name: 'Happy / Playful',
+      overrides: {
+        eyes: 'starter-char-eyes-wink-v2',
+        mouth: 'starter-char-mouth-smile-v2',
+      },
+    },
+  },
+};
+
 export const defaultCharacterPresets: Record<string, CharacterDefinition> = {
   'student-ren': studentCharacterDefinition,
   'student-ren-v2': studentCharacterDefinitionV2,
   'student-three-quarter': studentThreeQuarterDefinition,
+  'student-articulated': studentArticulatedDefinition,
 };
 

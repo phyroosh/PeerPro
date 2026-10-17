@@ -1,12 +1,13 @@
 {
-  "generatedAt": "2026-10-17T09:56:05.604Z",
-  "totalAssets": 30,
+  "generatedAt": "2026-10-17T10:38:18.911Z",
+  "totalAssets": 36,
   "categories": {
     "base_body": [
       "starter-char-body-01",
       "starter-char-body-02-hoodie",
       "starter-char-body-01-v2",
-      "starter-char-body-01-three-quarter"
+      "starter-char-body-01-three-quarter",
+      "starter-char-body-01-torso-v2"
     ],
     "head": [
       "starter-char-head-01",
@@ -53,6 +54,13 @@
     ],
     "road": [
       "starter-env-road-segment"
+    ],
+    "arms": [
+      "starter-char-arm-01-left-idle",
+      "starter-char-arm-01-right-idle",
+      "starter-char-arm-01-right-wave",
+      "starter-char-arm-01-right-point",
+      "starter-char-arm-01-left-bent-talk"
     ]
   },
   "tags": {
@@ -77,18 +85,26 @@
       "starter-char-head-01-three-quarter",
       "starter-char-eyes-three-quarter",
       "starter-char-hair-three-quarter",
-      "starter-char-mouth-three-quarter"
+      "starter-char-mouth-three-quarter",
+      "starter-char-body-01-torso-v2",
+      "starter-char-arm-01-left-idle",
+      "starter-char-arm-01-right-idle",
+      "starter-char-arm-01-right-wave",
+      "starter-char-arm-01-right-point",
+      "starter-char-arm-01-left-bent-talk"
     ],
     "body": [
       "starter-char-body-01",
       "starter-char-body-02-hoodie",
       "starter-char-body-01-v2",
-      "starter-char-body-01-three-quarter"
+      "starter-char-body-01-three-quarter",
+      "starter-char-body-01-torso-v2"
     ],
     "uniform": [
       "starter-char-body-01",
       "starter-char-body-01-v2",
-      "starter-char-body-01-three-quarter"
+      "starter-char-body-01-three-quarter",
+      "starter-char-body-01-torso-v2"
     ],
     "male": [
       "starter-char-body-01",
@@ -306,6 +322,46 @@
       "starter-char-eyes-three-quarter",
       "starter-char-hair-three-quarter",
       "starter-char-mouth-three-quarter"
+    ],
+    "torso": [
+      "starter-char-body-01-torso-v2"
+    ],
+    "cutout": [
+      "starter-char-body-01-torso-v2",
+      "starter-char-arm-01-left-idle",
+      "starter-char-arm-01-right-idle",
+      "starter-char-arm-01-right-wave",
+      "starter-char-arm-01-right-point",
+      "starter-char-arm-01-left-bent-talk"
+    ],
+    "arms": [
+      "starter-char-arm-01-left-idle",
+      "starter-char-arm-01-right-idle",
+      "starter-char-arm-01-right-wave",
+      "starter-char-arm-01-right-point",
+      "starter-char-arm-01-left-bent-talk"
+    ],
+    "left": [
+      "starter-char-arm-01-left-idle",
+      "starter-char-arm-01-left-bent-talk"
+    ],
+    "idle": [
+      "starter-char-arm-01-left-idle",
+      "starter-char-arm-01-right-idle"
+    ],
+    "right": [
+      "starter-char-arm-01-right-idle",
+      "starter-char-arm-01-right-wave",
+      "starter-char-arm-01-right-point"
+    ],
+    "wave": [
+      "starter-char-arm-01-right-wave"
+    ],
+    "point": [
+      "starter-char-arm-01-right-point"
+    ],
+    "talk": [
+      "starter-char-arm-01-left-bent-talk"
     ]
   },
   "assets": [
@@ -1653,6 +1709,294 @@
         "mouth",
         "three_quarter",
         "perspective"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-char-body-01-torso-v2",
+      "name": "Student Blazer Torso V2 (Modular Cutout Rig)",
+      "kind": "character_part",
+      "category": "base_body",
+      "path": "peerpro-assets/starter/body-01-torso-v2.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 300,
+        "height": 600
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 1
+      },
+      "attachmentSockets": {
+        "neck": {
+          "x": 150,
+          "y": 95
+        },
+        "shoulder_left": {
+          "x": 72,
+          "y": 128
+        },
+        "shoulder_right": {
+          "x": 228,
+          "y": 128
+        }
+      },
+      "capabilities": [
+        "scalable",
+        "flip_x"
+      ],
+      "tags": [
+        "character",
+        "body",
+        "torso",
+        "cutout",
+        "uniform"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-char-arm-01-left-idle",
+      "name": "Modular Left Arm (Idle)",
+      "kind": "character_part",
+      "category": "arms",
+      "path": "peerpro-assets/starter/arm-01-left-idle.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 80,
+        "height": 220
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.1
+      },
+      "attachmentSockets": {
+        "shoulder_socket": {
+          "x": 40,
+          "y": 20
+        }
+      },
+      "requiredSockets": [
+        "shoulder_left"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "arms",
+        "left",
+        "idle",
+        "cutout"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-char-arm-01-right-idle",
+      "name": "Modular Right Arm (Idle)",
+      "kind": "character_part",
+      "category": "arms",
+      "path": "peerpro-assets/starter/arm-01-right-idle.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 80,
+        "height": 220
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.1
+      },
+      "attachmentSockets": {
+        "shoulder_socket": {
+          "x": 40,
+          "y": 20
+        }
+      },
+      "requiredSockets": [
+        "shoulder_right"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "arms",
+        "right",
+        "idle",
+        "cutout"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-char-arm-01-right-wave",
+      "name": "Modular Right Arm (Waving)",
+      "kind": "character_part",
+      "category": "arms",
+      "path": "peerpro-assets/starter/arm-01-right-wave.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 100,
+        "height": 200
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.3,
+        "y": 0.88
+      },
+      "attachmentSockets": {
+        "shoulder_socket": {
+          "x": 30,
+          "y": 175
+        }
+      },
+      "requiredSockets": [
+        "shoulder_right"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "arms",
+        "right",
+        "wave",
+        "cutout"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-char-arm-01-right-point",
+      "name": "Modular Right Arm (Pointing)",
+      "kind": "character_part",
+      "category": "arms",
+      "path": "peerpro-assets/starter/arm-01-right-point.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 180,
+        "height": 120
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.14,
+        "y": 0.5
+      },
+      "attachmentSockets": {
+        "shoulder_socket": {
+          "x": 25,
+          "y": 60
+        }
+      },
+      "requiredSockets": [
+        "shoulder_right"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "arms",
+        "right",
+        "point",
+        "cutout"
+      ],
+      "provenance": {
+        "source": "original",
+        "license": "MIT",
+        "author": "PeerPro Team"
+      },
+      "packId": "starter-kit"
+    },
+    {
+      "id": "starter-char-arm-01-left-bent-talk",
+      "name": "Modular Left Arm (Talking Gesture)",
+      "kind": "character_part",
+      "category": "arms",
+      "path": "peerpro-assets/starter/arm-01-left-bent-talk.svg",
+      "format": "svg",
+      "dimensions": {
+        "width": 110,
+        "height": 190
+      },
+      "hasAlpha": true,
+      "style": {
+        "family": "anime-clean-v1",
+        "variant": "refined",
+        "angle": "front"
+      },
+      "anchor": {
+        "x": 0.68,
+        "y": 0.13
+      },
+      "attachmentSockets": {
+        "shoulder_socket": {
+          "x": 75,
+          "y": 25
+        }
+      },
+      "requiredSockets": [
+        "shoulder_left"
+      ],
+      "capabilities": [
+        "scalable"
+      ],
+      "tags": [
+        "character",
+        "arms",
+        "left",
+        "talk",
+        "cutout"
       ],
       "provenance": {
         "source": "original",

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 600" width="300" height="600">
+  <defs>
+    <!-- Skin -->
+    <linearGradient id="torsoSkin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff7ed" />
+      <stop offset="100%" stop-color="#fed7aa" />
+    </linearGradient>
+    <!-- Blazer Navy Cel -->
+    <linearGradient id="torsoNavy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <!-- Tie Red -->
+    <linearGradient id="torsoTie" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#991b1b" />
+    </linearGradient>
+    <!-- Pants Slate -->
+    <linearGradient id="torsoPants" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+
+  <!-- Neck -->
+  <path d="M136,78 C136,78 135,108 135,110 L165,110 C165,108 164,78 164,78 Z" fill="url(#torsoSkin)" stroke="#d97706" stroke-width="1.2" />
+  <path d="M136,80 C145,92 155,92 164,80 L165,92 C155,100 145,100 135,92 Z" fill="#f59e0b" opacity="0.3" />
+
+  <!-- Inner Shirt & Collar -->
+  <polygon points="135,102 165,102 150,170" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2" />
+  <polygon points="130,102 145,102 138,124" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2" />
+  <polygon points="170,102 155,102 162,124" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2" />
+
+  <!-- Red School Tie & Tie Clip -->
+  <polygon points="146,118 154,118 156,178 150,188 144,178" fill="url(#torsoTie)" stroke="#7f1d1d" stroke-width="1" />
+  <rect x="146" y="142" width="9" height="3" rx="1" fill="#facc15" stroke="#ca8a04" stroke-width="0.8" />
+
+  <!-- Torso / Tailored Blazer (Without arms: clean rounded shoulder joints) -->
+  <path d="M72,128 C85,112 108,102 150,102 C192,102 215,112 228,128 L214,342 C180,348 120,348 86,342 Z"
+        fill="url(#torsoNavy)" stroke="#334155" stroke-width="1.8" />
+
+  <!-- Shoulder Joint Socket Rings (Guide markers for seamless arm blending) -->
+  <circle cx="72" cy="128" r="14" fill="#0f172a" opacity="0.4" />
+  <circle cx="228" cy="128" r="14" fill="#0f172a" opacity="0.4" />
+
+  <!-- Blazer Lapels -->
+  <path d="M112,103 L134,180 L118,182 L96,128 Z" fill="#0f172a" stroke="#475569" stroke-width="1.2" />
+  <path d="M188,103 L166,180 L182,182 L204,128 Z" fill="#0f172a" stroke="#475569" stroke-width="1.2" />
+
+  <!-- Center Placket & Buttons -->
+  <line x1="150" y1="184" x2="150" y2="344" stroke="#090d16" stroke-width="1.5" />
+  <circle cx="150" cy="215" r="3" fill="#f8fafc" stroke="#475569" stroke-width="1" />
+  <circle cx="150" cy="255" r="3" fill="#f8fafc" stroke="#475569" stroke-width="1" />
+  <circle cx="150" cy="295" r="3" fill="#f8fafc" stroke="#475569" stroke-width="1" />
+
+  <!-- Pocket Flaps -->
+  <rect x="94" y="278" width="34" height="6" rx="2" fill="#090d16" stroke="#475569" stroke-width="1" />
+  <rect x="172" y="278" width="34" height="6" rx="2" fill="#090d16" stroke="#475569" stroke-width="1" />
+
+  <!-- Tailored School Slacks with Crease Lines -->
+  <path d="M92,342 L102,552 L141,552 L146,365 L154,365 L159,552 L198,552 L208,342 Z"
+        fill="url(#torsoPants)" stroke="#0f172a" stroke-width="1.8" />
+  <line x1="121" y1="355" x2="121" y2="550" stroke="#475569" stroke-width="1.2" />
+  <line x1="179" y1="355" x2="179" y2="550" stroke="#475569" stroke-width="1.2" />
+
+  <!-- Polished Loafers -->
+  <g transform="translate(98, 550)">
+    <path d="M0,8 C0,3 12,0 26,0 C40,0 46,6 46,14 C46,21 38,24 24,24 C10,24 0,21 0,14 Z" fill="#090d16" stroke="#1e293b" stroke-width="1.2" />
+    <path d="M0,18 L46,18 L46,24 L0,24 Z" fill="#1e293b" />
+    <ellipse cx="24" cy="7" rx="14" ry="3" fill="#334155" opacity="0.6" />
+  </g>
+  <g transform="translate(156, 550)">
+    <path d="M0,14 C0,6 6,0 20,0 C34,0 46,3 46,8 C46,14 36,21 22,24 C8,24 0,21 0,14 Z" fill="#090d16" stroke="#1e293b" stroke-width="1.2" />
+    <path d="M0,18 L46,18 L46,24 L0,24 Z" fill="#1e293b" />
+    <ellipse cx="22" cy="7" rx="14" ry="3" fill="#334155" opacity="0.6" />
+  </g>
+</svg>

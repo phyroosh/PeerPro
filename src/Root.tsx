@@ -5,6 +5,7 @@ import { CharacterShowcase } from './compositions/CharacterShowcase';
 import { EnvironmentShowcase } from './compositions/EnvironmentShowcase';
 import { ParallaxTest } from './compositions/ParallaxTest';
 import { StyleShowcase } from './compositions/StyleShowcase';
+import { CutoutRigShowcase } from './compositions/CutoutRigShowcase';
 import { SceneRenderer, SceneRendererProps } from './core/scene/SceneRenderer';
 import { defaultAssetRegistry } from './core/assets/registry';
 import starterManifest from '../asset-packs/starter-kit/manifest.json';
@@ -85,6 +86,17 @@ export const RemotionRoot: React.FC = () => {
         height={1080}
         defaultProps={{
           title: 'PeerPro Style & Asset Quality System',
+        }}
+      />
+      <Composition
+        id="CutoutRigShowcase"
+        component={CutoutRigShowcase}
+        durationInFrames={120}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: 'PeerPro Cutout-Rig & Articulated Acting System',
         }}
       />
     </>

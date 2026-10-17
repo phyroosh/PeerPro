@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 220" width="80" height="220">
+  <defs>
+    <!-- Skin -->
+    <linearGradient id="armSkinRight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff7ed" />
+      <stop offset="100%" stop-color="#fed7aa" />
+    </linearGradient>
+    <!-- Blazer Navy -->
+    <linearGradient id="armNavyRight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+
+  <!-- Right Shoulder Cap & Sleeve (Hanging idle) -->
+  <!-- Shoulder pivot is at (40, 20) -->
+  <path d="M40,6 C58,6 62,20 64,36 L70,165 C66,172 44,175 40,168 L24,40 C24,22 28,6 40,6 Z"
+        fill="url(#armNavyRight)" stroke="#334155" stroke-width="1.8" />
+
+  <!-- Sleeve Fold Crease -->
+  <path d="M58,86 C54,94 48,92 42,88" stroke="#090d16" stroke-width="1.5" fill="none" stroke-linecap="round" />
+
+  <!-- White Cuff -->
+  <path d="M68,160 L42,164 L43,170 L69,166 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+
+  <!-- Right Anime Hand (Articulated fingers and thumb) -->
+  <g transform="translate(42, 168)">
+    <path d="M16,0 C21,8 22,18 19,26 C16,30 8,30 5,24 C3,20 3,12 4,0 Z" fill="url(#armSkinRight)" stroke="#d97706" stroke-width="1.2" />
+    <!-- Thumb notch -->
+    <path d="M20,8 C24,12 23,18 19,20" stroke="#d97706" stroke-width="1.2" fill="none" stroke-linecap="round" />
+  </g>
+</svg>

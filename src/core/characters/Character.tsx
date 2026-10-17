@@ -17,6 +17,8 @@ export interface ExtendedCharacterProps extends CharacterProps {
 export const Character: React.FC<ExtendedCharacterProps> = ({
   definition,
   variant,
+  pose,
+  jointRotations,
   x = 0,
   y = 0,
   scale = 1.0,
@@ -31,9 +33,11 @@ export const Character: React.FC<ExtendedCharacterProps> = ({
   const parts = useMemo(() => {
     return solveCharacterParts(definition, registry, {
       variant,
+      pose,
+      jointRotations,
       partOverrides,
     });
-  }, [definition, registry, variant, partOverrides]);
+  }, [definition, registry, variant, pose, jointRotations, partOverrides]);
 
   const baseScale = definition.defaultScale ?? 1.0;
   const finalScale = scale * baseScale;
@@ -80,7 +84,9 @@ export const Character: React.FC<ExtendedCharacterProps> = ({
             height: part.height,
             zIndex: part.zIndex,
             transform: `scale(${part.scale}) rotate(${part.rotation}deg)`,
-            transformOrigin: 'center center',
+            transformOrigin: part.pivot
+              ? `${part.pivot.x}px ${part.pivot.y}px`
+              : 'center center',
             opacity: part.opacity,
           }}
         >
