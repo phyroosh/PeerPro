@@ -1,8 +1,8 @@
 # PeerPro Implementation Status
 
 ## Current Status Overview
-- **Active Phase**: Phase 8 — End-to-end integration and smoke scenes (Completed)
-- **Next Phase**: Phase 9 — Developer documentation, cookbooks, and agent guides
+- **Active Phase**: Phase 9 — Developer documentation, cookbooks, and agent guides (Completed)
+- **Next Phase**: Phase 10 — Release readiness, packaging, and final sign-off
 - **Last Updated**: 2026-10-17
 
 ---
@@ -148,6 +148,39 @@
   - Multi-Composition Determinism: Confirmed identical SHA-256 hashes on successive renders across `AgentScene` frame 50 and frame 45.
 - **Known Limitations**:
   - Developer documentation, agent prompting cookbooks, and asset contribution guides are scheduled for Phase 9.
+
+---
+
+### Phase 9 — Developer Documentation, Cookbooks, and Agent Guides
+- **Status**: COMPLETED
+- **Date**: 2026-10-17
+- **Key Artifacts Created**:
+  - `docs/developer-guide.md`: Comprehensive engineering architecture document detailing:
+    - Pure frame-deterministic mathematical philosophy.
+    - Full Cartesian screen coordinate space ($1920 \times 1080$) and depth space ($z \in [0.1, 2.0]$).
+    - Exact socket-to-plug geometric alignment equations.
+    - Multi-plane 2.5D parallax physics equations ($\Delta X(z)$, $\Delta Y(z)$, $\text{Scale}(z)$) and focal plane dynamics ($z_{\text{focal}} = 1.0$).
+    - Camera smoothstep easing, intensity scaling, and safety overscan bleed strategies.
+    - Pure mathematical animation primitives (`computeBreathing`, `computeHeadTilt`, `resolveExpressionSchedule`).
+    - Deterministic particle systems via seeded Mulberry32 PRNG and toroidal wrapping.
+  - `docs/agent-cookbook.md`: Dedicated guide for autonomous AI agents and coding assistants:
+    - The 4-step autonomous director loop (Discover $\to$ Compose $\to$ Inspect $\to$ Render).
+    - Quick reference for character presets, variant names, facial expression IDs, environment presets, and camera presets.
+    - Two production-tested JSON recipes (Conversational Street Encounter, Atmospheric Rainy Solo Walk).
+    - Rules of thumb for ground alignment ($y \approx 920$), character facing (`flipX`), subtitle timing, and depth staging.
+  - `docs/asset-contribution-guide.md`: Asset packaging and contribution guide for artists and agents:
+    - SVG vector design standards (XML `viewBox`, transparent alpha, no raster embeds, no font dependencies).
+    - Normalized anchor conventions ($([0..1], [0..1])$) across body, head, face, facade, and sky categories.
+    - Formal socket/plug naming taxonomy (`neck`, `neck_socket`, `eyes`, `mouth`, `hair`).
+    - Asset pack manifest authoring and automated validation/indexing toolchain.
+  - `README.md`: Polished, production-ready front page with architecture tree, feature highlights, quickstart instructions, full CLI reference table, agent workflow, and documentation links.
+- **Commands Run & Verified**:
+  - `npm run verify:all`: 9/9 verification stages passed cleanly.
+  - `npm test`: 40/40 tests passed cleanly.
+  - `npm run build`: 0 TypeScript compiler errors (`tsc --noEmit`).
+- **Known Limitations**:
+  - Final repository cleanup, package release validation, and formal project sign-off are scheduled for Phase 10.
+
 
 
 
