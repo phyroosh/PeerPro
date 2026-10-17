@@ -165,6 +165,31 @@ export function validateSceneManifest(
             }
           }
         }
+
+        // Action clips check
+        if (char.animation?.actions) {
+          for (const clip of char.animation.actions) {
+            if (clip.startFrame < 0) {
+              errors.push({
+                code: 'INVALID_ACTION_CLIP',
+                field: `characters.${char.id}.animation.actions`,
+                message: `Action clip "${clip.action}" has negative startFrame (${clip.startFrame}).`,
+              });
+            }
+            if (clip.durationInFrames <= 0) {
+              errors.push({
+                code: 'INVALID_ACTION_CLIP',
+                field: `characters.${char.id}.animation.actions`,
+                message: `Action clip "${clip.action}" has non-positive durationInFrames (${clip.durationInFrames}).`,
+              });
+            }
+            if (clip.startFrame >= duration) {
+              warnings.push(
+                `Action clip "${clip.action}" starts at frame ${clip.startFrame}, at or beyond scene duration (${duration} frames).`
+              );
+            }
+          }
+        }
       }
     }
   }

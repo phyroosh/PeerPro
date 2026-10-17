@@ -94,3 +94,114 @@ export function resolveExpressionSchedule(
 
   return { eyes: activeEyes, mouth: activeMouth };
 }
+
+// ============================================================================
+// Easing Functions (Pure mathematical, frame-deterministic, t in [0, 1])
+// ============================================================================
+
+export function easeInQuad(t: number): number {
+  const ct = clamp(t, 0, 1);
+  return ct * ct;
+}
+
+export function easeOutQuad(t: number): number {
+  const ct = clamp(t, 0, 1);
+  return ct * (2 - ct);
+}
+
+export function easeInOutQuad(t: number): number {
+  const ct = clamp(t, 0, 1);
+  return ct < 0.5 ? 2 * ct * ct : -1 + (4 - 2 * ct) * ct;
+}
+
+export function easeInCubic(t: number): number {
+  const ct = clamp(t, 0, 1);
+  return ct * ct * ct;
+}
+
+export function easeOutCubic(t: number): number {
+  const ct = clamp(t, 0, 1);
+  const t1 = ct - 1;
+  return t1 * t1 * t1 + 1;
+}
+
+export function easeInOutCubic(t: number): number {
+  const ct = clamp(t, 0, 1);
+  return ct < 0.5 ? 4 * ct * ct * ct : (ct - 1) * (2 * ct - 2) * (2 * ct - 2) + 1;
+}
+
+export function easeOutBack(t: number, overshoot = 1.70158): number {
+  const ct = clamp(t, 0, 1);
+  if (ct === 0) return 0;
+  if (ct === 1) return 1;
+  const t1 = ct - 1;
+  return t1 * t1 * ((overshoot + 1) * t1 + overshoot) + 1;
+}
+
+export function easeInOutSine(t: number): number {
+  const ct = clamp(t, 0, 1);
+  return -(Math.cos(Math.PI * ct) - 1) / 2;
+}
+
+/**
+ * Interpolates between a and b applying specified easing curve to t in [0, 1].
+ */
+export function interpolateWithEasing(
+  a: number,
+  b: number,
+  t: number,
+  easing: import('./types').EasingType = 'linear'
+): number {
+  let factor = clamp(t, 0, 1);
+
+  switch (easing) {
+    case 'ease-in':
+    case 'ease-in-quad':
+      factor = easeInQuad(factor);
+      break;
+    case 'ease-out':
+    case 'ease-out-quad':
+      factor = easeOutQuad(factor);
+      break;
+    case 'ease-in-out':
+    case 'ease-in-out-quad':
+      factor = easeInOutQuad(factor);
+      break;
+    case 'ease-in-cubic':
+      factor = easeInCubic(factor);
+      break;
+    case 'ease-out-cubic':
+      factor = easeOutCubic(factor);
+      break;
+    case 'ease-in-out-cubic':
+      factor = easeInOutCubic(factor);
+      break;
+    case 'ease-out-back':
+      factor = easeOutBack(factor);
+      break;
+    case 'ease-in-out-sine':
+      factor = easeInOutSine(factor);
+      break;
+    case 'linear':
+    default:
+      // Linear factor unchanged
+      break;
+  }
+
+  return lerp(a, b, factor);
+}
+
+/**
+ * Computes deterministic secondary motion lag (e.g. hair bounce or fabric drag)
+ * given a driving oscillation or motion velocity.
+ */
+export function computeSecondaryLag(
+  frame: number,
+  fps: number,
+  frequency: number,
+  amplitude: number,
+  phaseLag = Math.PI / 4
+): number {
+  const time = frame / fps;
+  return Math.sin(time * Math.PI * 2 * frequency - phaseLag) * amplitude;
+}

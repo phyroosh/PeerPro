@@ -7,6 +7,7 @@ import { ParallaxTest } from './compositions/ParallaxTest';
 import { StyleShowcase } from './compositions/StyleShowcase';
 import { CutoutRigShowcase } from './compositions/CutoutRigShowcase';
 import { ClassroomShowcase } from './compositions/ClassroomShowcase';
+import { ActionShowcase } from './compositions/ActionShowcase';
 import { SceneRenderer, SceneRendererProps } from './core/scene/SceneRenderer';
 import { defaultAssetRegistry } from './core/assets/registry';
 import starterManifest from '../asset-packs/starter-kit/manifest.json';
@@ -110,6 +111,14 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{
           title: 'PeerPro Indoor Classroom Environment System',
         }}
+      />
+      <Composition
+        id="ActionShowcase"
+        component={ActionShowcase}
+        durationInFrames={180}
+        fps={30}
+        width={1920}
+        height={1080}
       />
     </>
   );

@@ -1,5 +1,10 @@
 import { CameraBounds, CameraPresetName } from '../camera/types';
-import { BreathingOptions, ExpressionKeyframe, HeadAngleOptions } from '../animation/types';
+import {
+  BreathingOptions,
+  ExpressionKeyframe,
+  HeadAngleOptions,
+  CharacterActionClip,
+} from '../animation/types';
 import { CharacterDefinition } from '../characters/types';
 import { EnvironmentDefinition } from '../environments/types';
 
@@ -42,6 +47,7 @@ export interface SceneCharacterInstance {
     breathing?: BreathingOptions;
     headTilt?: HeadAngleOptions;
     expressionSchedule?: ExpressionKeyframe[];
+    actions?: CharacterActionClip[];
   };
 }
 

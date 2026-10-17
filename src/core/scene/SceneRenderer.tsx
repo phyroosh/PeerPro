@@ -15,6 +15,7 @@ import {
   computeHeadTilt,
   resolveExpressionSchedule,
 } from '../animation/primitives';
+import { evaluateCharacterActions } from '../animation/actions';
 import { Character } from '../characters/Character';
 import { Environment } from '../environments/Environment';
 import { DriftingPetals } from '../effects/DriftingPetals';
@@ -48,6 +49,11 @@ const RenderedSceneCharacter: React.FC<{
   const depth = instance.depth ?? 1.0;
   const parallax = computeParallax(camera, depth);
 
+  const actionState =
+    instance.animation?.actions && instance.animation.actions.length > 0
+      ? evaluateCharacterActions(frame, fps, instance.animation.actions, 'idle')
+      : undefined;
+
   const breathing = computeBreathing(frame, fps, instance.animation?.breathing);
   const headTilt = computeHeadTilt(frame, fps, instance.animation?.headTilt);
 
@@ -56,16 +62,32 @@ const RenderedSceneCharacter: React.FC<{
     : {};
 
   const effectivePartOverrides: Record<string, string> = {
+    ...(actionState?.partOverrides || {}),
     ...(instance.partOverrides || {}),
     ...(scheduledExpressions.eyes ? { eyes: scheduledExpressions.eyes } : {}),
     ...(scheduledExpressions.mouth ? { mouth: scheduledExpressions.mouth } : {}),
+    ...(actionState?.expressionCue?.eyes && !scheduledExpressions.eyes
+      ? { eyes: actionState.expressionCue.eyes }
+      : {}),
+    ...(actionState?.expressionCue?.mouth && !scheduledExpressions.mouth
+      ? { mouth: actionState.expressionCue.mouth }
+      : {}),
   };
 
-  const posX = instance.position.x + parallax.offsetX;
-  const posY = instance.position.y + parallax.offsetY + breathing.offsetY;
+  const actionOffsetX = actionState?.rootOffset.x ?? 0;
+  const actionOffsetY = actionState?.rootOffset.y ?? 0;
+  const actionRotation = actionState?.rootOffset.rotation ?? 0;
+  const actionScaleY = actionState?.rootOffset.scaleY ?? 1.0;
+  const actionScaleX = actionState?.rootOffset.scaleX ?? 1.0;
+
+  const posX = instance.position.x + parallax.offsetX + actionOffsetX;
+  const posY = instance.position.y + parallax.offsetY + breathing.offsetY + actionOffsetY;
   const scale = (instance.scale ?? 1.0) * parallax.scale;
-  const rotation = (instance.rotation ?? 0) + headTilt;
+  const rotation = (instance.rotation ?? 0) + headTilt + actionRotation;
   const zIndex = Math.round(depth * 100) + 10;
+
+  const jointRotations = actionState?.jointRotations;
+  const effectivePose = actionState?.pose;
 
   return (
     <div
@@ -75,7 +97,7 @@ const RenderedSceneCharacter: React.FC<{
         left: posX,
         top: posY,
         zIndex,
-        transform: `scale(1, ${breathing.scaleY})`,
+        transform: `scale(${actionScaleX}, ${breathing.scaleY * actionScaleY})`,
         transformOrigin: '0 0',
         pointerEvents: 'none',
       }}
@@ -83,6 +105,8 @@ const RenderedSceneCharacter: React.FC<{
       <Character
         definition={charDef}
         variant={instance.variant}
+        pose={effectivePose}
+        jointRotations={jointRotations}
         partOverrides={effectivePartOverrides}
         scale={scale}
         flipX={instance.flipX}

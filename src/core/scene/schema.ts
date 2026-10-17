@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { CharacterDefinitionSchema } from '../characters/schema';
 import { EnvironmentDefinitionSchema } from '../environments/schema';
+import { CharacterActionClipSchema } from '../animation/actions.schema';
 
 export const SceneCanvasSchema = z.object({
   width: z.number().positive().default(1920).optional(),
@@ -68,6 +69,7 @@ export const SceneCharacterAnimationSchema = z.object({
       })
     )
     .optional(),
+  actions: z.array(CharacterActionClipSchema).optional(),
 });
 
 export const SceneCharacterInstanceSchema = z.object({
