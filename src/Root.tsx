@@ -14,6 +14,7 @@ import { EdgeTTSVoiceoverShowcase } from './compositions/EdgeTTSVoiceoverShowcas
 import { RigPreviewShowcase } from './compositions/RigPreviewShowcase';
 import { InteractionShowcase } from './compositions/InteractionShowcase';
 import { WorldCompositionShowcase } from './compositions/WorldCompositionShowcase';
+import { ActionGraphShowcase } from './compositions/ActionGraphShowcase';
 import { MultiShotIdentityChallenge } from './compositions/challenges/MultiShotIdentityChallenge';
 import { SceneRenderer, SceneRendererProps } from './core/scene/SceneRenderer';
 import { defaultAssetRegistry } from './core/assets/registry';
@@ -240,6 +241,17 @@ export const RemotionRoot: React.FC = () => {
         height={1080}
         defaultProps={{
           title: 'PeerPro World Composition & Procedural Environment Layout',
+        }}
+      />
+      <Composition
+        id="ActionGraphShowcase"
+        component={ActionGraphShowcase}
+        durationInFrames={150}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: 'PeerPro Action Graph & Timeline Orchestration',
         }}
       />
     </>
