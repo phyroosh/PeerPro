@@ -11,6 +11,7 @@ import { ActionShowcase } from './compositions/ActionShowcase';
 import { CinematicSequenceShowcase } from './compositions/CinematicSequenceShowcase';
 import { AudioNarrativeShowcase } from './compositions/AudioNarrativeShowcase';
 import { EdgeTTSVoiceoverShowcase } from './compositions/EdgeTTSVoiceoverShowcase';
+import { RigPreviewShowcase } from './compositions/RigPreviewShowcase';
 import { MultiShotIdentityChallenge } from './compositions/challenges/MultiShotIdentityChallenge';
 import { SceneRenderer, SceneRendererProps } from './core/scene/SceneRenderer';
 import { defaultAssetRegistry } from './core/assets/registry';
@@ -202,6 +203,18 @@ export const RemotionRoot: React.FC = () => {
         height={challengeC5Fixture.canvas?.height || 1080}
         defaultProps={{
           manifest: challengeC5Fixture as any,
+        }}
+      />
+      <Composition
+        id="RigPreviewShowcase"
+        component={RigPreviewShowcase}
+        durationInFrames={120}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: 'PeerPro Character Performance System & Rig Profiles',
+          showOverlay: true,
         }}
       />
     </>

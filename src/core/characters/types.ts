@@ -1,4 +1,5 @@
 import { AssetManifestEntry } from '../assets/types';
+import { RigProfile, JointLimit } from './rigs/types';
 
 export type CharacterSlotName =
   | 'rootPart'
@@ -37,6 +38,8 @@ export interface CharacterDefinition {
   slots: Partial<Record<Exclude<CharacterSlotName, 'rootPart'>, CharacterPartRef>>;
   layerOrder: string[];
   variants?: Record<string, CharacterVariant>;
+  rigProfile?: RigProfile;
+  jointLimits?: Record<string, JointLimit>;
 }
 
 export type CharacterPoseName =
@@ -60,6 +63,7 @@ export interface CharacterIdentity {
   baseDefinitionId: string;
   defaultVariant?: string;
   defaultPose?: CharacterPoseName;
+  rigProfile?: RigProfile;
   traits?: {
     hairColor?: string;
     eyeColor?: string;

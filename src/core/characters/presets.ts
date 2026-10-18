@@ -8,6 +8,7 @@ export const studentCharacterDefinition: CharacterDefinition = {
   id: 'student-ren',
   name: 'Ren - Student',
   styleFamily: 'anime-clean-v1',
+  rigProfile: 'pose_swapped',
   defaultScale: 1.0,
   rootPart: {
     assetId: 'starter-char-body-01',
@@ -50,6 +51,7 @@ export const studentCharacterDefinitionV2: CharacterDefinition = {
   id: 'student-ren-v2',
   name: 'Ren - Student (V2 Refined)',
   styleFamily: 'anime-clean-v1',
+  rigProfile: 'pose_swapped',
   defaultScale: 1.0,
   rootPart: {
     assetId: 'starter-char-body-01-v2',
@@ -79,6 +81,7 @@ export const studentThreeQuarterDefinition: CharacterDefinition = {
   id: 'student-three-quarter',
   name: 'Ren - Student (3/4 Perspective)',
   styleFamily: 'anime-clean-v1',
+  rigProfile: 'pose_swapped',
   defaultScale: 1.0,
   rootPart: {
     assetId: 'starter-char-body-01-three-quarter',
@@ -99,6 +102,7 @@ export const studentArticulatedDefinition: CharacterDefinition = {
   id: 'student-articulated',
   name: 'Ren - Student (Modular Cutout Rig)',
   styleFamily: 'anime-clean-v1',
+  rigProfile: 'upper_body_cutout',
   defaultScale: 1.0,
   rootPart: {
     assetId: 'starter-char-body-01-torso-v2',

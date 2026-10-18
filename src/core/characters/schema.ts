@@ -27,4 +27,17 @@ export const CharacterDefinitionSchema = z.object({
   slots: z.record(z.string(), CharacterPartRefSchema).optional().default({}),
   layerOrder: z.array(z.string()).min(1, 'layerOrder must contain at least one layer'),
   variants: z.record(z.string(), CharacterVariantSchema).optional(),
+  rigProfile: z.enum(['face_only', 'upper_body_cutout', 'full_body_cutout', 'pose_swapped']).optional(),
+  jointLimits: z
+    .record(
+      z.string(),
+      z.object({
+        min: z.number(),
+        max: z.number(),
+        rest: z.number(),
+        unit: z.enum(['degrees', 'pixels']),
+      })
+    )
+    .optional(),
 });
+

@@ -3,6 +3,7 @@ import {
   CharacterPoseName,
   CharacterJointRotations,
 } from './types';
+import { RigProfile } from './rigs/types';
 
 export interface ShotCharacterContext {
   shotId?: string;
@@ -21,6 +22,7 @@ export interface ShotCharacterConfig {
   flipX: boolean;
   jointRotations?: CharacterJointRotations;
   identity: CharacterIdentity;
+  rigProfile?: RigProfile;
 }
 
 /**
@@ -82,5 +84,6 @@ export function createShotCharacterConfig(
     flipX: context.facingDirection === 'left',
     jointRotations: context.jointRotations,
     identity,
+    rigProfile: identity.rigProfile,
   };
 }
