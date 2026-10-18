@@ -48,6 +48,8 @@
     "render:audio:video": "remotion render AudioNarrativeShowcase out/audio-narrative-showcase.mp4",
     "render:actiongraph:still": "remotion still ActionGraphShowcase out/actiongraph-showcase.png --frame=75",
     "render:actiongraph:video": "remotion render ActionGraphShowcase out/actiongraph-showcase.mp4",
+    "render:intent:still": "remotion still CinematicIntentShowcase out/cinematic-intent-showcase.png --frame=60",
+    "render:intent:video": "remotion render CinematicIntentShowcase out/cinematic-intent-showcase.mp4",
     "voiceover:list": "tsx scripts/voiceover.ts list",
     "voiceover:preview": "tsx scripts/voiceover.ts preview",
     "voiceover:sync": "tsx scripts/voiceover.ts sync-scene",
@@ -69,7 +71,8 @@
     "rig:inspect": "tsx scripts/inspect-rig.ts",
     "interaction:inspect": "tsx scripts/inspect-interaction.ts",
     "env:inspect": "tsx scripts/inspect-environment.ts",
-    "actiongraph:inspect": "tsx scripts/inspect-actiongraph.ts"
+    "actiongraph:inspect": "tsx scripts/inspect-actiongraph.ts",
+    "intent:inspect": "tsx scripts/inspect-cinematic-intent.ts"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.528",
