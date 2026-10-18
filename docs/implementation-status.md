@@ -1,8 +1,8 @@
 # PeerPro Implementation Status
 
 ## Current Status Overview
-- **Active Phase**: Phase 24 — Character Performance System (Completed)
-- **Overall Status**: **PHASE 24 DELIVERED & FULLY VERIFIED (163/163 TESTS PASSING, 7/7 RELEASE GATES)**
+- **Active Phase**: Phase 25 — Character–Object Interaction Toolkit (Completed)
+- **Overall Status**: **PHASE 25 DELIVERED & FULLY VERIFIED (171/171 TESTS PASSING, 7/7 RELEASE GATES)**
 - **Last Updated**: 2026-10-18
 
 ---
@@ -819,6 +819,37 @@
   - `npm run rig:inspect`: Directory of 4 presets and their rig capabilities.
   - `npm run rig:inspect -- student-articulated --clip=arm_gesture_wave`: Frame telemetry verified.
   - `npx remotion still RigPreviewShowcase out/rig-preview-showcase.png --frame=45`: Rendered in 605ms.
+
+---
+
+### Phase 25 — Character–Object Interaction Toolkit
+- **Status**: COMPLETED
+- **Date**: 2026-10-18
+- **Scope & Objectives Delivered**:
+  - Implemented pure mathematical Forward-Kinematic (FK) interaction solver (`solveInteraction`) with zero-drift hand locking, smoothstep pickup/setdown interpolation, furniture seat snapping, and inter-character object passing (`pass_object`).
+  - Built dynamic anchor resolution (`resolveCharacterAnchor`) responding to active arm rotation angles ($\theta_{\text{arm}}$), torso breathing displacement ($\Delta y_{\text{breath}}$), and horizontal mirroring (`flipX`).
+  - Formalized catalog of known prop sockets (`KNOWN_PROP_ANCHORS`) for starter assets (`starter-prop-umbrella`, `starter-env-classroom-chair`, `starter-env-classroom-desk`).
+  - Implemented rig capability & compatibility validator (`validateInteractionCompatibility`) checking required sockets and providing explicit fallback strategies (`snap_to_anchor`, `pose_swap`) for non-articulated or missing assets.
+  - Created interactive CLI inspection tool (`scripts/inspect-interaction.ts`, `npm run interaction:inspect`) verifying $0.00\text{px}$ drift across multi-frame sequences.
+  - Authored Remotion visual showcase composition (`src/compositions/InteractionShowcase.tsx`) with 3 distinct interaction scenarios (holding, sitting, passing) and verified clean proof still at `out/interaction-showcase.png`.
+  - Authored comprehensive architecture documentation in `docs/interactions/interaction-toolkit-guide.md`.
+  - Added 8 comprehensive unit tests in `tests/unit/character-interactions.test.ts`.
+- **Key Artifacts Created / Modified**:
+  - `src/core/interactions/types.ts`: TypeScript contracts for `InteractionType`, `InteractionAnchor`, `Transform2D`, `InteractionDefinition`, `ResolvedInteraction`, and `InteractionCompatibilityReport`.
+  - `src/core/interactions/anchors.ts`: Dynamic FK anchor solver and `KNOWN_PROP_ANCHORS` specifications.
+  - `src/core/interactions/solver.ts`: Deterministic FK solver for all 7 interaction primitives.
+  - `src/core/interactions/validator.ts`: Rig compatibility validator and fallback strategy selector.
+  - `src/core/interactions/index.ts`: Subsystem barrel export.
+  - `scripts/inspect-interaction.ts`: CLI interaction inspector tool (`npm run interaction:inspect`).
+  - `src/compositions/InteractionShowcase.tsx`: Remotion showcase composition registered in `src/Root.tsx`.
+  - `docs/interactions/interaction-toolkit-guide.md`: Comprehensive subsystem architecture guide.
+  - `tests/unit/character-interactions.test.ts`: 8 unit tests covering all acceptance criteria.
+- **Commands Run & Verified**:
+  - `npm test`: 171/171 tests passed across 26 suites (100% pass rate).
+  - `npm run release:gate`: All 7/7 pre-release gates passed in 38.58s.
+  - `npm run interaction:inspect`: Verified $0.00\text{px}$ drift across 60 frames.
+  - `npx remotion still InteractionShowcase out/interaction-showcase.png --frame=45`: Clean proof rendered.
+
 
 
 
