@@ -1,8 +1,8 @@
 # PeerPro Implementation Status
 
 ## Current Status Overview
-- **Active Phase**: Phase 22 — Asset Foundry and Pack Ingestion (Completed)
-- **Overall Status**: **PHASE 22 DELIVERED & FULLY VERIFIED (146/146 TESTS PASSING, 7/7 RELEASE GATES)**
+- **Active Phase**: Phase 23 — Scene Graph and Spatial Constraints (Completed)
+- **Overall Status**: **PHASE 23 DELIVERED & FULLY VERIFIED (155/155 TESTS PASSING, 7/7 RELEASE GATES)**
 - **Last Updated**: 2026-10-18
 
 ---
@@ -747,6 +747,47 @@
   - `npm run agent:discover`: 45 vector assets introspected.
   - `npm run assets:validate`: 45 assets verified with 0 errors.
   - `npx tsx scripts/render-scene.ts scenes/umbrella-rain-showcase.json out/umbrella-rain-showcase.png --frame 45`: Verified in 363ms.
+
+---
+
+### Phase 23 — Scene Graph and Spatial Constraints
+- **Status**: COMPLETED
+- **Date**: 2026-10-18
+- **Rank 1 Gap Addressed**: AI agents and human animators no longer have to manually hardcode absolute pixel coordinates. Spatial intent ("on the desk", "attach umbrella to body", "look toward speaker") is declared semantically and solved mathematically via pure forward kinematics DAG resolution.
+- **Key Artifacts Created**:
+  - `src/core/scenegraph/types.ts`:
+    - Full TypeScript type contracts for `CoordinateSpace` (`world`, `parent`, `character`, `screen`), `Transform2D`, `BoundingBox2D`, `SpatialConstraint`, `SceneGraphNode`, `ResolvedSceneGraphNode`, and `SceneGraphReport`.
+  - `src/core/scenegraph/solver.ts`:
+    - Two-pass deterministic constraint solver and forward kinematics engine.
+    - Pass 1: Position DAG dependency sorting with Tarjan/DFS cycle detection, parent-to-child transform propagation, surface placement (`place_on_surface`), alignment (`align`), socket mounting (`attach_socket`), relative offset (`relative_offset`), and bounding box clamping (`safe_region`).
+    - Pass 2: Soft orientation (`look_toward` with auto-flipX) and relative rendering order (`layer_relative`).
+  - `src/core/scenegraph/reporter.ts`:
+    - Hierarchical tree generator and coordinate diagnostics report.
+  - `src/core/scenegraph/adapter.ts`:
+    - Pure adapter compiling relational `SceneGraphDefinition` into standard `SceneManifest` format.
+  - `src/core/scenegraph/index.ts`:
+    - Clean barrel export.
+- **CLI & Automation**:
+  - `scripts/inspect-scenegraph.ts`:
+    - CLI tool for scene graph diagnostics and compilation (`--compile`, `--out`, `--diagnostics`).
+  - `package.json`:
+    - Added `"scenegraph:inspect": "tsx scripts/inspect-scenegraph.ts"`.
+- **Proof Scene Graphs & Visual Renders**:
+  - `scenes/scenegraph-classroom-desk.json` $\to$ compiled to `scenes/scenegraph-classroom-desk-compiled.json` $\to$ rendered `out/scenegraph-classroom-desk.png` (demonstrating hierarchical propagation: moving the desk $+290\text{px}$ horizontally automatically repositioned chair, student, clock, and lectern).
+  - `scenes/scenegraph-umbrella-held.json` $\to$ compiled to `scenes/scenegraph-umbrella-held-compiled.json` $\to$ rendered `out/scenegraph-umbrella-held.png` (demonstrating prop socket attachment and two-pass mutual `look_toward` character orientation).
+- **Documentation**:
+  - `docs/scenegraph/scene-graph-guide.md`:
+    - Complete architecture guide, coordinate equations, constraint reference table, and CLI workflows.
+- **Testing & Gates**:
+  - `tests/unit/scene-graph.test.ts`:
+    - 9 comprehensive unit tests covering transform inheritance, surface placement, alignment, gaze orientation, socket mounting, boundary clamping, relative z-ordering, cycle detection, and manifest compilation.
+- **Commands Run & Verified**:
+  - `npm test`: 155/155 tests passed across 27 suites (100% pass rate).
+  - `npm run release:gate`: All 7/7 pre-release gates passed in 39.01s.
+  - `npm run scenegraph:inspect -- scenes/scenegraph-classroom-desk.json`: Diagnostics and hierarchy tree verified.
+  - `npx tsx scripts/render-scene.ts scenes/scenegraph-classroom-desk-compiled.json out/scenegraph-classroom-desk.png --frame 0`: Rendered in 361ms.
+  - `npx tsx scripts/render-scene.ts scenes/scenegraph-umbrella-held-compiled.json out/scenegraph-umbrella-held.png --frame 0`: Rendered in 355ms.
+
 
 
 

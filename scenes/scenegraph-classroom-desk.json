@@ -1,0 +1,202 @@
+{
+  "$schema": "../schemas/scene-definition.schema.json",
+  "id": "scenegraph-classroom-desk",
+  "name": "Classroom Spatial Scene Graph (Phase 23 Proof)",
+  "description": "Showcases spatial constraints: desk prop sits on surface, chair is relatively offset, and speaker turns toward seated student via look_toward.",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationInFrames": 120,
+    "backgroundColor": "#0f172a"
+  },
+  "camera": {
+    "preset": "slow-push-in",
+    "intensity": 0.4,
+    "focalDepth": 1.0
+  },
+  "groundY": 910,
+  "nodes": [
+    {
+      "id": "classroom-wall",
+      "name": "Classroom Back Wall",
+      "kind": "asset",
+      "assetId": "starter-env-classroom-wall",
+      "depth": 0.2,
+      "order": 1,
+      "localTransform": {
+        "x": 960,
+        "y": 0,
+        "anchor": { "x": 0.5, "y": 0.0 }
+      }
+    },
+    {
+      "id": "classroom-blackboard",
+      "name": "Blackboard",
+      "kind": "asset",
+      "assetId": "starter-env-classroom-blackboard",
+      "depth": 0.3,
+      "order": 5,
+      "localTransform": {
+        "x": 960,
+        "y": 480,
+        "anchor": { "x": 0.5, "y": 0.5 }
+      }
+    },
+    {
+      "id": "classroom-window",
+      "name": "Window",
+      "kind": "asset",
+      "assetId": "starter-env-classroom-window",
+      "depth": 0.25,
+      "order": 3,
+      "localTransform": {
+        "x": 1640,
+        "y": 380,
+        "anchor": { "x": 0.5, "y": 0.5 }
+      }
+    },
+    {
+      "id": "classroom-floor",
+      "name": "Wood Floor",
+      "kind": "asset",
+      "assetId": "starter-env-classroom-floor",
+      "depth": 0.4,
+      "order": 8,
+      "localTransform": {
+        "x": 960,
+        "y": 800,
+        "anchor": { "x": 0.5, "y": 0.0 }
+      }
+    },
+    {
+      "id": "main-desk",
+      "name": "Student Study Desk",
+      "kind": "asset",
+      "assetId": "starter-env-classroom-desk",
+      "depth": 1.0,
+      "order": 60,
+      "localTransform": {
+        "x": 760,
+        "y": 910,
+        "anchor": { "x": 0.5, "y": 1.0 }
+      }
+    },
+    {
+      "id": "desk-chair",
+      "name": "Study Chair",
+      "kind": "asset",
+      "assetId": "starter-env-classroom-chair",
+      "depth": 1.0,
+      "order": 40,
+      "constraints": [
+        {
+          "type": "relative_offset",
+          "targetId": "main-desk",
+          "offset": { "x": -40, "y": 0 }
+        },
+        {
+          "type": "layer_relative",
+          "targetId": "main-desk",
+          "relation": "behind"
+        }
+      ]
+    },
+    {
+      "id": "seated-student",
+      "name": "Seated Student Ren",
+      "kind": "character",
+      "characterId": "student-ren-v2",
+      "characterVariant": "default",
+      "depth": 1.0,
+      "order": 50,
+      "constraints": [
+        {
+          "type": "relative_offset",
+          "targetId": "main-desk",
+          "offset": { "x": -40, "y": 10 }
+        },
+        {
+          "type": "layer_relative",
+          "targetId": "main-desk",
+          "relation": "behind"
+        }
+      ],
+      "customData": {
+        "animation": {
+          "breathing": { "frequency": 0.5, "amplitude": 2.0 }
+        }
+      }
+    },
+    {
+      "id": "desk-clock",
+      "name": "Tabletop Clock Prop",
+      "kind": "prop",
+      "assetId": "starter-env-classroom-clock",
+      "depth": 1.0,
+      "visualBounds": { "width": 70, "height": 70 },
+      "localTransform": {
+        "scale": 0.45,
+        "anchor": { "x": 0.5, "y": 1.0 }
+      },
+      "constraints": [
+        {
+          "type": "place_on_surface",
+          "targetId": "main-desk",
+          "offset": { "y": 4 }
+        },
+        {
+          "type": "align",
+          "targetId": "main-desk",
+          "alignment": "right",
+          "offset": { "x": -50 }
+        },
+        {
+          "type": "layer_relative",
+          "targetId": "main-desk",
+          "relation": "front_of"
+        }
+      ]
+    },
+    {
+      "id": "presentation-lectern",
+      "name": "Teacher Lectern",
+      "kind": "asset",
+      "assetId": "starter-env-classroom-lectern",
+      "depth": 1.0,
+      "order": 70,
+      "constraints": [
+        {
+          "type": "relative_offset",
+          "targetId": "main-desk",
+          "offset": { "x": 620, "y": 0 }
+        }
+      ]
+    },
+    {
+      "id": "speaker-ren",
+      "name": "Speaking Student",
+      "kind": "character",
+      "characterId": "student-ren-v2",
+      "characterVariant": "happy",
+      "depth": 1.0,
+      "order": 65,
+      "constraints": [
+        {
+          "type": "relative_offset",
+          "targetId": "presentation-lectern",
+          "offset": { "x": 50, "y": 0 }
+        },
+        {
+          "type": "look_toward",
+          "targetId": "seated-student"
+        }
+      ],
+      "customData": {
+        "animation": {
+          "breathing": { "frequency": 0.6, "amplitude": 2.5 }
+        }
+      }
+    }
+  ]
+}

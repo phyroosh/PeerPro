@@ -1,0 +1,215 @@
+{
+  "id": "scenegraph-umbrella-held",
+  "name": "Umbrella Spatial Attachment Scene Graph (Phase 23 Proof)",
+  "description": "Showcases socket attachment and mutual gaze: umbrella attached to character body and two characters looking toward each other via spatial constraints.",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationInFrames": 120,
+    "backgroundColor": "#090d16"
+  },
+  "camera": {
+    "preset": "slow-push-in",
+    "intensity": 0.4,
+    "focalDepth": 1,
+    "depthOfField": {
+      "enabled": true,
+      "focalPlane": 1,
+      "aperture": 0.4,
+      "maxBlur": 10
+    }
+  },
+  "environment": {
+    "custom": {
+      "id": "env-scenegraph-umbrella-held",
+      "name": "Umbrella Spatial Attachment Scene Graph (Phase 23 Proof) Environment",
+      "domain": "hybrid",
+      "backgroundColor": "#090d16",
+      "layers": [
+        {
+          "id": "bg-sky",
+          "name": "Dusk Sky Plate",
+          "assetId": "starter-env-sky-dusk",
+          "depth": 0.2,
+          "order": 1,
+          "plane": "background",
+          "transform": {
+            "x": 960,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "flipX": false,
+            "opacity": 1,
+            "anchor": {
+              "x": 0.5,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "mid-apartment",
+          "name": "Apartment Building",
+          "assetId": "starter-env-building-facade-02",
+          "depth": 0.7,
+          "order": 5,
+          "plane": "mid_back",
+          "transform": {
+            "x": 1420,
+            "y": 880,
+            "scale": 1,
+            "rotation": 0,
+            "flipX": false,
+            "opacity": 1,
+            "anchor": {
+              "x": 0.5,
+              "y": 1
+            }
+          }
+        },
+        {
+          "id": "storefront-conbini",
+          "name": "Storefront Conbini",
+          "assetId": "starter-env-building-facade-01",
+          "depth": 0.95,
+          "order": 8,
+          "plane": "mid_back",
+          "transform": {
+            "x": 480,
+            "y": 880,
+            "scale": 1,
+            "rotation": 0,
+            "flipX": false,
+            "opacity": 1,
+            "anchor": {
+              "x": 0.5,
+              "y": 1
+            }
+          }
+        },
+        {
+          "id": "street-vending-machine",
+          "name": "Vending Machine",
+          "assetId": "starter-env-vending-machine",
+          "depth": 1,
+          "order": 12,
+          "plane": "mid_back",
+          "transform": {
+            "x": 1340,
+            "y": 880,
+            "scale": 1,
+            "rotation": 0,
+            "flipX": false,
+            "opacity": 1,
+            "anchor": {
+              "x": 0.5,
+              "y": 1
+            }
+          }
+        },
+        {
+          "id": "street-asphalt",
+          "name": "Street Asphalt",
+          "assetId": "starter-env-road-segment",
+          "depth": 1,
+          "order": 15,
+          "plane": "mid_back",
+          "transform": {
+            "x": 960,
+            "y": 880,
+            "scale": 1,
+            "rotation": 0,
+            "flipX": false,
+            "opacity": 1,
+            "anchor": {
+              "x": 0.5,
+              "y": 1
+            }
+          }
+        },
+        {
+          "id": "held-umbrella",
+          "name": "Ren's Cel-Shaded Umbrella",
+          "assetId": "starter-prop-umbrella",
+          "depth": 1,
+          "order": 65,
+          "plane": "mid_back",
+          "transform": {
+            "x": 790,
+            "y": 460,
+            "scale": 1.4,
+            "rotation": -5,
+            "flipX": false,
+            "opacity": 1,
+            "anchor": {
+              "x": 0.5,
+              "y": 0.88
+            }
+          }
+        },
+        {
+          "id": "foreground-streetlight",
+          "name": "Streetlight",
+          "assetId": "starter-env-streetlight",
+          "depth": 1.35,
+          "order": 130,
+          "plane": "foreground",
+          "transform": {
+            "x": 1720,
+            "y": 880,
+            "scale": 1,
+            "rotation": 0,
+            "flipX": false,
+            "opacity": 1,
+            "anchor": {
+              "x": 0.5,
+              "y": 1
+            }
+          }
+        }
+      ]
+    }
+  },
+  "characters": [
+    {
+      "id": "sheltered-ren",
+      "characterId": "student-ren-v2",
+      "variant": "default",
+      "depth": 1,
+      "position": {
+        "x": 780,
+        "y": 920
+      },
+      "scale": 1,
+      "flipX": false,
+      "rotation": 0,
+      "opacity": 1,
+      "animation": {
+        "breathing": {
+          "frequency": 0.5,
+          "amplitude": 2.5
+        }
+      }
+    },
+    {
+      "id": "companion-student",
+      "characterId": "student-ren",
+      "variant": "happy",
+      "depth": 1,
+      "position": {
+        "x": 1200,
+        "y": 920
+      },
+      "scale": 1,
+      "flipX": true,
+      "rotation": 0,
+      "opacity": 1,
+      "animation": {
+        "breathing": {
+          "frequency": 0.55,
+          "amplitude": 2
+        }
+      }
+    }
+  ]
+}

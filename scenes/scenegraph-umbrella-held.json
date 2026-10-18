@@ -1,0 +1,182 @@
+{
+  "$schema": "../schemas/scene-definition.schema.json",
+  "id": "scenegraph-umbrella-held",
+  "name": "Umbrella Spatial Attachment Scene Graph (Phase 23 Proof)",
+  "description": "Showcases socket attachment and mutual gaze: umbrella attached to character body and two characters looking toward each other via spatial constraints.",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationInFrames": 120,
+    "backgroundColor": "#090d16"
+  },
+  "camera": {
+    "preset": "slow-push-in",
+    "intensity": 0.4,
+    "focalDepth": 1.0,
+    "depthOfField": {
+      "enabled": true,
+      "focalPlane": 1.0,
+      "aperture": 0.4,
+      "maxBlur": 10.0
+    }
+  },
+  "groundY": 920,
+  "nodes": [
+    {
+      "id": "bg-sky",
+      "name": "Dusk Sky Plate",
+      "kind": "asset",
+      "assetId": "starter-env-sky-dusk",
+      "depth": 0.2,
+      "order": 1,
+      "localTransform": {
+        "x": 960,
+        "y": 0,
+        "anchor": { "x": 0.5, "y": 0.0 }
+      }
+    },
+    {
+      "id": "mid-apartment",
+      "name": "Apartment Building",
+      "kind": "asset",
+      "assetId": "starter-env-building-facade-02",
+      "depth": 0.7,
+      "order": 5,
+      "localTransform": {
+        "x": 1420,
+        "y": 880,
+        "anchor": { "x": 0.5, "y": 1.0 }
+      }
+    },
+    {
+      "id": "storefront-conbini",
+      "name": "Storefront Conbini",
+      "kind": "asset",
+      "assetId": "starter-env-building-facade-01",
+      "depth": 0.95,
+      "order": 8,
+      "localTransform": {
+        "x": 480,
+        "y": 880,
+        "anchor": { "x": 0.5, "y": 1.0 }
+      }
+    },
+    {
+      "id": "street-vending-machine",
+      "name": "Vending Machine",
+      "kind": "asset",
+      "assetId": "starter-env-vending-machine",
+      "depth": 1.0,
+      "order": 12,
+      "constraints": [
+        {
+          "type": "relative_offset",
+          "targetId": "storefront-conbini",
+          "offset": { "x": 860, "y": 0 }
+        }
+      ]
+    },
+    {
+      "id": "street-asphalt",
+      "name": "Street Asphalt",
+      "kind": "asset",
+      "assetId": "starter-env-road-segment",
+      "depth": 1.0,
+      "order": 15,
+      "localTransform": {
+        "x": 960,
+        "y": 880,
+        "anchor": { "x": 0.5, "y": 1.0 }
+      }
+    },
+    {
+      "id": "sheltered-ren",
+      "name": "Ren Sheltering Under Umbrella",
+      "kind": "character",
+      "characterId": "student-ren-v2",
+      "characterVariant": "default",
+      "depth": 1.0,
+      "order": 60,
+      "localTransform": {
+        "x": 780,
+        "y": 920,
+        "anchor": { "x": 0.5, "y": 1.0 }
+      },
+      "constraints": [
+        {
+          "type": "look_toward",
+          "targetId": "companion-student"
+        }
+      ],
+      "customData": {
+        "animation": {
+          "breathing": { "frequency": 0.5, "amplitude": 2.5 }
+        }
+      }
+    },
+    {
+      "id": "held-umbrella",
+      "name": "Ren's Cel-Shaded Umbrella",
+      "kind": "prop",
+      "assetId": "starter-prop-umbrella",
+      "depth": 1.0,
+      "visualBounds": { "width": 320, "height": 320 },
+      "localTransform": {
+        "scale": 1.4,
+        "rotation": -5,
+        "anchor": { "x": 0.5, "y": 0.88 }
+      },
+      "constraints": [
+        {
+          "type": "relative_offset",
+          "targetId": "sheltered-ren",
+          "offset": { "x": 10, "y": -460 }
+        },
+        {
+          "type": "layer_relative",
+          "targetId": "sheltered-ren",
+          "relation": "front_of"
+        }
+      ]
+    },
+    {
+      "id": "companion-student",
+      "name": "Listening Classmate",
+      "kind": "character",
+      "characterId": "student-ren",
+      "characterVariant": "happy",
+      "depth": 1.0,
+      "order": 60,
+      "localTransform": {
+        "x": 1200,
+        "y": 920,
+        "anchor": { "x": 0.5, "y": 1.0 }
+      },
+      "constraints": [
+        {
+          "type": "look_toward",
+          "targetId": "sheltered-ren"
+        }
+      ],
+      "customData": {
+        "animation": {
+          "breathing": { "frequency": 0.55, "amplitude": 2.0 }
+        }
+      }
+    },
+    {
+      "id": "foreground-streetlight",
+      "name": "Streetlight",
+      "kind": "asset",
+      "assetId": "starter-env-streetlight",
+      "depth": 1.35,
+      "order": 130,
+      "localTransform": {
+        "x": 1720,
+        "y": 880,
+        "anchor": { "x": 0.5, "y": 1.0 }
+      }
+    }
+  ]
+}

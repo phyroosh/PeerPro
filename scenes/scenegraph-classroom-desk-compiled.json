@@ -1,0 +1,229 @@
+{
+  "id": "scenegraph-classroom-desk",
+  "name": "Classroom Spatial Scene Graph (Phase 23 Proof)",
+  "description": "Showcases spatial constraints: desk prop sits on surface, chair is relatively offset, and speaker turns toward seated student via look_toward.",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationInFrames": 120,
+    "backgroundColor": "#0f172a"
+  },
+  "camera": {
+    "preset": "slow-push-in",
+    "intensity": 0.4,
+    "focalDepth": 1
+  },
+  "environment": {
+    "custom": {
+      "id": "env-scenegraph-classroom-desk",
+      "name": "Classroom Spatial Scene Graph (Phase 23 Proof) Environment",
+      "domain": "hybrid",
+      "backgroundColor": "#0f172a",
+      "layers": [
+        {
+          "id": "classroom-wall",
+          "name": "Classroom Back Wall",
+          "assetId": "starter-env-classroom-wall",
+          "depth": 0.2,
+          "order": 1,
+          "plane": "background",
+          "transform": {
+            "x": 960,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "flipX": false,
+            "opacity": 1,
+            "anchor": {
+              "x": 0.5,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "classroom-blackboard",
+          "name": "Blackboard",
+          "assetId": "starter-env-classroom-blackboard",
+          "depth": 0.3,
+          "order": 5,
+          "plane": "background",
+          "transform": {
+            "x": 960,
+            "y": 480,
+            "scale": 1,
+            "rotation": 0,
+            "flipX": false,
+            "opacity": 1,
+            "anchor": {
+              "x": 0.5,
+              "y": 0.5
+            }
+          }
+        },
+        {
+          "id": "classroom-window",
+          "name": "Window",
+          "assetId": "starter-env-classroom-window",
+          "depth": 0.25,
+          "order": 3,
+          "plane": "background",
+          "transform": {
+            "x": 1640,
+            "y": 380,
+            "scale": 1,
+            "rotation": 0,
+            "flipX": false,
+            "opacity": 1,
+            "anchor": {
+              "x": 0.5,
+              "y": 0.5
+            }
+          }
+        },
+        {
+          "id": "classroom-floor",
+          "name": "Wood Floor",
+          "assetId": "starter-env-classroom-floor",
+          "depth": 0.4,
+          "order": 8,
+          "plane": "background",
+          "transform": {
+            "x": 960,
+            "y": 800,
+            "scale": 1,
+            "rotation": 0,
+            "flipX": false,
+            "opacity": 1,
+            "anchor": {
+              "x": 0.5,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "main-desk",
+          "name": "Student Study Desk",
+          "assetId": "starter-env-classroom-desk",
+          "depth": 1,
+          "order": 60,
+          "plane": "mid_back",
+          "transform": {
+            "x": 760,
+            "y": 910,
+            "scale": 1,
+            "rotation": 0,
+            "flipX": false,
+            "opacity": 1,
+            "anchor": {
+              "x": 0.5,
+              "y": 1
+            }
+          }
+        },
+        {
+          "id": "desk-chair",
+          "name": "Study Chair",
+          "assetId": "starter-env-classroom-chair",
+          "depth": 1,
+          "order": 40,
+          "plane": "mid_back",
+          "transform": {
+            "x": 720,
+            "y": 910,
+            "scale": 1,
+            "rotation": 0,
+            "flipX": false,
+            "opacity": 1,
+            "anchor": {
+              "x": 0.5,
+              "y": 1
+            }
+          }
+        },
+        {
+          "id": "desk-clock",
+          "name": "Tabletop Clock Prop",
+          "assetId": "starter-env-classroom-clock",
+          "depth": 1,
+          "order": 65,
+          "plane": "mid_back",
+          "transform": {
+            "x": 814.25,
+            "y": 614,
+            "scale": 0.45,
+            "rotation": 0,
+            "flipX": false,
+            "opacity": 1,
+            "anchor": {
+              "x": 0.5,
+              "y": 1
+            }
+          }
+        },
+        {
+          "id": "presentation-lectern",
+          "name": "Teacher Lectern",
+          "assetId": "starter-env-classroom-lectern",
+          "depth": 1,
+          "order": 70,
+          "plane": "mid_back",
+          "transform": {
+            "x": 1380,
+            "y": 910,
+            "scale": 1,
+            "rotation": 0,
+            "flipX": false,
+            "opacity": 1,
+            "anchor": {
+              "x": 0.5,
+              "y": 1
+            }
+          }
+        }
+      ]
+    }
+  },
+  "characters": [
+    {
+      "id": "seated-student",
+      "characterId": "student-ren-v2",
+      "variant": "default",
+      "depth": 1,
+      "position": {
+        "x": 720,
+        "y": 920
+      },
+      "scale": 1,
+      "flipX": false,
+      "rotation": 0,
+      "opacity": 1,
+      "animation": {
+        "breathing": {
+          "frequency": 0.5,
+          "amplitude": 2
+        }
+      }
+    },
+    {
+      "id": "speaker-ren",
+      "characterId": "student-ren-v2",
+      "variant": "happy",
+      "depth": 1,
+      "position": {
+        "x": 1430,
+        "y": 910
+      },
+      "scale": 1,
+      "flipX": true,
+      "rotation": 0,
+      "opacity": 1,
+      "animation": {
+        "breathing": {
+          "frequency": 0.6,
+          "amplitude": 2.5
+        }
+      }
+    }
+  ]
+}

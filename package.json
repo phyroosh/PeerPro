@@ -62,7 +62,8 @@
     "assets:validate": "tsx scripts/validate-assets.ts",
     "assets:index": "tsx scripts/build-asset-index.ts",
     "assets:contact-sheet": "tsx scripts/build-contact-sheet.ts",
-    "asset:ingest": "tsx scripts/ingest-asset.ts"
+    "asset:ingest": "tsx scripts/ingest-asset.ts",
+    "scenegraph:inspect": "tsx scripts/inspect-scenegraph.ts"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.528",
