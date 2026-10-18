@@ -65,7 +65,8 @@
     "asset:ingest": "tsx scripts/ingest-asset.ts",
     "scenegraph:inspect": "tsx scripts/inspect-scenegraph.ts",
     "rig:inspect": "tsx scripts/inspect-rig.ts",
-    "interaction:inspect": "tsx scripts/inspect-interaction.ts"
+    "interaction:inspect": "tsx scripts/inspect-interaction.ts",
+    "env:inspect": "tsx scripts/inspect-environment.ts"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.528",

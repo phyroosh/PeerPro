@@ -13,6 +13,7 @@ import { AudioNarrativeShowcase } from './compositions/AudioNarrativeShowcase';
 import { EdgeTTSVoiceoverShowcase } from './compositions/EdgeTTSVoiceoverShowcase';
 import { RigPreviewShowcase } from './compositions/RigPreviewShowcase';
 import { InteractionShowcase } from './compositions/InteractionShowcase';
+import { WorldCompositionShowcase } from './compositions/WorldCompositionShowcase';
 import { MultiShotIdentityChallenge } from './compositions/challenges/MultiShotIdentityChallenge';
 import { SceneRenderer, SceneRendererProps } from './core/scene/SceneRenderer';
 import { defaultAssetRegistry } from './core/assets/registry';
@@ -228,6 +229,17 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{
           title: 'PeerPro Character–Object Interaction Toolkit',
           showOverlay: true,
+        }}
+      />
+      <Composition
+        id="WorldCompositionShowcase"
+        component={WorldCompositionShowcase}
+        durationInFrames={150}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: 'PeerPro World Composition & Procedural Environment Layout',
         }}
       />
     </>
